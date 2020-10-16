@@ -1,100 +1,116 @@
-import ast
+from perfil import Perfil
+from partida import Partida
+from pymongo import MongoClient
+from player_champion_history import PlayerChampionHistory
+import re
+from flask import Flask
+from flask import jsonify
+from json import dumps as jsonstring
+import json
 
-def lerPartidasIndividuais():
+app = Flask(__name__)
 
-    # Inicializar arquivos
-    listaPartidas = open('casoTeste.csv', 'r', encoding='UTF-8')
-    championsId = open('riot_champion.csv', 'r', encoding='UTF-8')
-    arquivoTeste = open('arquivoTeste.csv', 'r+', encoding='UTF-8')
-    arquivoPartidas = open('arquivoPartidas.csv', 'w+', encoding='UTF-8')
-    arquivoJogadores = open('arquivoJogadores.csv', 'w+', encoding='UTF-8')
-    # arquivoChampions = open('arquivoChampions.csv', 'w+', encoding='UTF-8')
 
-    listaJogadores={}        
-    dicioPartidas={}
+#INICIALIZA BANCO DE DADOS
+SG_database = MongoClient('localhost', 27017)
+SG_database = MongoClient('mongodb://localhost:27017/')
+
+db = SG_database.SG_database
+
+partidas= db.partidas
+perfil = Perfil()
+
+@app.route('/user/<name>', methods=['GET'])
+def buscaPerfil(name):
+    name = re.compile(name, re.IGNORECASE)
+
+    page = 1
+    limit = 10
+    #Retornando as ultimas 10('limit') partidas do jogador
+    listaPartidas=partidas.find({'participantIdentities.player.summonerName': name}).sort([('gameId', -1)]).skip(limit*(page-1)).limit(limit)
+    if listaPartidas.count() == 0:
+        return 'tapa'
     
-    vaiLegendar = True
-    with open("casoTeste.csv", "r", encoding="UTF-8") as listaPartidas:
-        for linha in listaPartidas:
+    checkingLastMatch = True
+    for partida in listaPartidas:
+        if(checkingLastMatch):
+            for i in partida['participantIdentities']:
+                if (i['player']['summonerName'].lower()) == (name.pattern).lower(): #  Perfil do player
+                    nameParticipantId= (i['participantId'])
+                    
+                    perfil.profileicon= (i['player']['profileIcon'])
+                    perfil.platformId= (i['player']['platformId'])
+                    perfil.summonerName= (i['player']['summonerName'])
+                    break
+            checkingLastMatch = False
 
-            #Primeira linha apenas as legendas
-            if(vaiLegendar):
-                # Definir chaves, split primeira linha
-                legendas = linha.replace('\n','').split(',')
-                legendas.pop(0)
-                vaiLegendar = False
-                continue
+        partidaObj = Partida()
+        
+        for i in partida['participants']: #Passa procurando o player
+            if (i["participantId"] == nameParticipantId): #Aba com os 10 historicos 
+                partidaObj.gameId =  partida['gameId'] 
+                partidaObj.championId = i["championId"]
+                partidaObj.spell1Id = i["spell1Id"]
+                partidaObj.spell2Id = i["spell2Id"]
+                partidaObj.win = i["stats"]["win"]
+                partidaObj.kills = i["stats"]["kills"]
+                partidaObj.deaths = i["stats"]["deaths"]
+                partidaObj.assists = i["stats"]["assists"]
+                partidaObj.item0 = i["stats"]["item0"]
+                partidaObj.item1 = i["stats"]["item1"]
+                partidaObj.item2 = i["stats"]["item2"]
+                partidaObj.item3 = i["stats"]["item3"]
+                partidaObj.item4 = i["stats"]["item4"]
+                partidaObj.item5 = i["stats"]["item5"]
+                partidaObj.item6 = i["stats"]["item6"]
                 
-            # Split n vezes a partir da 2ª linha
-            dadosPartida = linha.replace('\n','').split('"')
+                # **Buscar da API as runas depois**
+        perfil.ultimasPartidas[partidaObj.gameId] = partidaObj.__dict__
+    return perfil.__dict__
+    # return jsonify(json.loads(str(perfil)))
 
-            # InformacoesGerais (gameCreation,gameDuration,gameId,gameMode,gameType,gameVersion,mapId,platformId,queueId,seasonId,status.message,status.status_code)
-            informacoesGerais = dadosPartida[0].split(',')
-            informacoesGerais.pop(0)
-            infos2= dadosPartida[4].split(',')
-            infos2.pop(0)
-            for i in infos2:
-                informacoesGerais.append(i)
+@app.route('/match/<gameId>')
+def expandirDadosPartida(gameId):
 
-            #Criação de todas as variaveis, utilizadas no momento ou não
-            gameCreation = informacoesGerais[0]
-            gameDuration = informacoesGerais[1]
-            gameId = informacoesGerais[2]
-            gameMode = informacoesGerais[3]
-            gameType = informacoesGerais[4]
-            gameVersion = informacoesGerais[5]
-            mapId = informacoesGerais[6]
-            platformId = informacoesGerais[7]
-            queueId = informacoesGerais[8]
-            seasonId = informacoesGerais[9]
-            statusMessage = informacoesGerais[10]
-            statusStatusCode = informacoesGerais[11]
+    partida=partidas.find({'gameId': gameId})
+    for player in range(10):
+        champion = PlayerChampionHistory()
+        champion.summonerName = partida[0]['participantIdentities'][player]['player']['summonerName']
+        
+        participant = partida[0]['participants'][player]
 
-            #participantIdentities
-            participantIdentities = dadosPartida[1]
-            participantIdentities = ast.literal_eval(participantIdentities) #Transforma string em uma lista
-            
-            # Adiciona na lista de jogadores os jogadores que ainda não estão nela
-            # Adiciona o 'gameId' da partida aos jogadores que estavam nela
-            
-            for i in participantIdentities:
-                #Se o 'summonerName' nao existir na listaJogadores, adiciona ele junto com o 'gameId'
-                if (i['player']['summonerName']) not in listaJogadores: 
-                    listaJogadores[i['player']['summonerName']]= gameId
-                #Se o 'summonerName' existir na lista verifica se o 'gameId' ja existe dentro do 'summonerName' e nao adiciona ele caso necessário
-                if (i['player']['summonerName']) in listaJogadores: 
-                    if gameId not in listaJogadores[i['player']['summonerName']]:
-                        listaJogadores[i['player']['summonerName']]= '%s, %s' %(listaJogadores[i['player']['summonerName']],gameId)            
+        champion.win = participant['stats']['win']
+        champion.championId = participant["championId"]
+        champion.spell1Id = participant["spell1Id"]
+        champion.spell2Id = participant["spell2Id"]
+        
+        stats = participant["stats"]
+        
+        champion.kills = stats["kills"]
+        champion.deaths = stats["deaths"]
+        champion.assists = stats["assists"]
 
-            #participants
-            participants = dadosPartida[3]
-            participants = ast.literal_eval(participants)
-            
-            dicioPartidas[gameId]= participantIdentities, participants
-            
-            #Lê o arquivo 'riot_champion.csv' e salva no dicionário 'champions' as respectivas 'key' e 'name' dos campeões
-            # legendaChampions= championsId.readline().replace('\n', '').split(',') #DELETAR
-            champions={}
-            for i in championsId:
-                champion= i.replace('\n', '').split(',')
-                champions[champion[3]]= champion[4]
+        champion.item0 = stats["item0"]
+        champion.item1 = stats["item1"]
+        champion.item2 = stats["item2"]
+        champion.item3 = stats["item3"]
+        champion.item4 = stats["item4"]
+        champion.item5 = stats["item5"]
 
-    #Salva no arquivoPartidas o 'gameId' e, dentrodele, uma lista com o 'participantIdentities' e 'participant' da partida
-    for i in dicioPartidas:
-        arquivoPartidas.write('%s: %s, \n' %(i,dicioPartidas[i]))
+        champion.wardItem = stats["item6"]
+        champion.wardsPlaced = stats["wardsPlaced"]
+        champion.wardsKilled = stats["wardsKilled"]
+        champion.controlBoughtWards = stats["visionWardsBoughtInGame"]
 
-    # Salva no arquivoJogadores o 'summonerName' e, dentro dele, uma lista com o 'gameId' dos jogos que ele participou
-    for i in listaJogadores:         
-        #Escreve nome do jogador e, separando por ': ', a lista com o 'gameId'
-        arquivoJogadores.write('%s: %s, \n' %(i,listaJogadores[i])) 
+        champion.totalFarm = stats["totalMinionsKilled"] + stats["neutralMinionsKilled"] + stats["neutralMinionsKilledTeamJungle"] + stats["neutralMinionsKilledEnemyJungle"]
+        champion.totalDamageDealtToChampions = stats["totalDamageDealtToChampions"]
 
-    #Finalizar Arquivos
-    listaPartidas.close()
-    championsId.close()
-    arquivoTeste.close()
-    arquivoPartidas.close()
-    arquivoJogadores.close()
-       
-    return 
+        perfil.ultimasPartidas[gameId]['playersNaPartida'][champion.summonerName] = champion.__dict__
+    # print(perfil.ultimasPartidas)
+    return perfil.ultimasPartidas[gameId]
 
-lerPartidasIndividuais()
+app.run(debug=True)
+# z= input('')
+# buscaPerfil(z)
+# x= input('')
+# expandirDadosPartida(x)
