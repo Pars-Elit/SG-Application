@@ -4,6 +4,7 @@ class PlayerChampionHistory():
         self.summonerName = None
         self.win = None
         self.championId = None
+        self.championName = None
 
         self.spell1Id = None
         self.spell2Id = None
@@ -26,8 +27,11 @@ class PlayerChampionHistory():
 
         self.totalFarm = None #totalMinionsKilled + neutralMinionsKilled + neutralMinionsKilledTeamJungle + neutralMinionsKilledEnemyJungle)
 
+        self.perkPrimaryStyle= None
+        self.perkSubStyle= None
+
     def imprimir(self):
-        return {'summonerName' : self.summonerName, 'win': self.win, 'championId': self.championId, 'spell1Id': self.spell1Id, 'spell2Id': self.spell2Id, 'kills': self.kills, 'deaths': self.deaths, 'assists': self.assists, 'item0': self.item0, 'item1': self.item1, 'item2': self.item2, 'item3': self.item3, 'item4': self.item4, 'item5': self.item5, 'wardItem':self.wardItem, 'wardsPlaced':self.wardPlaced, 'wardsKilled': self.wardKilled, 'controlBoughtWards': self.controlBoughtWards, 'totalDamageDealtToChampions': self.totalDamageDealtToChampions}
+        return {'summonerName' : self.summonerName, 'win': self.win, 'championId': self.championId, 'championName': self.championName, 'spell1Id': self.spell1Id, 'spell2Id': self.spell2Id, 'kills': self.kills, 'deaths': self.deaths, 'assists': self.assists, 'item0': self.item0, 'item1': self.item1, 'item2': self.item2, 'item3': self.item3, 'item4': self.item4, 'item5': self.item5, 'wardItem':self.wardItem, 'perkPrimaryStyle':self.perkPrimaryStyle, 'perkSubStyle':self.perkSubStyle, 'wardsPlaced':self.wardsPlaced, 'wardsKilled': self.wardsKilled, 'controlBoughtWards': self.controlBoughtWards, 'totalDamageDealtToChampions': self.totalDamageDealtToChampions}
 
     def __str__(self):
         return str(self.imprimir())

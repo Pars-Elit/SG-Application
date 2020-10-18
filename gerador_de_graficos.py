@@ -63,25 +63,29 @@ df.to_csv('planilhaPartida_exemplo.csv')
 
 print(df)
 
-x= np.arange(10)
-money = [creepscore[0], creepscore[1], creepscore[2], creepscore[3], creepscore[4], creepscore[5], creepscore[6], creepscore[7], creepscore[8], creepscore[9]]
+#GRÁFICO COLUNAS
+# x= np.arange(10)
+# money = [creepscore[0], creepscore[1], creepscore[2], creepscore[3], creepscore[4], creepscore[5], creepscore[6], creepscore[7], creepscore[8], creepscore[9]]
 
+# def linhaY(x, pos):    
+#     return '%d' % (x)
 
-def millions(x, pos):
-    'The two args are the value and tick position'
-    return '%s' % (x)
+# formatter = FuncFormatter(linhaY)
 
+# fig, ax = plt.subplots()
+# ax.yaxis.set_major_formatter(formatter)
+# plt.bar(x, money)
+# plt.xticks(x, (championName[0], championName[1], championName[2], championName[3], championName[4], championName[5], championName[6], championName[7], championName[8], championName[9]))
+# plt.title("CS per Champion", fontsize=18)
+# plt.show()
+################################################################
 
-formatter = FuncFormatter(millions)
+wards= wardsPlaced+controlWards 
 
-fig, ax = plt.subplots()
-ax.yaxis.set_major_formatter(formatter)
-plt.bar(x, money)
-plt.xticks(x, (championName[0], championName[1], championName[2], championName[3], championName[4], championName[5], championName[6], championName[7], championName[8], championName[9]))
-plt.title("CS per Champion", fontsize=18)
+plt.plot([wardsPlaced[0], wardsPlaced[1], wardsPlaced[2], wardsPlaced[3], wardsPlaced[4], wardsPlaced[5], wardsPlaced[6], wardsPlaced[7], wardsPlaced[8], wardsPlaced[9]], [championName[0], championName[1], championName[2], championName[3], championName[4], championName[5], championName[6], championName[7], championName[8], championName[9]], 'ro')
+# plt.plot([deaths[0], deaths[1], deaths[2], deaths[3], deaths[4], deaths[5], deaths[6], deaths[7], deaths[8], deaths[9]], 'ro')
+plt.title("Wards Placed per Champion", fontsize=18)
 plt.show()
-# creepscore
-# totalDmg
 
 # ax = plt.gca()
 
@@ -97,3 +101,7 @@ plt.show()
 
 # ts = ts.cumsum()
 # ts.plot()
+
+# [ ] Topico 4: Pelo menos um gráfico de caixa e um gráfico de colunas devem ser gerados. Atualize o artigo incluindo uma seção "Análise Exploratória dos Dados", na qual você deve apresentar os principais 'insights' que você obteve sobre os dados e as medidas e gráficos que lhe levaram a ter estes 'insights'.  
+# [ ] Topico 5: Referencial teórico do artigo, incluindo um pequeno exemplo da aplicação do algoritmo de ML.
+# [ ] Topico 7: ~esse eu nao sei se tem algo~

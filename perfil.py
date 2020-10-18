@@ -8,6 +8,8 @@ class Perfil(object):
         self.profileicon = None  
         self.platformId = None #Player Server region
         self.ultimasPartidas = {}
+        
+
 
     def imprimir(self):
         return { 'summonerName' : self.summonerName, 'profileicon' : self.profileicon, 'platformId' : self.platformId, 'ultimasPartidas' : self.ultimasPartidas}
