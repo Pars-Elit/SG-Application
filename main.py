@@ -29,7 +29,7 @@ def buscaPerfil(name):
     #Retornando as ultimas 10('limit') partidas do jogador
     listaPartidas=partidas.find({'participantIdentities.player.summonerName': name}).sort([('gameId', -1)]).skip(limit*(page-1)).limit(limit)
     if listaPartidas.count() == 0:
-        return 'tapa'
+        return 'Nenhuma partida'
     
     checkingLastMatch = True
     for partida in listaPartidas:
