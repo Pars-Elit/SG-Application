@@ -19,7 +19,8 @@ db = SG_database.SG_database
 
 champions= db.riot_champion
 partidas= db.partidas
-perksFile= db.perkStyles
+perksStyleFile= db.perkStyles
+perksFile = db.perks
 summonerSpells= db.summoner_spells
 
 perfil = Perfil()
@@ -51,8 +52,8 @@ def buscaPerfil(name):
     for partida in listaPartidas:
         if(checkingLastMatch):
             for i in partida['participantIdentities']:
+                
                 if (i['player']['summonerName'].lower()) == (name.pattern).lower(): #  Perfil do player
-                    nameParticipantId= (i['participantId'])
                     
                     perfil.profileicon= getProfileIconLink(i['player']['profileIcon'])
                     perfil.platformId= (i['player']['platformId'])
@@ -62,9 +63,12 @@ def buscaPerfil(name):
 
         partidaObj = Partida()
         
+        for i in partida['participantIdentities']:
+            if (i['player']['summonerName'].lower()) == (name.pattern).lower(): #  Perfil do player
+                nameParticipantId= (i['participantId'])
+                break
         for i in partida['participants']: #Passa procurando o player
-            if (i["participantId"] == nameParticipantId): #Aba com os 10 historicos 
-
+            if ((i["participantId"]) == nameParticipantId): #Aba com os 10 historicos 
                 partidaObj.gameId =  partida['gameId'] 
 
                 championData=champions.find({'key': i['championId']})
@@ -73,15 +77,9 @@ def buscaPerfil(name):
                     partidaObj.championIcon= getChampionIconLink(champion['key']) #Usar ao buscar o champion na pasta de ícones, championId difere-se de championName em algumas ocasiões. Por exemplo em um nome com espaço
 
                 spells=summonerSpells.find({'id': i["spell1Id"]})
-                # print("SPELLS:----Numero:",spells.count())
-                # partidaObj.spell1Id= convertRuneIconLink(spell["iconPath"])
-                # for spell in spells:
                 partidaObj.spell1Id= convertSpellIconLink(spells[0]["iconPath"])
-                print(spells[0]["iconPath"])
                 spells=summonerSpells.find({'id': i["spell2Id"]})
-                # for spell in spells:
                 partidaObj.spell2Id= convertSpellIconLink(spells[0]["iconPath"])
-                    # print(spell["iconPath"])
                 
                 
                 partidaObj.win = i["stats"]["win"]
@@ -98,23 +96,25 @@ def buscaPerfil(name):
                 partidaObj.wardItem = i["stats"]["item6"]
                 
                 
-                
-                perkPrimaryStyle = i['stats']['perkPrimaryStyle']
+                perkPrimaryStyle = i['stats']['perk0']
                 perkSubStyle= i['stats']['perkSubStyle']
                 
-                perks=perksFile.find_one()
                 
-                for i in perks['styles'] :
-                    if i['id'] == perkPrimaryStyle:
-                        partidaObj.perkPrimaryStyle= convertRuneIconLink(i['iconPath'])
-                    if i['id'] == perkSubStyle:
-                        partidaObj.perkSubStyle= convertRuneIconLink(i['iconPath'])
+                perks = perksFile.find({'id': perkPrimaryStyle})
+                for perk in perks:
+                    if(perk["id"] == perkPrimaryStyle):
+                        partidaObj.perkPrimaryStyle= convertRuneIconLink(perk['iconPath'])
+                        break
 
-                
-                    
-                # partidaObj.perkPrimaryStyle= perkPrimaryStyle  
-                # partidaObj.perkSubStyle= perkSubStyle                  
-                
+
+                perksStyle=perksStyleFile.find_one()                
+                        
+                for perk in perksStyle['styles'] :                
+                    if perk['id'] == perkSubStyle:
+                        partidaObj.perkSubStyle= convertRuneIconLink(perk['iconPath'])
+                        break
+                break
+
                 # **Buscar da API as runas depois**
         perfil.ultimasPartidas[partidaObj.gameId] = partidaObj.__dict__
     return perfil.__dict__
@@ -154,8 +154,21 @@ def expandirDadosPartida(gameId):
         champion.item4 = stats["item4"]
         champion.item5 = stats["item5"]
 
-        # =stats['perk0']
+        perkPrimaryStyle = stats['perk0']
+        perkSubStyle= stats['perkSubStyle']
 
+        perksStyle=perksStyleFile.find_one()                
+        for perk in perksStyle['styles'] :
+            if( perk["id"] == perkSubStyle):
+                champion.perkSubStyle = convertRuneIconLink(perk["iconPath"])
+                break
+
+        perks = perksFile.find({'id': perkPrimaryStyle})
+        for perk in perks:
+            print(perks)
+            if( perk["id"] == perkPrimaryStyle):
+                champion.perkPrimaryStyle = convertRuneIconLink(perk["iconPath"])
+                break
 
         champion.wardItem = stats["item6"]
         champion.wardsPlaced = stats["wardsPlaced"]
@@ -166,12 +179,12 @@ def expandirDadosPartida(gameId):
         champion.totalDamageDealtToChampions = stats["totalDamageDealtToChampions"]
 
         perfil.ultimasPartidas[gameId]['playersNaPartida'][champion.summonerName] = champion.__dict__
-    # print(perfil.ultimasPartidas)
+
     return perfil.ultimasPartidas[gameId]
 
 app.run(debug=True)
 
-z= input('')
-buscaPerfil(z)
+# z= input('')
+# buscaPerfil(z)
 # x= input('')
 # expandirDadosPartida(x)

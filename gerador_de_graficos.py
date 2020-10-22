@@ -24,6 +24,8 @@ wardsPlaced = []
 wardsKilled = []
 creepscore = []
 championName= []
+xpPerMinDeltas0to10=[]
+xpPerMinDeltas10to20=[]
 
 page = 1
 limit = 1 #Quantidade de partidas a serem analisadas
@@ -47,6 +49,13 @@ for partida in partidas:
         wardsPlaced.append(path['wardsPlaced'])
         wardsKilled.append(path['wardsKilled'])
         creepscore.append(path['totalMinionsKilled'] + path['neutralMinionsKilled'] + path['neutralMinionsKilledTeamJungle'] + path['neutralMinionsKilledEnemyJungle'])
+        
+        xpPerMinDeltas0to10.append((partida['participants'][player]['timeline']['xpPerMinDeltas']['0-10']))
+        xpPerMinDeltas10to20.append((partida['participants'][player]['timeline']['xpPerMinDeltas']['10-20']))
+
+    xpPerMinDeltas0to10.sort()
+    xpPerMinDeltas10to20.sort()
+
 
 df = pd.DataFrame({'Champion': championName,
                 'Win': wins,
@@ -63,45 +72,54 @@ df.to_csv('planilhaPartida_exemplo.csv')
 
 print(df)
 
-#GRÁFICO COLUNAS
-# x= np.arange(10)
-# money = [creepscore[0], creepscore[1], creepscore[2], creepscore[3], creepscore[4], creepscore[5], creepscore[6], creepscore[7], creepscore[8], creepscore[9]]
+print(xpPerMinDeltas0to10, xpPerMinDeltas10to20)
 
-# def linhaY(x, pos):    
-#     return '%d' % (x)
+#GRÁFICO DE COLUNAS
+# CS per Champion
 
-# formatter = FuncFormatter(linhaY)
+x= np.arange(10)
+cs = [creepscore[0], creepscore[1], creepscore[2], creepscore[3], creepscore[4], creepscore[5], creepscore[6], creepscore[7], creepscore[8], creepscore[9]]
 
-# fig, ax = plt.subplots()
-# ax.yaxis.set_major_formatter(formatter)
-# plt.bar(x, money)
-# plt.xticks(x, (championName[0], championName[1], championName[2], championName[3], championName[4], championName[5], championName[6], championName[7], championName[8], championName[9]))
-# plt.title("CS per Champion", fontsize=18)
-# plt.show()
+def linhaY(x, pos):    
+    return '%d' % (x)
+
+formatter = FuncFormatter(linhaY)
+
+fig, ax = plt.subplots()
+ax.yaxis.set_major_formatter(formatter)
+plt.bar(x, cs)
+plt.xticks(x, (championName[0], championName[1], championName[2], championName[3], championName[4], championName[5], championName[6], championName[7], championName[8], championName[9]))
+plt.title("CS per Champion", fontsize=18)
+plt.show()
 ################################################################
 
-wards= wardsPlaced+controlWards 
+#GRAFICO 2
+#Wards Placed per Champion
 
-plt.plot([wardsPlaced[0], wardsPlaced[1], wardsPlaced[2], wardsPlaced[3], wardsPlaced[4], wardsPlaced[5], wardsPlaced[6], wardsPlaced[7], wardsPlaced[8], wardsPlaced[9]], [championName[0], championName[1], championName[2], championName[3], championName[4], championName[5], championName[6], championName[7], championName[8], championName[9]], 'ro')
-# plt.plot([deaths[0], deaths[1], deaths[2], deaths[3], deaths[4], deaths[5], deaths[6], deaths[7], deaths[8], deaths[9]], 'ro')
-plt.title("Wards Placed per Champion", fontsize=18)
+wards= [None]*10
+for i in range(10):
+    wards[i]= wardsPlaced[i]+controlWards[i]
+
+line1, = plt.plot([championName[0], championName[1], championName[2], championName[3], championName[4], championName[5], championName[6], championName[7], championName[8], championName[9]], [wards[0], wards[1], wards[2], wards[3], wards[4], wards[5], wards[6], wards[7], wards[8], wards[9]], label="Wards", linewidth=1.5 )
+
+line2, = plt.plot([deaths[0], deaths[1], deaths[2], deaths[3], deaths[4], deaths[5], deaths[6], deaths[7], deaths[8], deaths[9]], label="Deaths", linestyle='--')
+
+first_legend = plt.legend(handles=[line1], loc='upper right')
+ax = plt.gca().add_artist(first_legend)
+plt.legend(handles=[line2], loc='lower left')
+
+plt.title("Wards Placed and Deaths per Champion", fontsize=18)
 plt.show()
 
-# ax = plt.gca()
-
-# df.plot(kind='line',x='creepscore',y='num_children',ax=ax)
-# df.plot(kind='line',x='totalDmg',y='num_pets', color='red', ax=ax)
-
-# plt.show()
+###################################################################
 
 
-# ts = pd.Series(,
-#    .....:                index=pd.date_range('1/1/2000', periods=1000))
-#    .....: 
+#GRAFICO DE CAIXAS
+#CS boxplot
 
-# ts = ts.cumsum()
-# ts.plot()
+data = creepscore
+plt.boxplot(data) 
+plt.title("CS boxplot", fontsize=18)
+plt.show()
 
-# [ ] Topico 4: Pelo menos um gráfico de caixa e um gráfico de colunas devem ser gerados. Atualize o artigo incluindo uma seção "Análise Exploratória dos Dados", na qual você deve apresentar os principais 'insights' que você obteve sobre os dados e as medidas e gráficos que lhe levaram a ter estes 'insights'.  
-# [ ] Topico 5: Referencial teórico do artigo, incluindo um pequeno exemplo da aplicação do algoritmo de ML.
-# [ ] Topico 7: ~esse eu nao sei se tem algo~
+
