@@ -186,6 +186,23 @@ def expandirDadosPartida(gameId):
 
     return perfil.ultimasPartidas[gameId]
 
+@app.route('/tip/')
+def getMLTip()
+{
+    listaDicas = [ 
+        'Dano causado a torres tem uma alta influência na sua taxa de vitórias.',
+        'Dano causado a objetivos tem uma alta influência na sua taxa de vitórias.',
+        'Um numero baixo de mortes influencia bastante para uma alta taxa de vitória',
+        'A medida que a quantidade de torres destruidas aumenta a sua chance de vitoria sobe também',
+        'Controlar a visao do aronguejo possibilita um maior controle de mapa e assim maior facilidade para fazer objetivos',
+        'Um alto nivel de ouro adquirido influência diretamente com o dano a torres, portanto foque em manter um alto nivel de farm',
+        'Um alto nivel de ouro adquirido influência diretamente com a quantidade de torres derrubadas, portanto foque em manter um alto nivel de farm',
+        'É muito mais importante manter um Killing Spree do que se matar para trocar kill, a fim de ganhar mais',
+        'A fim de conseguir mais ouro nas partidas certifique-se de manter um bom farm',
+        '15 de farm equivale em ouro a mais ou menos uma kill, portanto foque mais em farmar do que tentar pegar kills'
+    ]
+    return listaDicas
+}
 
 @app.route("/<path:path>")
 def getResources(path):
