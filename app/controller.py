@@ -34,6 +34,9 @@ def getProfileIconLink(iconPath):
 def getChampionIconLink(iconPath):
     return 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/' + str(iconPath)+'.png'    
 
+# def getItemIconLink(iconPath):
+    # return 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/data/items/icons2d/' + str(iconPath)+'.png'    
+
 
 @app.route("/")
 def home():
@@ -127,11 +130,13 @@ def expandirDadosPartida(gameId):
         championData=champions.find({'key': championId})
         for i in championData:
             champion.championName= i['name'] #Exibir esse nome no frontend
-            champion.championId= i["id"] #Usar ao buscar o champion na pasta de ícones, championId difere-se de championName em algumas ocasiões. Por exemplo em um nome com espaço
-
-        champion.spell1Id = participant["spell1Id"]
-        champion.spell2Id = participant["spell2Id"]
+            champion.championIcon= getChampionIconLink(i['key']) #Usar ao buscar o champion na pasta de ícones, championId difere-se de championName em algumas ocasiões. Por exemplo em um nome com espaço        
         
+        spells=summonerSpells.find({'id': participant["spell1Id"]})
+        champion.spell1Id= convertSpellIconLink(spells[0]["iconPath"])
+        spells=summonerSpells.find({'id': participant["spell2Id"]})
+        champion.spell2Id= convertSpellIconLink(spells[0]["iconPath"])
+
         stats = participant["stats"]
         
         champion.kills = stats["kills"]
