@@ -1,5 +1,5 @@
-from partida import Partida
-from player_champion_history import PlayerChampionHistory
+from .partida import Partida
+from .player_champion_history import PlayerChampionHistory
 
 class Perfil(object):
     
