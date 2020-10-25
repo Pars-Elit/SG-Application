@@ -90,7 +90,13 @@ ax.yaxis.set_major_formatter(formatter)
 plt.bar(x, cs)
 plt.xticks(x, (championName[0], championName[1], championName[2], championName[3], championName[4], championName[5], championName[6], championName[7], championName[8], championName[9]))
 plt.title("CS per Champion", fontsize=18)
+plt.xlabel('Champions')
+plt.ylabel('Creep Score')
+
 plt.show()
+
+
+
 ################################################################
 
 #GRAFICO 2
@@ -109,6 +115,9 @@ ax = plt.gca().add_artist(first_legend)
 plt.legend(handles=[line2], loc='lower left')
 
 plt.title("Wards Placed and Deaths per Champion", fontsize=18)
+plt.xlabel('Champions')
+plt.ylabel('Wards Placed')
+
 plt.show()
 
 ###################################################################
@@ -120,6 +129,6 @@ plt.show()
 data = creepscore
 plt.boxplot(data) 
 plt.title("CS boxplot", fontsize=18)
+plt.ylabel('Creepscore')
+
 plt.show()
-
-
