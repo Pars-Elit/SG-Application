@@ -1,5 +1,6 @@
 <head>
     <link href="static/style.css" rel="stylesheet" type="text/css">
+    <link href="static/summoner.css" rel="stylesheet" type="text/css">
     <link rel="icon" href="static/favicon.ico">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script>
@@ -21,8 +22,16 @@
             let div = document.getElementById("results_div")
             for (const key in user.ultimasPartidas) {
                 let match = user.ultimasPartidas[key]
-                let win = match.win ? 'Vitória' : 'Derrota'
-                div.innerHTML += createMatch(match.championName, match.gameDuration, 'a', win)
+                let duration = Math.floor(match.gameDuration / 60) + 'm ' + match.gameDuration % 60 + 's'
+                let win = match.win
+                let championIcon = match.championIcon
+                let kills = match.kills
+                let deaths = match.deaths
+                let assists = match.assists
+                let spell1Icon = match.spell1Id
+                let spell2Icon = match.spell2Id
+                let kda = ((kills+assists)/deaths).toFixed(2) + ':1'
+                div.innerHTML += createMatch(match.championName, duration, win, championIcon, kills, deaths, assists, kda, spell1Icon, spell2Icon)
             }
         }
 
@@ -31,8 +40,8 @@
             return response            
         }
 
-        const createMatch = (description, duration, date, win) => {
-            return '<div class="Box GameItem Lose ">\
+        const createMatch = (description, duration, win, championIcon, kills, deaths, assists, kda, spell1Icon, spell2Icon) => {
+            return '<div class="Box GameItem ' + (win ? 'Win' : 'Lose') + ' ">\
                         <div class="Bar"></div>\
                         <div class="Card">\
                             <div class="Title">\
@@ -40,13 +49,13 @@
                                     ' + description + '\
                                     · <span id="match_date" class="TimeStamp"><span class="_timeago _timeCountAssigned tip"\
                                             data-datetime="1603226097" data-type="" data-interval="60"\
-                                            title="">' + date + '</span></span>\
+                                            title="">' + '</span></span>\
                                 </h2>\
                     \
                                 <div class="Right">\
                                     <span id="match_time" class="GameLength">' + duration + '</span>\
                                     <span class="GameResult">\
-                                        <span id="match_win" class="Losses">' + win + '</span>\
+                                        <span id="match_win" class="' + (win ? 'Wins' : 'Losses')+ '">' + (win ? 'Vitória' : 'Derrota') + '</span>\
                                     </span>\
                     \
                                     <div class="Actions">\
@@ -62,17 +71,17 @@
                                 <div class="ChampionImageAndSpell">\
                                     <div class="ChampionImage">\
                                         <a href="/champion/akali/statistics"><img\
-                                                src="//opgg-static.akamaized.net/images/lol/champion/Akali.png?image=q_auto,w_40&amp;v=1601445791"\
+                                                src="' + championIcon + '"\
                                                 class="Image"></a>\
                                     </div>\
                                     <div class="Spells">\
                                         <div class="Spell">\
-                                            <img src="//opgg-static.akamaized.net/images/lol/spell/SummonerFlash.png?image=q_auto,w_18&amp;v=1601445791"\
+                                            <img src="' + spell1Icon + '"\
                                                 class="Image tip"\
                                                 title="<b style="color: #ffc659">Flash</b><br><span>Teleporta seu Campeão por uma curta distância em direção ao seu cursor.</span>">\
                                         </div>\
                                         <div class="Spell">\
-                                            <img src="//opgg-static.akamaized.net/images/lol/spell/SummonerTeleport.png?image=q_auto,w_18&amp;v=1601445791"\
+                                            <img src="' + spell2Icon + '"\
                                                 class="Image tip"\
                                                 title="<b style="color: #ffc659">Teleporte</b><br><span>Depois de canalizar por 4s, teleporta seu Campeão para a estrutura, tropa ou sentinela-alvo aliada e concede um surto de Velocidade de Movimento. O Tempo de Recarga de Teleporte escala 420s - 240s dependendo do nível do Campeão.</span>">\
                                         </div>\
@@ -94,12 +103,12 @@
                                 </div>\
                                 <div class="KDA">\
                                     <div class="KDA">\
-                                        <span class="Kill">2</span> /\
-                                        <span class="Death">4</span> /\
-                                        <span class="Assist">2</span>\
+                                        <span class="Kill">' + kills +'</span> /\
+                                        <span class="Death">' + deaths + '</span> /\
+                                        <span class="Assist">' + assists + '</span>\
                                     </div>\
                                     <div class="KDARatio">\
-                                        <span class="KDARatio ">1.00:1</span>\
+                                        <span class="KDARatio ">' + kda + '</span>\
                                     </div>\
                                 </div>\
                                 <div class="Stats">\
@@ -208,7 +217,6 @@
     </div>
 
     <!-- results -->
-    <link href="//opgg-static.akamaized.net/css3Mobile/summoner.css?t=1603437762" rel="stylesheet" type="text/css">
     <div id="results_div" class="GameItemList">
         
         <!-- two -->

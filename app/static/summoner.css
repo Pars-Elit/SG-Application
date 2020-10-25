@@ -1,0 +1,6605 @@
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+.SummonerLayout .SummonerButtons {
+  text-align: left;
+  margin-top: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.SummonerLayout .SummonerButtons ul {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.SummonerLayout .SummonerButtons li {
+  display: table-cell;
+  width: 33.3%;
+  padding: 0 2px;
+  vertical-align: top;
+}
+.SummonerLayout .SummonerButtons .Button {
+  display: block;
+  width: 100%;
+  height: 35px;
+  line-height: 35px;
+  padding: 0;
+  text-align: center;
+  overflow: hidden;
+}
+.SummonerLayout .SummonerButtons .Button.SemiRound {
+  border-radius: 4px;
+}
+.SummonerLayout .SummonerButtons .Button.SemiRound.White {
+  background: #fff;
+}
+.SummonerLayout .SummonerButtons .Button.SemiRound.Green {
+  background: #36a4a4;
+  border-color: #288b8b;
+  color: #fff;
+}
+.SummonerLayout .SummonerButtons .Button.SemiRound.LightGreen {
+  border-color: #3bb783;
+  background: #3bb783;
+  color: #fff;
+}
+.SummonerLayout > .Header {
+  position: relative;
+}
+.SummonerLayout > .Header > .SummonerHeader {
+  position: relative;
+  padding: 10px;
+  border-bottom: 1px solid #cdd2d2;
+  background: #f9f9f9;
+}
+.SummonerLayout > .Header > .SummonerHeader > .PastRank {
+  margin-bottom: 5px;
+}
+.SummonerLayout > .Header > .SummonerHeader > .PastRank > .Icon {
+  margin-right: 3px;
+}
+.SummonerLayout > .Header > .SummonerHeader > .PastRank > .Item {
+  display: inline-block;
+  padding: 3px 4px 2px 4px;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  background: #e0e3e3;
+  color: #657070;
+  font-size: 11px;
+  line-height: 1;
+  border: 1px solid #ced3d3;
+  border-radius: 3px;
+}
+.SummonerLayout > .Header > .SummonerHeader > #FavoriteButton {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  border-radius: 3px;
+  padding: 5px 6px;
+  font-size: 10px;
+  z-index: 10;
+}
+.SummonerLayout > .Header > .SummonerHeader > .Profile {
+  position: relative;
+  min-height: 45px;
+}
+.SummonerLayout > .Header > .SummonerHeader > .Profile > .Face {
+  float: left;
+}
+.SummonerLayout > .Header > .SummonerHeader > .Profile > .Face > .ProfileIcon {
+  position: relative;
+}
+.SummonerLayout
+  > .Header
+  > .SummonerHeader
+  > .Profile
+  > .Face
+  > .ProfileIcon
+  > .BorderImage {
+  position: absolute;
+  left: -4px;
+  top: -5px;
+  width: 53px;
+  height: 53px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.SummonerLayout
+  > .Header
+  > .SummonerHeader
+  > .Profile
+  > .Face
+  > .ProfileIcon
+  > .ProfileImage {
+  display: block;
+  width: 45px;
+  height: 45px;
+}
+.SummonerLayout
+  > .Header
+  > .SummonerHeader
+  > .Profile
+  > .Face
+  > .ProfileIcon
+  > .Level {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 30px;
+  height: 16px;
+  margin-top: -8px;
+  margin-left: -15px;
+  background: url("../images/site/summoner/bg-levelbox.png");
+  background-size: 100%;
+  padding-top: 2px;
+  line-height: 13px;
+  font-family: Helvetica, AppleSDGothic, "Apple SD Gothic Neo", AppleGothic,
+    Arial, Tahoma;
+  font-size: 11px;
+  text-align: center;
+  color: #eabd56;
+  box-sizing: border-box;
+}
+.SummonerLayout > .Header > .SummonerHeader > .Profile > .Information {
+  padding-top: 3px;
+  line-height: 100%;
+  margin-left: 55px;
+}
+.SummonerLayout > .Header > .SummonerHeader > .Profile > .Information > .bar {
+  display: inline-block;
+  margin: 0 2px;
+  font-size: 11px;
+  font-family: serif;
+  color: #999;
+}
+.SummonerLayout > .Header > .SummonerHeader > .Profile > .Information > .Team {
+  display: inline-block;
+  color: #455;
+  font-size: 11px;
+  margin-bottom: 3px;
+}
+.SummonerLayout
+  > .Header
+  > .SummonerHeader
+  > .Profile
+  > .Information
+  > .Team
+  > .Name {
+  color: #879292;
+}
+.SummonerLayout
+  > .Header
+  > .SummonerHeader
+  > .Profile
+  > .Information
+  > .LadderRank {
+  display: inline-block;
+  color: #879292;
+  font-size: 11px;
+  margin-bottom: 3px;
+}
+.SummonerLayout
+  > .Header
+  > .SummonerHeader
+  > .Profile
+  > .Information
+  > .LadderRank
+  > a {
+  color: inherit;
+  text-decoration: none;
+}
+.SummonerLayout
+  > .Header
+  > .SummonerHeader
+  > .Profile
+  > .Information
+  > .LadderRank
+  > a
+  > span {
+  color: #1a78ae;
+}
+.SummonerLayout
+  > .Header
+  > .SummonerHeader
+  > .Profile
+  > .Information
+  > .SummonerName {
+  color: #333;
+  font-size: 17px;
+  font-weight: bold;
+}
+.SummonerLayout > .Header > .SummonerHeader > .LastUpdate {
+  color: #879292;
+  font-size: 12px;
+}
+.SummonerLayout > .Menu {
+  overflow-y: hidden;
+  overflow-x: scroll;
+  padding: 10px 15px;
+  text-align: center;
+}
+.SummonerLayout > .Menu > .MenuList {
+  display: inline-block;
+  white-space: nowrap;
+  border-radius: 3px;
+  font-size: 0;
+}
+.SummonerLayout > .Menu > .MenuList > .Item {
+  display: inline-block;
+  margin: 0 -1px -1px 0;
+  padding: 0;
+}
+.SummonerLayout > .Menu > .MenuList > .Item > a {
+  display: block;
+  min-width: 35px;
+  border: 1px solid #e3e3e3;
+  background-color: #f6f6f6;
+  color: #777;
+  font-size: 12px;
+  line-height: 1;
+  padding: 11px 10px;
+  text-decoration: none;
+}
+.SummonerLayout > .Menu > .MenuList > .Item.active > a {
+  position: relative;
+  border: 1px solid #1a78ae;
+  background: #1f8ecd;
+  color: #fff;
+}
+.SummonerLayout > .Menu > .MenuList > .Item.active > a:after {
+  border-color: #1f8ecd transparent transparent transparent;
+  border-style: solid;
+  border-width: 7px 7px 0 7px;
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: -7px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+.SummonerLayout > .Menu > .MenuList > .Item:first-child > a {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.SummonerLayout > .Menu > .MenuList > .Item:last-child > a {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.SummonerLayout > .ContentWrap > .Content > .Box {
+  margin-bottom: 10px;
+}
+.SummonerBlankLayout > .Header {
+  padding-top: 40px;
+  text-align: center;
+}
+.SummonerBlankLayout > .Header > .Logo {
+  width: 240px;
+  margin-bottom: 20px;
+}
+.SummonerBlankLayout > .Header > .Title {
+  color: #242929;
+  font-size: 18px;
+}
+.SummonerBlankLayout > .Header > .SearchInput {
+  display: none;
+}
+.SummonerBlankLayout > .Header:after {
+  display: block;
+  margin: 30px auto;
+  content: "\00a0";
+  border-bottom: 1px solid #dbdede;
+  width: 200px;
+  height: 0;
+}
+.SummonerBlankLayout > .Content {
+  text-align: left;
+}
+.SummonerBlankLayout > .Content > .List {
+  margin: 10px 30px;
+}
+.SummonerBlankLayout > .Content > .List > .Item {
+  margin: 10px 0;
+  color: #555e5e;
+  font-size: 14px;
+}
+.SummonerNotFoundLayout > .Header {
+  padding: 21px 14px 0;
+}
+.SummonerNotFoundLayout > .Header > .Title {
+  color: #242929;
+  font-size: 17px;
+}
+.SummonerNotFoundLayout > .Header > .SubTitle {
+  color: #555e5e;
+  font-size: 14px;
+}
+.SummonerNotFoundLayout > .Header:after {
+  display: block;
+  margin: 15px auto;
+  content: "\00a0";
+  border-bottom: 1px solid #dbdede;
+  height: 0;
+}
+.SummonerNotFoundLayout > .Content > .List {
+  padding-left: 9px;
+}
+.SummonerNotFoundLayout > .Content > .List > .Item {
+  display: block;
+  margin: 9px 0 12px;
+}
+.SummonerNotFoundLayout > .Content > .List > .Item > .Link {
+  color: #555e5e;
+  text-decoration: none;
+}
+.SummonerNotFoundLayout > .Content > .List > .Item > .Link > i {
+  margin-right: 10px;
+}
+.SummonerNotFoundLayout > .Content > .List > .Item > .Link > .RegionName {
+  vertical-align: middle;
+}
+.SummonerNotFoundLayout > .Content > .List > .Item > .Link:hover {
+  color: #000;
+}
+.SummonerNotFoundLayout
+  > .Content
+  > .List
+  > .Item
+  > .Link
+  > .MatchSummonerInfo {
+  display: inline;
+  vertical-align: middle;
+}
+.SummonerNotFoundLayout
+  > .Content
+  > .List
+  > .Item
+  > .Link
+  > .MatchSummonerInfo
+  > img {
+  height: 24px;
+  margin-right: 5px;
+  vertical-align: middle;
+  border-radius: 100%;
+}
+.SummonerNotFoundLayout
+  > .Content
+  > .List
+  > .Item
+  > .Link
+  > .MatchSummonerInfo
+  > .SummonerName {
+  margin-right: 5px;
+  vertical-align: middle;
+  font-weight: bold;
+}
+.SummonerNotFoundLayout
+  > .Content
+  > .List
+  > .Item
+  > .Link
+  > .MatchSummonerInfo
+  > .TierRank {
+  font-size: 11px;
+  color: #879292;
+}
+#ExtraView.opened {
+  margin-top: 10px;
+}
+.LeaguesContainer {
+  width: 100%;
+  text-align: center;
+  background-color: #ebeef1;
+}
+.LeaguesContainer > .Header {
+  display: flex;
+  height: 42px;
+}
+.LeaguesContainer > .Header > .LeagueType {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  font-size: 12px;
+  text-align: center;
+  color: #879292;
+  box-sizing: border-box;
+  border-left: 1px solid #cdd2d2;
+  border-bottom: 1px solid #cdd2d2;
+}
+.LeaguesContainer > .Header > .LeagueType:first-child {
+  border-left: none;
+}
+.LeaguesContainer > .Header > .LeagueType.active {
+  border-bottom: none;
+  font-weight: bold;
+  color: #555e5e;
+  background-color: #ebeef1;
+}
+.LeaguesContainer > .Content {
+  background-color: #ebeef1;
+}
+.LeaguesContainer > .Content .Row {
+  flex: 1;
+  display: flex;
+}
+.LeaguesContainer > .Content .Row > .Cell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-left: 1px solid #cdd2d2;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  vertical-align: top;
+}
+.LeaguesContainer > .Content .Row > .Cell > .LeagueType {
+  font-size: 10px;
+  color: #555e5e;
+}
+.LeaguesContainer > .Content .Row > .Cell > .Medal > .MedalImage {
+  width: 40px;
+  display: block;
+  margin: 0 auto -4px;
+}
+.LeaguesContainer > .Content .Row > .Cell > .Medal > .MedalImage.unranked {
+  width: 80px;
+  opacity: 0.4;
+}
+.LeaguesContainer > .Content .Row > .Cell > .Tier {
+  color: #1f8ecd;
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: bold;
+}
+.LeaguesContainer > .Content .Row > .Cell > .Tier.unranked {
+  color: #879292;
+}
+.LeaguesContainer > .Content .Row > .Cell > .TempTierContainer {
+  margin: 2px 0;
+}
+.LeaguesContainer
+  > .Content
+  .Row
+  > .Cell
+  > .TempTierContainer
+  > .TempTierBadge {
+  display: inline-block;
+  padding: 2px 4px;
+  border-radius: 9.5px;
+  background-color: #879292;
+  font-size: 11px;
+  color: #ffffff;
+  line-height: 13px;
+}
+.LeaguesContainer > .Content .Row > .Cell > .LP {
+  color: #555e5e;
+  font-size: 12px;
+  line-height: 1.2;
+}
+.LeaguesContainer > .Content .Row > .Cell > .WinLose {
+  color: #888;
+  font-size: 10px;
+  margin-top: 5px;
+  line-height: 1.2;
+}
+.LeaguesContainer > .Content .Row > .Cell > .WinLose > .Ratio {
+  color: #555e5e;
+}
+.LeaguesContainer > .Content .Row > .Cell:first-child {
+  border-left: none;
+}
+.LeaguesContainer > .Content .bx-wrapper {
+  margin-bottom: 16px;
+}
+.LeaguesContainer > .Content .bx-viewport {
+  background: #ebeef1 !important;
+  border: none !important;
+  box-shadow: none;
+}
+.LeaguesContainer > .Content .bx-pager-link {
+  background: #cdd2d2 !important;
+  margin: 0 3px !important;
+  width: 6px !important;
+  height: 6px !important;
+}
+.LeaguesContainer > .Content .bx-pager-link.active {
+  background: #1f8ecd !important;
+}
+.LeaguesContainer > .Content .bx-pager {
+  padding: 0 !important;
+  bottom: 0 !important;
+  display: flex;
+  justify-content: center;
+}
+.LeaguesContainer > .Footer > .Row > .Cell {
+  border-top: 1px solid #cdd2d2;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  color: #879292;
+  font-size: 12px;
+  text-align: center;
+}
+.LeaguesContainer > .Footer > .Row > .Cell > .Win {
+  color: #555e5e;
+}
+.ChampionBox {
+  display: table;
+  width: 100%;
+  border-bottom: 1px solid #cdd2d2;
+  color: #879292;
+  text-align: center;
+}
+.ChampionBox > .Face {
+  display: table-cell;
+  width: 45px;
+  padding-top: 5px;
+  text-align: right;
+  vertical-align: middle;
+}
+.ChampionBox > .Face > a > .ChampionImage {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+.ChampionBox > .ChampionInfo {
+  display: table-cell;
+  width: 90px;
+  text-align: left;
+  vertical-align: middle;
+}
+.ChampionBox > .ChampionInfo > .ChampionName {
+  width: 80px;
+  margin-left: 10px;
+  color: #555e5e;
+  font-weight: bold;
+  font-size: 13px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ChampionBox > .ChampionInfo > .ChampionName > a {
+  color: inherit;
+  text-decoration: none;
+}
+.ChampionBox > .ChampionInfo > .ChampionMinionKill {
+  margin-left: 10px;
+  font-size: 12px;
+}
+.ChampionBox > .PersonalKDA {
+  display: table-cell;
+  line-height: 1.5;
+  vertical-align: middle;
+}
+.ChampionBox > .PersonalKDA > .KDA {
+  font-size: 13px;
+  font-weight: bold;
+}
+.ChampionBox > .PersonalKDA > .KDA.green {
+  color: #2cc990;
+}
+.ChampionBox > .PersonalKDA > .KDA.blue {
+  color: #1a78ae;
+}
+.ChampionBox > .PersonalKDA > .KDA.orange {
+  color: #ffa401;
+}
+.ChampionBox > .PersonalKDA > .KDAEach {
+  font-size: 12px;
+  color: #879292;
+}
+.ChampionBox > .Played {
+  position: relative;
+  display: table-cell;
+  width: 70px;
+  line-height: 1.5;
+  vertical-align: middle;
+}
+.ChampionBox > .Played > .Played,
+.ChampionBox > .Played > .WinRatio {
+  color: #879292;
+  font-weight: bold;
+  font-size: 13px;
+}
+.ChampionBox > .Played > .Played.blue,
+.ChampionBox > .Played > .WinRatio.blue {
+  color: #1a78ae;
+}
+.ChampionBox > .Played > .Played.orange,
+.ChampionBox > .Played > .WinRatio.orange {
+  color: #ffa401;
+}
+.ChampionBox > .Played > .Played.green,
+.ChampionBox > .Played > .WinRatio.green {
+  color: #2cc990;
+}
+.ChampionBox > .Played > .Played.red,
+.ChampionBox > .Played > .WinRatio.red {
+  color: #c6443e;
+}
+.ChampionBox > .Played > .Title {
+  font-size: 11px;
+  white-space: nowrap;
+}
+.ChampionBox > .Played > .Progress {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  bottom: 0;
+  height: 3px;
+  border: 1px solid #c8c8c8;
+  border-bottom: 0;
+}
+.ChampionBox > .Played > .Progress > .Fill {
+  height: 100%;
+  margin: -1px;
+  border: 1px solid #c8c8c8;
+  background: #f0f0f0;
+}
+.ChampionBox > .Played > .Progress > .Fill.blue {
+  background: #4ea1ed;
+  border: 1px solid #408dd4;
+}
+.ChampionBox > .Played > .Progress > .Fill.orange {
+  background: #eb8439;
+  border: 1px solid #c76e2d;
+}
+.ChampionBox > .Played > .Progress > .Fill.green {
+  background: #36bdbd;
+  border: 1px solid #29a4a4;
+}
+.MostChampionContent > .MoreButton > .Action {
+  display: block;
+  text-decoration: none;
+  padding: 11px 0 10px;
+  line-height: 15px;
+  font-size: 12px;
+  text-align: center;
+  color: #555e5e;
+}
+.GamesContainer {
+  margin-top: 10px;
+}
+.GamesContainer > .Header > .OptionsWrap {
+  display: none;
+}
+.GamesContainer > .Header > .OptionsWrap > .Options {
+  margin: 0;
+  padding: 11px 0 10px 20px;
+}
+.GamesContainer > .Header > .OptionsWrap > .Options > .Position,
+.GamesContainer > .Header > .OptionsWrap > .Options > .Item {
+  position: relative;
+  display: inline-block;
+  list-style: none;
+  font-size: 13px;
+  color: #555e5e;
+  line-height: 2;
+}
+.GamesContainer > .Header > .OptionsWrap > .Options > .Position:before,
+.GamesContainer > .Header > .OptionsWrap > .Options > .Item:before {
+  display: inline-block;
+  margin-left: 4px;
+  margin-right: 4px;
+  content: "";
+  border-left: 1px solid #eeeeee;
+  height: 10px;
+  vertical-align: middle;
+}
+.GamesContainer
+  > .Header
+  > .OptionsWrap
+  > .Options
+  > .Position:first-child:before,
+.GamesContainer > .Header > .OptionsWrap > .Options > .Item:first-child:before {
+  display: none;
+}
+.GamesContainer > .Header > .OptionsWrap > .Options > .Position > .Option {
+  display: inline-block;
+  margin-left: 10px;
+}
+.GamesContainer
+  > .Header
+  > .OptionsWrap
+  > .Options
+  > .Position
+  > .Option
+  > label {
+  margin-right: 4px;
+  cursor: pointer;
+}
+.GamesContainer
+  > .Header
+  > .OptionsWrap
+  > .Options
+  > .Position
+  > .Option
+  > label
+  > input {
+  display: none;
+}
+.GamesContainer
+  > .Header
+  > .OptionsWrap
+  > .Options
+  > .Position
+  > .Option
+  > label
+  > span {
+  display: inline-block;
+  border-radius: 3px;
+  padding: 7px;
+  color: #879292;
+  font-size: 11px;
+  border: 1px solid transparent;
+}
+.GamesContainer
+  > .Header
+  > .OptionsWrap
+  > .Options
+  > .Position
+  > .Option
+  > label
+  > input:checked
+  + span {
+  color: #fff;
+  border-color: #1a78ae;
+  background: #1a78ae;
+}
+.GamesContainer > .Header.extended > .OptionsWrap {
+  display: block;
+}
+.GamesContainer > .Content > .Box {
+  margin-top: -1px;
+}
+.GamesContainer > .Content > .Box {
+  margin-top: -1px;
+}
+.GamesContainer > .Content > .GameItems > .Box {
+  margin-top: -1px;
+  border-top: none;
+  box-shadow: none;
+}
+.GamesContainer > .Content > .GameMoreButton > .Button {
+  margin: 10px;
+  display: block;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 1px solid #cdd2d2;
+  background: #fafafa;
+  color: #555;
+  font-size: 12px;
+  text-decoration: underline;
+}
+.GameAverageStats {
+  display: table;
+  width: 100%;
+  background: #fafafa;
+}
+.GameAverageStats .Summary {
+  display: table-cell;
+  vertical-align: top;
+  padding: 10px 0 10px 15px;
+  text-align: left;
+}
+.GameAverageStats .Summary .Title {
+  line-height: 15px;
+  font-size: 12px;
+  color: #879292;
+  font-weight: bold;
+}
+.GameAverageStats .Summary .WinRatioTitle {
+  margin-top: 10px;
+  line-height: 15px;
+  font-size: 12px;
+  color: #879292;
+}
+.GameAverageStats .Summary .KDA {
+  margin-top: 5px;
+  line-height: 19px;
+  font-size: 16px;
+  color: #454c4c;
+}
+.GameAverageStats .Summary .KDA .Death {
+  color: #ff5235;
+}
+.GameAverageStats .Summary .KDARatio {
+  margin-top: 2px;
+  line-height: 12px;
+  font-size: 10px;
+  color: #879292;
+}
+.GameAverageStats .Summary .KDARatio .CKRate {
+  color: #ff5235;
+}
+.GameAverageStats .MostChampion {
+  display: table-cell;
+  vertical-align: top;
+  text-align: center;
+  padding: 10px 15px;
+}
+.GameAverageStats .MostChampion .Title {
+  line-height: 15px;
+  font-size: 12px;
+  color: #879292;
+}
+.GameAverageStats .MostChampion ul {
+  margin-top: 6px;
+}
+.GameAverageStats .MostChampion ul li {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 10px;
+}
+.GameAverageStats .MostChampion ul li .Image {
+  width: 42px;
+  height: 42px;
+  border-radius: 21px;
+  overflow: hidden;
+  background: #000;
+}
+.GameAverageStats .MostChampion ul li .Image img {
+  display: block;
+  width: 100%;
+}
+.GameAverageStats .MostChampion ul li .WonLose {
+  margin-top: 2px;
+  line-height: 15px;
+  font-size: 12px;
+  color: #454c4c;
+}
+.GameAverageStats .MostChampion ul li .WonLose .red {
+  color: #c6443e;
+}
+.GameAverageStats .MostChampion ul li:first-child {
+  margin-left: 0;
+}
+.GameAverageStats .PositionStats {
+  display: table-cell;
+  vertical-align: top;
+  text-align: center;
+  padding: 10px 15px;
+  width: 98px;
+}
+.GameAverageStats .PositionStats .Title {
+  line-height: 15px;
+  font-size: 12px;
+  color: #879292;
+}
+.GameAverageStats .PositionStats ul {
+  margin-top: 10px;
+}
+.GameAverageStats .PositionStats ul .Image {
+  margin-bottom: 8px;
+}
+.GameAverageStats .PositionStats ul .Name {
+  line-height: 15px;
+  font-size: 12px;
+  color: #454c4c;
+}
+.GameAverageStats .PositionStats ul .RoleRate {
+  color: #1f8ecd;
+  line-height: 15px;
+  font-size: 12px;
+}
+.GameAverageStats .PositionStats .Message {
+  font-size: 11px;
+  line-height: 18px;
+  color: #999;
+}
+.GameDetailTable {
+  width: 100%;
+  table-layout: fixed;
+}
+.GameDetailTable:first-child {
+  border-top: 0;
+}
+.GameDetailTable > colgroup > .ChampionImage {
+  width: 42px;
+}
+.GameDetailTable > colgroup > .SummonerSpell {
+  width: 18px;
+}
+.GameDetailTable > colgroup > .Rune {
+  width: 16px;
+}
+.GameDetailTable > colgroup > .KeystoneMastery {
+  width: 16px;
+}
+.GameDetailTable > colgroup > .TierRank {
+  width: 24px;
+}
+.GameDetailTable > colgroup > .Info {
+  width: 130px;
+}
+.GameDetailTable > .Header > .Row > .HeaderCell {
+  height: 35px;
+  background: #f2f2f2;
+}
+.GameDetailTable > .Header > .Row > .HeaderCell img {
+  vertical-align: middle;
+  height: 16px;
+}
+.GameDetailTable > .Header > .Row > .HeaderCell.TeamScore {
+  padding-left: 15px;
+  text-align: left;
+  line-height: 15px;
+  font-size: 12px;
+  color: #879292;
+}
+.GameDetailTable > .Header > .Row > .HeaderCell.TeamScore .TeamTotalKill {
+  margin-left: 10px;
+}
+.GameDetailTable > .Header > .Row > .HeaderCell.TeamScore .TeamTotalKill .Kill,
+.GameDetailTable
+  > .Header
+  > .Row
+  > .HeaderCell.TeamScore
+  .TeamTotalKill
+  .Assist {
+  color: #555e5e;
+}
+.GameDetailTable
+  > .Header
+  > .Row
+  > .HeaderCell.TeamScore
+  .TeamTotalKill
+  .Death {
+  color: #c6443e;
+}
+.GameDetailTable > .Header > .Row > .HeaderCell.TeamScore .Team {
+  color: #555e5e;
+}
+.GameDetailTable > .Header > .Row > .HeaderCell.ObjectScore {
+  padding-right: 15px;
+  text-align: right;
+}
+.GameDetailTable > .Header > .Row > .HeaderCell.ObjectScore > span {
+  line-height: 15px;
+  font-size: 12px;
+  color: #555e5e;
+  margin-left: 10px;
+}
+.GameDetailTable > .Header > .Row > .HeaderCell.ObjectScore > span:first-child {
+  margin-left: 0;
+}
+.GameDetailTable > .Content > .Row > .Cell {
+  padding: 0;
+  vertical-align: middle;
+  font-size: 0;
+  height: 40px;
+}
+.GameDetailTable > .Content > .Row > .Cell.ChampionImage {
+  padding-left: 10px;
+  padding-right: 2px;
+}
+.GameDetailTable > .Content > .Row > .Cell.ChampionImage > a {
+  position: relative;
+}
+.GameDetailTable > .Content > .Row > .Cell.ChampionImage > a > .Image {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.GameDetailTable > .Content > .Row > .Cell.ChampionImage > a > .Level {
+  position: absolute;
+  left: -3px;
+  bottom: -2px;
+  width: 15px;
+  height: 15px;
+  background: url(../images/site/summoner/levelholder.png);
+  color: #ddd;
+  font-size: 8px;
+  font-family: "Tahoma";
+  text-align: center;
+  line-height: 15px;
+  text-indent: -1px;
+}
+.GameDetailTable > .Content > .Row > .Cell.SummonerSpell {
+  font-size: 0;
+}
+.GameDetailTable > .Content > .Row > .Cell.SummonerSpell > .Image {
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+}
+.GameDetailTable > .Content > .Row > .Cell.SummonerSpell > .Image:first-child {
+  margin-bottom: 2px;
+}
+.GameDetailTable > .Content > .Row > .Cell.Rune > .Image {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+}
+.GameDetailTable > .Content > .Row > .Cell.Rune > .Image:first-child {
+  margin-bottom: 2px;
+  background: #000;
+}
+.GameDetailTable > .Content > .Row > .Cell.KeystoneMastery .Image {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+}
+.GameDetailTable > .Content > .Row > .Cell.SummonerName {
+  text-align: left;
+  padding-left: 10px;
+}
+.GameDetailTable > .Content > .Row > .Cell.SummonerName .TierRank {
+  display: inline-block;
+  padding: 2px;
+  border-radius: 3px;
+  color: #555e5e;
+  font-size: 10px;
+  text-shadow: none;
+}
+.GameDetailTable
+  > .Content
+  > .Row
+  > .Cell.SummonerName
+  .TierRank.tier-CHALLENGER,
+.GameDetailTable
+  > .Content
+  > .Row
+  > .Cell.SummonerName
+  .TierRank.tier-GRANDMASTER,
+.GameDetailTable > .Content > .Row > .Cell.SummonerName .TierRank.tier-MASTER {
+  background-color: #fa576f;
+  color: #fff;
+}
+.GameDetailTable > .Content > .Row > .Cell.SummonerName .TierRank.tier-DIAMOND {
+  background-color: #00a0d2;
+  color: #fff;
+}
+.GameDetailTable
+  > .Content
+  > .Row
+  > .Cell.SummonerName
+  .TierRank.tier-PLATINUM {
+  background-color: #04b1a1;
+  color: #fff;
+}
+.GameDetailTable > .Content > .Row > .Cell.SummonerName .TierRank.tier-GOLD {
+  background-color: #e8aa34;
+  color: #fff;
+}
+.GameDetailTable > .Content > .Row > .Cell.SummonerName .TierRank.tier-SILVER {
+  background-color: #9ea3b0;
+  color: #fff;
+}
+.GameDetailTable > .Content > .Row > .Cell.SummonerName .TierRank.tier-BRONZE {
+  background-color: #6a5b3f;
+  color: #fff;
+}
+.GameDetailTable > .Content > .Row > .Cell.SummonerName .TierRank.tier-IRON {
+  background-color: #535c5c;
+  color: #fff;
+}
+.GameDetailTable > .Content > .Row > .Cell.SummonerName > .Link {
+  display: block;
+  color: #555e5e;
+  font-size: 12px;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 15px;
+}
+.GameDetailTable > .Content > .Row > .Cell.SummonerName > .Unknown {
+  display: block;
+  color: #999;
+  font-size: 12px;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 15px;
+}
+.GameDetailTable > .Content > .Row > .Cell.SummonerName > .KDA {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 130px;
+  margin-top: 2px;
+  font-size: 12px;
+  line-height: 15px;
+}
+@media only screen and (max-width: 374px) {
+  .GameDetailTable > .Content > .Row > .Cell.SummonerName > .KDA {
+    justify-content: flex-start;
+  }
+}
+.GameDetailTable > .Content > .Row > .Cell.SummonerName > .KDA > .KDARatio {
+  flex: 1;
+  color: #c6443e;
+  margin-left: 2px;
+}
+.GameDetailTable > .Content > .Row > .Cell.SummonerName > .KDA > .KDA {
+  flex: 1;
+  color: #555e5e;
+}
+.GameDetailTable > .Content > .Row > .Cell.SummonerName > .KDA > .OPScore {
+  text-align: center;
+}
+@media only screen and (max-width: 374px) {
+  .GameDetailTable > .Content > .Row > .Cell.SummonerName > .KDA > .OPScore {
+    display: none;
+  }
+}
+.GameDetailTable > .Content > .Row > .Cell.SummonerName > .KDA > .Spacer {
+  flex: 1;
+}
+.GameDetailTable > .Content > .Row > .Cell.SummonerName > .KDA > .Text {
+  margin-left: 8px;
+  color: #555e5e;
+  font-size: 12px;
+}
+.GameDetailTable > .Content > .Row > .Cell.SummonerName > .KDA > .Badge {
+  color: #fff;
+  font-size: 10px;
+  border-radius: 2px;
+  padding: 4px;
+  margin-left: 4px;
+  width: 20px;
+  line-height: 1;
+}
+.GameDetailTable > .Content > .Row > .Cell.SummonerName > .KDA > .MVP {
+  background-color: #e19205;
+}
+.GameDetailTable > .Content > .Row > .Cell.SummonerName > .KDA > .ACE {
+  background-color: #8c51c5;
+}
+.GameDetailTable > .Content > .Row > .Cell.SummonerName > .KDA > .Score {
+  background-color: #737373;
+}
+.GameDetailTable > .Content > .Row > .Cell.Info {
+  text-align: right;
+  padding-right: 8px;
+}
+.GameDetailTable > .Content > .Row > .Cell.Info > .Items > .Item {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-left: 1px;
+}
+.GameDetailTable > .Content > .Row > .Cell.Info > .Items > .Item > .Image {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+}
+.GameDetailTable > .Content > .Row > .Cell.Info > .Items > .Item > .noItem {
+  width: 16px;
+  height: 16px;
+  background-image: url(../images/pattern/opacity.1.png);
+  background-size: 100%;
+}
+.GameDetailTable > .Content > .Row > .Cell.Info > .Detail {
+  font-size: 11px;
+  color: #555e5e;
+}
+.GameDetailTable > .Content > .Row > .Cell.Info > .Detail > .DamageGraph {
+  display: inline-block;
+  vertical-align: middle;
+}
+.GameDetailTable
+  > .Content
+  > .Row
+  > .Cell.Info
+  > .Detail
+  > .DamageGraph
+  > .Progress {
+  position: relative;
+  width: 58px;
+  height: 12px;
+  margin: 0 auto;
+  background-color: #888;
+}
+.GameDetailTable
+  > .Content
+  > .Row
+  > .Cell.Info
+  > .Detail
+  > .DamageGraph
+  > .Progress
+  > .Fill {
+  height: 100%;
+  background-color: #f46c65;
+}
+.GameDetailTable
+  > .Content
+  > .Row
+  > .Cell.Info
+  > .Detail
+  > .DamageGraph
+  > .Progress
+  > .Text {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  color: #fff;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: center;
+}
+.GameDetailTable > .Footer > .Row > .Cell {
+  border-top: 1px solid #cdd2d2;
+  height: 32px;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+.GameDetailTable.Result-WIN {
+  background-color: #d8e4ec;
+}
+.GameDetailTable.Result-WIN > .Header .Row > .HeaderCell > .GameResult {
+  color: #1a78ae;
+}
+.GameDetailTable.Result-WIN > .Content {
+  border-top: 1px solid #bacedc;
+  border-bottom: 1px solid #bacedc;
+}
+.GameDetailTable.Result-WIN > .Content > .Row.isRequester {
+  background-color: #c6dbe9;
+}
+.GameDetailTable.Result-LOSE {
+  background-color: #e9e0e0;
+}
+.GameDetailTable.Result-LOSE > .Header .Row > .HeaderCell > .GameResult {
+  color: #c6443e;
+}
+.GameDetailTable.Result-LOSE > .Content {
+  border-top: 1px solid #d8c0be;
+  border-bottom: 1px solid #d8c0be;
+}
+.GameDetailTable.Result-LOSE > .Content > .Row.isRequester {
+  background-color: #e1d1d0;
+}
+.GameDetailTable.Result-REMAKE {
+  background: #ededed;
+}
+.GameDetailTable.Result-REMAKE > .Content {
+  border-top: 1px solid #cdd2d2;
+  border-bottom: 1px solid #cdd2d2;
+}
+.GameDetailTable.Result-REMAKE > .Content > .Row.isRequester {
+  background-color: #d7dada;
+}
+.MMRBox > .Alert {
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  color: #f2f2f2;
+  background-color: #1f8ecd;
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+}
+.MMRBox > .Alert span {
+  flex: 1;
+}
+.MMRBox > .Alert > .CloseButton {
+  margin-left: 16px;
+  cursor: pointer;
+}
+.MMRBox > .Content {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background: #fafafa;
+  font-size: 11px;
+  text-align: center;
+}
+.MMRBox > .Content > .TipStatus {
+  margin-bottom: 15px;
+  color: #555e5e;
+}
+.MMRBox > .Content > table.TierRankBOX {
+  width: 220px;
+  margin: 0 auto;
+}
+.MMRBox > .Content > table.TierRankBOX td.TierRankImage {
+  width: 50%;
+}
+.MMRBox > .Content > table.TierRankBOX td.TierRankImage img {
+  height: 60px;
+  margin: -20px 0 -20px 0;
+}
+.MMRBox > .Content > table.TierRankBOX td.MMR {
+  width: 50%;
+  font-size: 40px;
+  color: #242929;
+  font-weight: bold;
+}
+.MMRBox > .Content > table.TierRankBOX td.TierRankString {
+  margin-top: 6px;
+  color: #1a78ae;
+  font-size: 17px;
+}
+.MMRBox > .Content > table.TierRankBOX td.MMRSubTitle {
+  margin-top: 6px;
+  color: #1a78ae;
+  font-size: 17px;
+}
+.MMRBox > .Content > .Description {
+  margin-top: 13px;
+  color: #879292;
+}
+.MMRBox > .Footer {
+  border-top: 1px solid #cdd2d2;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background: #fafafa;
+  color: #555e5e;
+  font-size: 12px;
+  text-align: center;
+}
+.SpectateSummoner > .Box {
+  margin-top: 10px;
+}
+.SpectateSummoner > .Box > .Title {
+  padding: 10px 0 10px 15px;
+  background: #fafafa;
+  color: #333;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: left;
+  vertical-align: middle;
+  overflow: hidden;
+}
+.SpectateSummoner > .Box > .Title > small {
+  margin-left: 5px;
+  padding-left: 5px;
+  border-left: 1px solid #cdcdcd;
+  color: #555e5e;
+  font-size: 11px;
+  line-height: 12px;
+  font-weight: normal;
+}
+.SpectateSummoner > .Box > .Title > small.Time {
+  color: #555e5e;
+}
+.SpectateSummoner > .Box > .Title > .Button,
+.SpectateSummoner > .Box > .Title > .Recording > .Button {
+  display: inline-block;
+  margin-left: 2px;
+  padding: 4px;
+  height: 11px;
+  font-size: 11px;
+  line-height: 11px;
+}
+.SpectateSummoner > .Box > .Title > .Button > i,
+.SpectateSummoner > .Box > .Title > .Recording > .Button > i {
+  margin-right: 3px;
+}
+.SpectateSummoner > .Box > .Title > .Recording {
+  display: inline-block;
+  margin-left: 2px;
+}
+.SpectateSummoner > .Box > .Title > .Recording > .NowRecording,
+.SpectateSummoner > .Box > .Title > .Recording > .RequestFailed,
+.SpectateSummoner > .Box > .Title > .Recording > .RequestRecording {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+}
+.SpectateSummoner > .Box > .Title > .Recording > .RequestRecording {
+  color: #4ea1ed;
+}
+.SpectateSummoner > .Box > .Title > .Recording > .NowRecording,
+.SpectateSummoner > .Box > .Title > .Recording > .RequestFailed {
+  color: #c6443e;
+}
+.SpectateSummoner > .Box > .Content {
+  font-size: 0;
+  background: #fff;
+}
+.SpectateSummoner > .Box > .Content > .SpectateTeamTable {
+  width: 100%;
+  table-layout: fixed;
+}
+.SpectateTeamTable > .Footer > .Row > .Cell {
+  height: 26px;
+  border-top: 1px solid #cdd2d2;
+  color: #333;
+  font-size: 10px;
+  vertical-align: middle;
+}
+.SpectateTeamTable > .Footer > .Row > .Cell.BannedChampions > .Champion {
+  display: inline-block;
+  vertical-align: middle;
+}
+.SpectateTeamTable > .Footer > .Row > .Cell.MMR {
+  text-align: right;
+  padding-right: 3px;
+}
+.SpectateTeamTable > .Content {
+  background: #fff;
+}
+.SpectateTeamTable > .Content > .Row > .Cell {
+  height: 14px;
+  font-size: 10px;
+  vertical-align: middle;
+}
+.SpectateTeamTable > .Content > .Row.SummonerInfo > .Cell {
+  padding-top: 3px;
+}
+.SpectateTeamTable > .Content > .Row.SummonerInfo > .Cell.ChampionImage .Image {
+  display: block;
+}
+.SpectateTeamTable > .Content > .Row.SummonerInfo > .Cell.SummonerSpell {
+  padding-left: 3px;
+}
+.SpectateTeamTable
+  > .Content
+  > .Row.SummonerInfo
+  > .Cell.SummonerSpell
+  > .Spell {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+.SpectateTeamTable > .Content > .Row.SummonerInfo > .Cell.Runes .Rune {
+  display: block;
+}
+.SpectateTeamTable > .Content > .Row.SummonerInfo > .Cell.Runes img {
+  display: block;
+  border-radius: 50%;
+  width: 100%;
+}
+.SpectateTeamTable
+  > .Content
+  > .Row.SummonerInfo
+  > .Cell.Runes
+  .Rune:first-child
+  img {
+  background: #000;
+}
+.SpectateTeamTable > .Content > .Row.SummonerInfo > .Cell.SummonerName {
+  padding-left: 5px;
+}
+.SpectateTeamTable > .Content > .Row.SummonerInfo > .Cell.SummonerName > .Link {
+  color: #333;
+  text-decoration: none;
+}
+.SpectateTeamTable > .Content > .Row.SummonerInfo > .Cell.TierRank {
+  text-align: center;
+}
+.SpectateTeamTable > .Content > .Row.SummonerInfo > .Cell.TierRank > .TierRank {
+  padding-right: 2px;
+  padding-left: 2px;
+  border-radius: 2px;
+  color: #333;
+  font-size: 10px;
+  line-height: 16px;
+  white-space: nowrap;
+}
+.SpectateTeamTable
+  > .Content
+  > .Row.SummonerInfo
+  > .Cell.TierRank
+  > .TierRank.IRON {
+  background-color: #535c5c;
+  color: #fff;
+}
+.SpectateTeamTable
+  > .Content
+  > .Row.SummonerInfo
+  > .Cell.TierRank
+  > .TierRank.BRONZE {
+  background-color: #6a5b3f;
+  color: #fff;
+}
+.SpectateTeamTable
+  > .Content
+  > .Row.SummonerInfo
+  > .Cell.TierRank
+  > .TierRank.SILVER {
+  background-color: #9ea3b0;
+  color: #fff;
+}
+.SpectateTeamTable
+  > .Content
+  > .Row.SummonerInfo
+  > .Cell.TierRank
+  > .TierRank.GOLD {
+  background-color: #e8aa34;
+  color: #fff;
+}
+.SpectateTeamTable
+  > .Content
+  > .Row.SummonerInfo
+  > .Cell.TierRank
+  > .TierRank.PLATINUM {
+  background-color: #04b1a1;
+  color: #fff;
+}
+.SpectateTeamTable
+  > .Content
+  > .Row.SummonerInfo
+  > .Cell.TierRank
+  > .TierRank.DIAMOND {
+  background-color: #00a0d2;
+  color: #fff;
+}
+.SpectateTeamTable
+  > .Content
+  > .Row.SummonerInfo
+  > .Cell.TierRank
+  > .TierRank.MASTER {
+  background-color: #fa576f;
+  color: #fff;
+}
+.SpectateTeamTable
+  > .Content
+  > .Row.SummonerInfo
+  > .Cell.TierRank
+  > .TierRank.GRANDMASTER {
+  background-color: #fa576f;
+  color: #fff;
+}
+.SpectateTeamTable
+  > .Content
+  > .Row.SummonerInfo
+  > .Cell.TierRank
+  > .TierRank.CHALLENGER {
+  background-color: #fa576f;
+  color: #fff;
+}
+.SpectateTeamTable > .Content > .Row.SummonerInfo > .Cell.RuneMastery {
+  text-align: right;
+  padding-right: 5px;
+}
+.SpectateTeamTable
+  > .Content
+  > .Row.SummonerInfo
+  > .Cell.RuneMastery
+  > .Button {
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  padding: 0 3px;
+  background: none;
+  line-height: 14px;
+}
+.SpectateTeamTable
+  > .Content
+  > .Row.SummonerInfo
+  > .Cell.RuneMastery
+  > .Button
+  > .Rune {
+  max-width: 45px;
+  word-break: break-all;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.SpectateTeamTable
+  > .Content
+  > .Row.SummonerInfo
+  > .Cell.RuneMastery
+  > .Button
+  > .Mastery {
+  color: #1f8ecd;
+}
+.SpectateTeamTable > .Content > .Row.ChampionStats {
+  border-bottom: 1px solid #f2f2f2;
+}
+.SpectateTeamTable > .Content > .Row.ChampionStats > .Cell.Summary {
+  color: #555e5e;
+  padding-left: 5px;
+}
+.SpectateTeamTable > .Content > .Row.ChampionStats > .Cell.Summary > span {
+  display: inline-block;
+  margin-right: 3px;
+}
+.SpectateTeamTable
+  > .Content
+  > .Row.ChampionStats
+  > .Cell.Summary
+  > .KDARatio.green {
+  color: #2daf7f;
+}
+.SpectateTeamTable
+  > .Content
+  > .Row.ChampionStats
+  > .Cell.Summary
+  > .KDARatio.blue {
+  color: #1f8ecd;
+}
+.SpectateTeamTable
+  > .Content
+  > .Row.ChampionStats
+  > .Cell.Summary
+  > .KDARatio.orange {
+  color: #e19205;
+}
+.SpectateTeamTable > .Content > .Row.requestor {
+  background: #f2f2f2;
+}
+.SpectateTeamTable.Team-100 > .Content > .Row:first-child > .Cell {
+  border-top: 3px solid #1a78ae;
+}
+.SpectateTeamTable.Team-200 > .Header > .Row > .HeaderCell {
+  padding-right: 15px;
+  text-align: right;
+}
+.SpectateTeamTable.Team-200 > .Header > .Row > .HeaderCell > .TeamName {
+  float: left;
+  border: 1px solid #d2524c;
+  background: #f46c65;
+  color: #fff;
+}
+.SpectateTeamTable.Team-200 > .Content > .Row:first-child > .Cell {
+  border-top: 3px solid #d2524c;
+}
+.ChampionWinRatioBox {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.ChampionWinRatioBox > .Face {
+  display: table-cell;
+  width: 39px;
+  height: 36px;
+  text-align: right;
+  vertical-align: middle;
+}
+.ChampionWinRatioBox > .Face > a > .ChampionImage {
+  display: inline-block;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.ChampionWinRatioBox > .ChampionInfo {
+  display: table-cell;
+  width: 90px;
+  font-size: 12px;
+  text-align: left;
+  vertical-align: middle;
+}
+.ChampionWinRatioBox > .ChampionInfo > .ChampionName {
+  width: 100%;
+  margin-left: 10px;
+  color: #555e5e;
+  font-weight: bold;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.ChampionWinRatioBox > .ChampionInfo > .ChampionName > a {
+  color: inherit;
+  text-decoration: none;
+}
+.ChampionWinRatioBox > .WinRatio {
+  display: table-cell;
+  width: 40px;
+  text-align: center;
+  font-size: 11px;
+  color: #555e5e;
+  vertical-align: middle;
+}
+.ChampionWinRatioBox > .RatioGraph {
+  display: table-cell;
+  vertical-align: middle;
+  padding-right: 15px;
+}
+.ChampionStatsTable {
+  width: 100%;
+  table-layout: fixed;
+}
+.ChampionStatsTable > .Header > .Row > .HeaderCell {
+  height: 38px;
+  border-bottom: 1px solid #cdd2d2;
+  color: #555e5e;
+  font-size: 13px;
+  text-align: left;
+}
+.ChampionStatsTable > .Header > .Row > .HeaderCell.Rank,
+.ChampionStatsTable > .Header > .Row > .HeaderCell.Champion,
+.ChampionStatsTable > .Header > .Row > .HeaderCell.RatioGraph {
+  padding: 0 10px;
+}
+.ChampionStatsTable > .Header > .Row > .HeaderCell.Kill,
+.ChampionStatsTable > .Header > .Row > .HeaderCell.Death,
+.ChampionStatsTable > .Header > .Row > .HeaderCell.Assist,
+.ChampionStatsTable > .Header > .Row > .HeaderCell.KDA,
+.ChampionStatsTable > .Header > .Row > .HeaderCell.CS,
+.ChampionStatsTable > .Header > .Row > .HeaderCell.Gold {
+  padding: 0 5px;
+}
+.ChampionStatsTable > .Header > .Row > .HeaderCell.Rank {
+  text-align: center;
+}
+.ChampionStatsTable > .Body > .Row > .Cell {
+  height: 52px;
+  border-bottom: 1px solid #cdd2d2;
+  color: #879292;
+  font-size: 12px;
+  font-weight: bold;
+}
+.ChampionStatsTable > .Body > .Row > .Cell.Rank {
+  font-size: 14px;
+  text-align: center;
+  font-weight: normal;
+}
+.ChampionStatsTable > .Body > .Row > .Cell.Champion {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.ChampionStatsTable > .Body > .Row > .Cell.Champion > a {
+  font-size: 0;
+  text-decoration: none;
+}
+.ChampionStatsTable > .Body > .Row > .Cell.Champion > a > .ChampionImage {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin-right: 3px;
+  border-radius: 50%;
+  vertical-align: middle;
+  overflow: hidden;
+}
+.ChampionStatsTable > .Body > .Row > .Cell.WinRatio.red {
+  color: #fa4040;
+}
+.ChampionStatsTable > .Body > .Row > .Cell.KDA.green {
+  color: #2daf7f;
+}
+.ChampionStatsTable > .Body > .Row > .Cell.KDA.blue {
+  color: #1f8ecd;
+}
+.ChampionStatsTable > .Body > .Row > .Cell.KDA.orange {
+  color: #e19205;
+}
+.ChampionStatsTable > .Body > .Row > .Cell.TotalGamesGraph,
+.ChampionStatsTable > .Body > .Row > .Cell.KDA,
+.ChampionStatsTable > .Body > .Row > .Cell.CS {
+  padding: 0 5px;
+  color: #555e5e;
+  text-align: center;
+}
+.ChampionStatsTable > .Body > .Row.TopRanker {
+  background-color: #ededed;
+}
+.ChampionStatsTable > .Body > .Row.TopRanker > .Cell.Rank {
+  color: #1f8ecd;
+}
+.GameListContainer > .Content {
+  margin-bottom: 10px;
+}
+.GameListContainer > .Content > .GameMoreButton > .Button {
+  display: block;
+  text-align: right;
+  padding: 7px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #879292;
+}
+.LeagueContainer > .LeagueHeader > .LeagueMedal {
+  display: inline-block;
+  margin-bottom: 14px;
+  margin-left: 14px;
+}
+.LeagueContainer > .LeagueHeader > .LeagueMedal > .MedalWrap {
+  margin-bottom: -14px;
+}
+.LeagueContainer > .LeagueHeader > .LeagueMedal > .MedalWrap > .Image {
+  width: 100px;
+  height: 100px;
+}
+.LeagueContainer > .LeagueHeader > .LeagueInfo {
+  display: inline-block;
+  margin: 13px 0 16px 5px;
+  vertical-align: top;
+  color: #555e5e;
+}
+.LeagueContainer > .LeagueHeader > .LeagueInfo > .LeagueTierRank {
+  margin-bottom: 5px;
+  color: #242929;
+  font-size: 15px;
+  font-weight: bold;
+}
+.LeagueContainer > .LeagueHeader > .LeagueInfo > .LeagueName {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+.LeagueContainer > .LeagueHeader > .LeagueInfo > .LeagueRankList > .Item {
+  display: inline-block;
+  margin-right: 4px;
+}
+.LeagueContainer
+  > .LeagueHeader
+  > .LeagueInfo
+  > .LeagueRankList
+  > .Item
+  > .LeagueRank {
+  display: inline-block;
+  width: 34px;
+  padding: 3px 0;
+  color: #879292;
+  font-size: 12px;
+}
+.LeagueContainer
+  > .LeagueHeader
+  > .LeagueInfo
+  > .LeagueRankList
+  > .Item.active
+  > .LeagueRank {
+  background-color: #1f8ecd;
+  border-color: #1a78ae;
+  color: #f2f2f2;
+}
+.LeagueContainer > .LeagueContent .Table {
+  width: 100%;
+  table-layout: fixed;
+}
+.LeagueContainer > .LeagueContent .Table > colgroup > .Rank {
+  width: 25px;
+}
+.LeagueContainer > .LeagueContent .Table > colgroup > .SummonerImage {
+  width: 1px;
+}
+.LeagueContainer > .LeagueContent .Table > colgroup > .SummonerName {
+  width: auto;
+}
+.LeagueContainer > .LeagueContent .Table > colgroup > .Emblems {
+  width: 45px;
+}
+.LeagueContainer > .LeagueContent .Table > colgroup > .Wins {
+  width: 90px;
+}
+.LeagueContainer > .LeagueContent .Table > colgroup > .LP {
+  width: 120px;
+}
+.LeagueContainer > .LeagueContent .Table > .Header > .Row > .HeaderCell {
+  height: 38px;
+  border-bottom: 1px solid #cdd2d2;
+  color: #555e5e;
+  font-size: 12px;
+  text-align: center;
+  font-weight: normal;
+}
+.LeagueContainer > .LeagueContent .Table > .Content > .Row > .Cell {
+  height: 36px;
+  border-bottom: 1px solid #cdd2d2;
+  color: #555e5e;
+  font-size: 11px;
+  text-align: center;
+}
+.LeagueContainer > .LeagueContent .Table > .Content > .Row > .Cell.Rank {
+  text-align: center;
+}
+.LeagueContainer
+  > .LeagueContent
+  .Table
+  > .Content
+  > .Row
+  > .Cell.SummonerImage
+  > .Link
+  > .Image {
+  display: none;
+}
+.LeagueContainer
+  > .LeagueContent
+  .Table
+  > .Content
+  > .Row
+  > .Cell.SummonerName {
+  padding-left: 7px;
+  text-align: left;
+}
+.LeagueContainer
+  > .LeagueContent
+  .Table
+  > .Content
+  > .Row
+  > .Cell.SummonerName
+  > .Link {
+  display: block;
+  color: #555e5e;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.LeagueContainer > .LeagueContent .Table > .Content > .Row > .Cell.Emblems {
+  font-size: 0;
+}
+.LeagueContainer > .LeagueContent .Table > .Content > .Row > .Cell.Emblems > i {
+  margin-left: 6px;
+  zoom: 0.5;
+}
+.LeagueContainer
+  > .LeagueContent
+  .Table
+  > .Content
+  > .Row
+  > .Cell.Emblems
+  > i:first-child {
+  margin-left: 0;
+}
+.LeagueContainer > .LeagueContent .Table > .Content > .Row > .Cell.WinLose {
+  font-size: 10px;
+}
+.LeagueContainer
+  > .LeagueContent
+  .Table
+  > .Content
+  > .Row
+  > .Cell.WinLose
+  > .Wins {
+  color: #1f8ecd;
+  font-weight: bold;
+}
+.LeagueContainer
+  > .LeagueContent
+  .Table
+  > .Content
+  > .Row
+  > .Cell.WinLose
+  > .Losses {
+  color: #fa4040;
+  font-weight: bold;
+}
+.LeagueContainer > .LeagueContent .Table > .Content > .Row > .Cell.LP {
+  font-weight: bold;
+}
+.LeagueContainer
+  > .LeagueContent
+  .Table
+  > .Content
+  > .Row
+  > .Cell.Series
+  > .SummonerSeries {
+  zoom: 0.8;
+}
+.LeagueContainer > .LeagueContent .Table > .Content > .Row.series > .Cell {
+  background-color: #ededed;
+}
+.LeagueContainer > .LeagueContent .Table > .Content > .Row.series > .Cell.Rank {
+  color: #1f8ecd;
+}
+.LeagueContainer > .LeagueContent .Table > .Content > .Row.series.last > .Cell {
+  border-bottom: 2px solid #aeb5b5;
+}
+.LeagueContainer > .LeagueContent .Table > .Content > .Row.me > .Cell,
+.LeagueContainer > .LeagueContent .Table > .Content > .Row.me.last > .Cell {
+  height: 38px;
+  border-top: 3px solid #1f8ecd;
+  border-bottom: 3px solid #1f8ecd;
+}
+.LeagueContainer > .LeagueContent .Table > .Content > .Row.me > .Cell.Rank,
+.LeagueContainer
+  > .LeagueContent
+  .Table
+  > .Content
+  > .Row.me.last
+  > .Cell.Rank {
+  border-left: 3px solid #1f8ecd;
+}
+.LeagueContainer > .LeagueContent .Table > .Content > .Row.me > .Cell.LP,
+.LeagueContainer > .LeagueContent .Table > .Content > .Row.me.last > .Cell.LP,
+.LeagueContainer > .LeagueContent .Table > .Content > .Row.me > .Cell.Series,
+.LeagueContainer
+  > .LeagueContent
+  .Table
+  > .Content
+  > .Row.me.last
+  > .Cell.Series {
+  border-right: 3px solid #1f8ecd;
+}
+.SummonerSeries > .Title {
+  margin-bottom: 5px;
+  color: #879292;
+  font-size: 11px;
+  font-weight: normal;
+}
+.SummonerSeries > .Content {
+  display: inline-block;
+  position: relative;
+  width: 69px;
+  overflow: hidden;
+  vertical-align: middle;
+}
+.SummonerSeries > .Content > .SeriesResults {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 0;
+}
+.SummonerSeries > .Content > .SeriesResults > .Item {
+  display: inline-block;
+}
+.SummonerSeries > .Content > .SeriesResults > .Item + .Item {
+  margin-left: 9px;
+}
+.SummonerSeries.highest > .Content {
+  width: 120px;
+}
+.SummonersMostGameTable {
+  width: 100%;
+  table-layout: fixed;
+}
+.SummonersMostGameTable > .Header > .Row > .HeaderCell {
+  padding-top: 11px;
+  padding-bottom: 10px;
+  background-color: #ededed;
+  color: #879292;
+  font-weight: normal;
+  font-size: 12px;
+  word-break: break-word;
+}
+.SummonersMostGameTable > .Header > .Row > .HeaderCell.SummonerName {
+  text-align: left;
+  padding-left: 15px;
+}
+.SummonersMostGameTable > .Body > .Row > .Cell {
+  padding-top: 11px;
+  padding-bottom: 10px;
+  color: #879292;
+  font-size: 11px;
+  text-align: center;
+}
+.SummonersMostGameTable > .Body > .Row > .Cell.SummonerName {
+  text-align: left;
+  padding-left: 15px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.SummonersMostGameTable > .Body > .Row > .Cell.SummonerName > .Link {
+  color: #555e5e;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.SummonersMostGameTable > .Body > .Row > .Cell.Win {
+  color: #3d95e5;
+}
+.SummonersMostGameTable > .Body > .Row > .Cell.Lose {
+  color: #fa4040;
+}
+.SummonersMostGameTable > .Body > .Row > .Cell.WinRatio {
+  color: #676f89;
+}
+.RunePageBox > .Title,
+.MasteryPageBox > .Title {
+  position: relative;
+  padding: 0;
+}
+.RunePageBox > .Title > .Title,
+.MasteryPageBox > .Title > .Title {
+  float: left;
+  padding: 11px 0 11px 20px;
+  font-size: 14px;
+  font-weight: normal;
+  vertical-align: middle;
+}
+.RunePageBox > .Title > .Right,
+.MasteryPageBox > .Title > .Right {
+  float: right;
+  text-align: right;
+}
+.RunePageBox > .Title:after,
+.MasteryPageBox > .Title:after {
+  content: "\00a0";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  font-size: 0;
+}
+.RunePageList,
+.MasteryPageList {
+  margin: 6px 6px 4px 0;
+}
+.RunePageList > .Button,
+.MasteryPageList > .Button {
+  display: inline-block;
+  padding: 3px 8px 4px;
+  margin-bottom: 4px;
+  margin-left: 4px;
+  border: 1px solid #cdd2d2;
+  background-color: #ededed;
+  color: #555e5e;
+  outline: none;
+  border-radius: 2px;
+  font-size: 14px;
+}
+.RunePageList > .Button.active,
+.MasteryPageList > .Button.active {
+  background-color: #1f8ecd;
+  border-color: #1a78ae;
+  color: #f2f2f2;
+}
+.RunePageStatistics {
+  overflow: hidden;
+}
+.RunePageStatistics > .RunePageStatisticsList > .Item {
+  float: left;
+  width: 50%;
+  padding: 12px 15px;
+  box-sizing: border-box;
+  background: #ededed;
+  border-top: 1px solid #cdd2d2;
+  border-right: 1px solid #cdd2d2;
+}
+.RunePageStatistics > .RunePageStatisticsList > .Item > .Title {
+  color: #555e5e;
+  font-size: 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.RunePageStatistics > .RunePageStatisticsList > .Item > .Stat {
+  margin-top: 8px;
+  font-size: 11px;
+  font-weight: bold;
+}
+.RunePageStatistics > .RunePageStatisticsList > .Item:nth-child(2n) {
+  border-right: none;
+}
+.MasteryPageWrap {
+  display: none;
+}
+.MasteryPageWrap > .MasteryPageSummaryWrap > .MasteryPageSummary {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.MasteryPageWrap > .MasteryPageSummaryWrap > .MasteryPageSummary > .Offense,
+.MasteryPageWrap > .MasteryPageSummaryWrap > .MasteryPageSummary > .Defense,
+.MasteryPageWrap > .MasteryPageSummaryWrap > .MasteryPageSummary > .Utility {
+  display: table-cell;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+.MasteryPageWrap
+  > .MasteryPageSummaryWrap
+  > .MasteryPageSummary
+  > .Offense
+  > .Image,
+.MasteryPageWrap
+  > .MasteryPageSummaryWrap
+  > .MasteryPageSummary
+  > .Defense
+  > .Image,
+.MasteryPageWrap
+  > .MasteryPageSummaryWrap
+  > .MasteryPageSummary
+  > .Utility
+  > .Image {
+  width: 24px;
+  vertical-align: middle;
+}
+.MasteryPageWrap .mastery-page {
+  margin: 10px auto;
+}
+.MasteryPageWrap .mastery-page-type__content {
+  border-left-color: #cdd2d2;
+}
+.MasteryPageWrap .mastery-page-type__header {
+  color: #555e5e;
+}
+.RunePageWrap,
+.MasteryPageWrap {
+  position: relative;
+}
+.RunePageWrap > .RunePageName,
+.MasteryPageWrap > .RunePageName,
+.RunePageWrap .MasteryPageName,
+.MasteryPageWrap .MasteryPageName {
+  height: 16px;
+  padding: 12px 0 12px 20px;
+  background-color: #ededed;
+  color: #555e5e;
+  font-size: 16px;
+  font-weight: bold;
+}
+.RunePageWrap .rune-page {
+  margin: 0 auto;
+}
+.SummonerAccountPromotionMessage {
+  position: relative;
+  height: 90px;
+  overflow: hidden;
+  font-size: 20px;
+}
+.SummonerAccountPromotionMessage table {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.SummonerExtraMessage > .Box {
+  position: relative;
+}
+.SummonerExtraMessage > .Box > .Message {
+  padding: 13px 48px 13px 24px;
+  color: #555e5e;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.SummonerExtraMessage > .Box > .Message > b {
+  font-size: 15px;
+  color: #1f8ecd;
+}
+.SummonerExtraMessage > .Box > .Button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: url("../css3/sprite/images/btn-summonerMessageClose.png") center
+    no-repeat;
+  border: 0;
+  padding: 20px;
+}
+.MatchDetailLayout {
+  margin-left: -8px;
+}
+.MatchDetailHeader ul {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  background: #f2f2f2;
+}
+.MatchDetailHeader ul li {
+  display: table-cell;
+}
+.MatchDetailHeader ul li a {
+  display: block;
+  width: 100%;
+  padding: 12px 0;
+  line-height: 15px;
+  font-size: 12px;
+  color: #111;
+  text-align: center;
+  text-decoration: none;
+}
+.MatchDetailHeader ul li.active {
+  background-color: #f2f2f2;
+}
+.MatchDetailHeader ul li.active a {
+  font-weight: bold;
+}
+.MatchDetailContent {
+  background: #e0e3e3;
+}
+.MatchTeamAnalysisHeader ul {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  background: #f2f2f2;
+  border-bottom: 1px solid #cdd2d2;
+}
+.MatchTeamAnalysisHeader ul li {
+  display: table-cell;
+}
+.MatchTeamAnalysisHeader ul li a {
+  display: block;
+  width: 100%;
+  padding: 10px 0 8px;
+  border-bottom: 2px solid transparent;
+  line-height: 15px;
+  font-size: 12px;
+  color: #555;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.MatchTeamAnalysisHeader ul li.active a {
+  border-bottom-color: #1a78ae;
+  color: #1a78ae;
+}
+.MatchDetailTeamLegend ul {
+  font-size: 0;
+}
+.MatchDetailTeamLegend ul li {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 20px;
+}
+.MatchDetailTeamLegend ul li:before {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+  content: "";
+  width: 10px;
+  border-top: 4px solid #c6443e;
+}
+.MatchDetailTeamLegend ul li span {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 12px;
+  line-height: 14px;
+  color: #c6443e;
+}
+.MatchDetailTeamLegend ul li:first-child {
+  margin-left: 0;
+}
+.MatchDetailTeamLegend ul li:first-child:before {
+  border-top-color: #1a78ae;
+}
+.MatchDetailTeamLegend ul li:first-child span {
+  color: #1a78ae;
+}
+.MatchDetailMatchAnalysis {
+  background: #ededed;
+  padding: 10px 5px;
+}
+.MatchDetailMatchAnalysis .MatchDetailTeamLegend {
+  text-align: center;
+}
+.MatchDetailMatchAnalysis > ul > li {
+  float: left;
+  width: 50%;
+  padding: 0 5px;
+  box-sizing: border-box;
+  margin-top: 15px;
+}
+.MatchDetailMatchAnalysis > ul:after {
+  content: "\00a0";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  font-size: 0;
+}
+.MatchAnalysisListItemContent h4 {
+  line-height: 15px;
+  font-size: 12px;
+  color: #555;
+  padding-bottom: 2px;
+  border-bottom: 2px solid #cdd2d2;
+  text-align: center;
+}
+.MatchAnalysisListItemContent .TeamScore {
+  position: relative;
+  font-size: 12px;
+  line-height: 15px;
+  margin: 5px 0;
+}
+.MatchAnalysisListItemContent .TeamScore .Team {
+  float: left;
+  width: 50%;
+  text-align: center;
+}
+.MatchAnalysisListItemContent .TeamScore .Team.Result-WIN {
+  color: #1a78ae;
+}
+.MatchAnalysisListItemContent .TeamScore .Team.Result-LOSE {
+  color: #c6443e;
+}
+.MatchAnalysisListItemContent .TeamScore .Diff {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  color: #555;
+}
+.MatchAnalysisListItemContent .TeamScore:after {
+  content: "\00a0";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  font-size: 0;
+}
+.MatchAnalysisListItemContent .MatchAnalysisTable {
+  position: relative;
+}
+.MatchAnalysisListItemContent .MatchAnalysisTable .Team {
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
+  border-left: 1px solid transparent;
+}
+.MatchAnalysisListItemContent .MatchAnalysisTable .Team:first-child {
+  border-right: 1px solid transparent;
+  border-left: none;
+}
+.MatchAnalysisListItemContent .MatchAnalysisTable .Team li {
+  margin-top: 2px;
+  font-size: 0;
+}
+.MatchAnalysisListItemContent .MatchAnalysisTable .Team li .ChampionImage {
+  float: left;
+  width: 14px;
+  height: 14px;
+}
+.MatchAnalysisListItemContent .MatchAnalysisTable .Team li .ChampionImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.MatchAnalysisListItemContent .MatchAnalysisTable .Team li .Progress {
+  position: relative;
+  margin-left: 14px;
+  height: 14px;
+  background: #d7d7d7;
+}
+.MatchAnalysisListItemContent .MatchAnalysisTable .Team li .Progress .Bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+.MatchAnalysisListItemContent .MatchAnalysisTable .Team li .Progress span {
+  position: absolute;
+  top: 1px;
+  right: 5px;
+  line-height: 12px;
+  font-size: 10px;
+  color: #000;
+}
+.MatchAnalysisListItemContent .MatchAnalysisTable .Team li:first-child {
+  margin-top: 0;
+}
+.MatchAnalysisListItemContent
+  .MatchAnalysisTable
+  .Team.Result-WIN
+  .Progress
+  .Bar {
+  background: #1a78ae;
+}
+.MatchAnalysisListItemContent
+  .MatchAnalysisTable
+  .Team.Result-LOSE
+  .Progress
+  .Bar {
+  background: #c6443e;
+}
+.MatchAnalysisListItemContent .MatchAnalysisTable:after {
+  content: "\00a0";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  font-size: 0;
+}
+.MatchBuild {
+  background: #ededed;
+}
+.MatchBuild .Title {
+  padding: 10px 15px;
+  line-height: 15px;
+  font-size: 12px;
+  color: #333;
+  background: #f2f2f2;
+  border-top: 1px solid #cdd2d2;
+  border-bottom: 1px solid #cdd2d2;
+}
+.MatchBuild > .ItemBuild .Title {
+  border-top: none;
+}
+.MatchBuild > .ItemBuild > .List {
+  font-size: 0;
+  margin: 10px 0 3px;
+}
+.MatchBuild > .ItemBuild > .List > .Item {
+  position: relative;
+  display: inline-block;
+  margin: 0 0 23px;
+}
+.MatchBuild > .ItemBuild > .List > .Item > .Bar {
+  display: inline-block;
+  width: 15px;
+  height: 14px;
+  line-height: 14px;
+  margin: 8px -1px 0;
+  background-color: #cdd2d2;
+  vertical-align: top;
+  text-align: center;
+}
+.MatchBuild > .ItemBuild > .List > .Item > .Items {
+  display: inline-block;
+  padding: 4px;
+  background-color: #cdd2d2;
+  border-radius: 3px;
+  vertical-align: top;
+}
+.MatchBuild > .ItemBuild > .List > .Item > .Items > .Item {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  position: relative;
+  margin-left: 3px;
+}
+.MatchBuild > .ItemBuild > .List > .Item > .Items > .Item > .Image {
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+}
+.MatchBuild > .ItemBuild > .List > .Item > .Items > .Item > .Extra {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.MatchBuild > .ItemBuild > .List > .Item > .Items > .Item > .Extra > span {
+  display: inline-block;
+  border-top-left-radius: 3px;
+  padding: 1px 3px;
+  color: #f2f2f2;
+  background-color: #000;
+  font-weight: bold;
+  font-size: 11px;
+}
+.MatchBuild > .ItemBuild > .List > .Item > .Items > .Item.Sold > .Image {
+  zoom: 1;
+  filter: alpha(opacity=70);
+  -webkit-opacity: 0.7;
+  -moz-opacity: 0.7;
+  opacity: 0.7;
+}
+.MatchBuild > .ItemBuild > .List > .Item > .Items > .Item:first-child {
+  margin-left: 0;
+}
+.MatchBuild > .ItemBuild > .List > .Item > .Time {
+  position: absolute;
+  bottom: -18px;
+  font-size: 10px;
+  color: #777;
+  left: 20px;
+  right: 0;
+  text-align: center;
+  white-space: nowrap;
+}
+.MatchBuild > .ItemBuild > .List > .Item:first-child {
+  margin-left: 10px;
+}
+.MatchBuild > .ItemBuild > .List > .Item:first-child > .Bar {
+  display: none;
+}
+.MatchBuild > .ItemBuild > .List > .Item:first-child > .Time {
+  left: 0;
+}
+.MatchBuild > .SkillBuild > .Content {
+  padding: 10px;
+}
+.MatchBuild > .SkillBuild .SkillOrder > .Item {
+  position: relative;
+  display: inline-block;
+  font-size: 0;
+  vertical-align: middle;
+}
+.MatchBuild > .SkillBuild .SkillOrder > .Item > .Image {
+  width: 22px;
+  height: 22px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.MatchBuild > .SkillBuild .SkillOrder > .Item > .HotKey {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  line-height: 12px;
+  right: 0;
+  bottom: 0;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  border-radius: 2px;
+  font-size: 10px;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.MatchBuild > .SkillBuild .SkillOrder > .Bar {
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+  vertical-align: middle;
+}
+.MatchBuild > .SkillBuild .SkillBuildTable {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+.MatchBuild > .SkillBuild .SkillBuildTable > .Content > .Row > .Cell {
+  position: relative;
+}
+.MatchBuild > .SkillBuild .SkillBuildTable > .Content > .Row > .Cell.Passive {
+  position: relative;
+  border: 1px solid #cdd2d2;
+  color: #666;
+  font-size: 11px;
+  text-align: center;
+  font-weight: bold;
+}
+.MatchBuild > .SkillBuild .SkillBuildTable > .Content > .Row > .Cell.Value {
+  position: relative;
+  min-width: 20px;
+  height: 20px;
+  border: 1px solid #cdd2d2;
+  color: #1f8ecd;
+  font-family: Arial;
+  font-size: 11px;
+  text-align: center;
+  font-weight: bold;
+}
+.MatchBuild
+  > .SkillBuild
+  .SkillBuildTable
+  > .Content
+  > .Row
+  > .Cell.Value
+  > .Image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0.3;
+  height: 100%;
+  width: 100%;
+}
+.MatchBuild
+  > .SkillBuild
+  .SkillBuildTable
+  > .Content
+  > .Row
+  > .Cell.Value.LevelUP {
+  background: #1a79ae;
+  color: #f2f2f2;
+}
+.MatchBuild
+  > .SkillBuild
+  .SkillBuildTable
+  > .Content
+  > .Row
+  > .Cell.Value.LevelUP.Master {
+  background: #249069;
+}
+.MatchBuild > .SkillBuild .SkillBuildTable > .Content > .Row > .Cell.Label {
+  border-right: 1px solid #cdd2d2;
+  color: #777;
+  font-size: 11px;
+  vertical-align: middle;
+  text-align: center;
+}
+.MatchBuild
+  > .SkillBuild
+  .SkillBuildTable
+  > .Content
+  > .Row
+  > .Cell:last-child {
+  border-right: 1px solid #cdd2d2;
+}
+.MatchBuild > .SkillBuild .SkillBuildTable > .Content > .Row > .Cell > .HotKey {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  right: 2px;
+  bottom: 2px;
+  font-weight: bold;
+  text-align: center;
+  color: #f2f2f2;
+  border-radius: 3px;
+  font-size: 11px;
+  background-color: #000;
+  background: rgba(0, 0, 0, 0.5);
+}
+.MatchBuild .RuneList {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.MatchBuild .RuneList .Rune {
+  display: table-row;
+}
+.MatchBuild .RuneList .Image {
+  display: table-cell;
+  padding: 6px 0;
+  width: 62px;
+  vertical-align: middle;
+  text-align: center;
+}
+.MatchBuild .RuneList .Image img {
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+}
+.MatchBuild .RuneList .Rune:first-child .Image img {
+  width: 40px;
+  height: 40px;
+  background: #000;
+  border-radius: 20px;
+}
+.MatchBuild .RuneList .Name {
+  display: table-cell;
+  width: 90px;
+  vertical-align: middle;
+  line-height: 15px;
+  font-size: 12px;
+  color: #333;
+}
+.MatchBuild .RuneList .Value {
+  display: table-cell;
+  padding-right: 12px;
+  padding-left: 14px;
+  vertical-align: middle;
+  line-height: 14px;
+  font-size: 12px;
+  color: #666;
+}
+.MatchBuild .RuneList .Value strong {
+  color: #333;
+}
+.jcf-select-TeamAnalysisGraphFilter {
+  display: block;
+}
+.jcf-select-TeamAnalysisGraphFilter .jcf-select-text {
+  display: block;
+  line-height: 15px;
+  font-size: 12px;
+  color: #555;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #d7dada;
+  border-radius: 3px;
+}
+.jcf-select-TeamAnalysisGraphFilter .jcf-select-opener {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 10px;
+  height: 6px;
+  margin-top: 15px;
+  margin-right: 10px;
+  background: url("../css3/sprite/images/btn-list-down.png") center no-repeat;
+}
+.TeamAnalysisGraph {
+  background: #ededed;
+  overflow: hidden;
+}
+.TeamAnalysisGraph .jcf-select-TeamAnalysisGraphFilter {
+  margin: 10px;
+}
+.TeamAnalysisGraph .MatchDetailTeamLegend {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.TeamAnalysisKillMap {
+  padding: 15px 30px;
+  background: #ededed;
+}
+.TeamAnalysisKillMap .Team h4 {
+  line-height: 15px;
+  font-size: 12px;
+  color: #555e5e;
+  padding-bottom: 2px;
+  border-bottom: 2px solid #cdd2d2;
+}
+.TeamAnalysisKillMap .Team ul {
+  margin-top: 5px;
+  text-align: justify;
+  height: 48px;
+}
+.TeamAnalysisKillMap .Team ul li {
+  font-size: 0;
+  display: inline-block;
+}
+.TeamAnalysisKillMap .Team ul li a {
+  display: block;
+}
+.TeamAnalysisKillMap .Team ul li img {
+  width: 40px;
+  height: 40px;
+  border-bottom: 8px solid #cdd2d2;
+}
+.TeamAnalysisKillMap .Team ul li .On {
+  display: none;
+}
+.TeamAnalysisKillMap .Team ul li .Off {
+  display: inline-block;
+}
+.TeamAnalysisKillMap .Team ul li.Active .On {
+  display: inline-block;
+}
+.TeamAnalysisKillMap .Team ul li.Active .Off {
+  display: none;
+}
+.TeamAnalysisKillMap .Team ul:after {
+  display: inline-block;
+  width: 100%;
+  visibility: hidden;
+  font-size: 0;
+  content: "";
+  height: 0;
+}
+.TeamAnalysisKillMap .Map {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  background: url(../images/maps/11.png) no-repeat;
+  background-size: cover;
+  margin: 10px 0;
+}
+.TeamAnalysisKillMap .Map ul.Kill li {
+  margin-left: -6px;
+  margin-bottom: 6px;
+}
+.TeamAnalysisKillMap .Map ul.Kill i {
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: #000;
+  border-radius: 6px;
+  opacity: 0.8;
+  border: 1px solid #333;
+}
+.TeamAnalysisKillMap .Map ul.Death li {
+  margin-left: -12px;
+}
+.TeamAnalysisTimeline {
+  background: #ededed;
+  padding: 10px;
+}
+.TeamAnalysisTimeline .TeamAnalysisTimelineList {
+  margin-top: 10px;
+}
+.TimelineFilter .MatchDetailTeamLegend {
+  text-align: center;
+}
+.TimelineFilter > ul {
+  margin-top: 10px;
+  border: 1px solid #cdd2d2;
+  background: #dfe4e4;
+  text-align: center;
+}
+.TimelineFilter > ul li {
+  display: inline-block;
+  padding: 10px 0;
+  margin-left: 10px;
+}
+.TimelineFilter > ul li label {
+  display: block;
+  position: relative;
+}
+.TimelineFilter > ul li input {
+  background: transparent;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  width: 25px;
+  height: 25px;
+}
+.TimelineFilter > ul li i {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  background: url(../images/site/summoner/checkbox-blue-sel.png);
+  margin-right: 5px;
+  opacity: 0.3;
+}
+.TimelineFilter > ul li span {
+  line-height: 15px;
+  font-size: 12px;
+  color: #555;
+}
+.TimelineFilter > ul li input:checked + i {
+  opacity: 1;
+}
+.TimelineFilter > ul li input:checked + i + span {
+  color: #1f8ecd;
+}
+.TimelineFilter > ul li:first-child {
+  margin-left: 0;
+}
+.TeamAnalysisTimelineList li {
+  position: relative;
+  margin-top: 2px;
+}
+.TeamAnalysisTimelineList li > .Time {
+  float: left;
+  width: 60px;
+  font-size: 11px;
+  line-height: 16px;
+  color: #333;
+  padding: 4px 0;
+  text-align: center;
+}
+.TeamAnalysisTimelineList li > .Message {
+  margin-left: 60px;
+  background: #fafafa;
+  border-left: 3px solid #cdd2d2;
+  padding: 4px 5px;
+  line-height: 15px;
+  font-size: 12px;
+  color: #333;
+}
+.TeamAnalysisTimelineList li > .Message img {
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.TeamAnalysisTimelineList li > .Message b {
+  font-weight: normal;
+  color: #c6443e;
+  margin-right: 10px;
+}
+.TeamAnalysisTimelineList li > .Message span {
+  font-size: 0;
+}
+.TeamAnalysisTimelineList li .ExtraEvent {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 7px 5px;
+  width: 40%;
+}
+.TeamAnalysisTimelineList li .ExtraEvent .Message {
+  font-size: 10px;
+  line-height: 12px;
+}
+.TeamAnalysisTimelineList li .ExtraEvent .Time {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-top: 7px;
+  margin-right: 5px;
+  line-height: 12px;
+  font-size: 10px;
+  color: #333;
+}
+.TeamAnalysisTimelineList li:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
+.TeamAnalysisTimelineList li.Result-WIN > .Message {
+  background: #d8e4ec;
+  border-left-color: #1a78ae;
+}
+.TeamAnalysisTimelineList li.Result-WIN .ExtraEvent {
+  background: #a3cfec;
+  color: #1a78ae;
+}
+.TeamAnalysisTimelineList li.Result-LOSE > .Message {
+  background: #e9e0e0;
+  border-left-color: #c6443e;
+}
+.TeamAnalysisTimelineList li.Result-LOSE .ExtraEvent {
+  background: #e7d1d0;
+  color: #c6443e;
+}
+.MatchDetailGold {
+  background: #ededed;
+  overflow: hidden;
+}
+.MatchDetailGoldFilter {
+  margin: 10px;
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #cdd2d2;
+  background: #dfe4e4;
+}
+.MatchDetailGoldFilter h2 {
+  line-height: 12px;
+  font-size: 10px;
+  color: #555;
+  margin-bottom: 10px;
+}
+.MatchDetailGoldFilter .Versus {
+  line-height: 12px;
+  font-size: 10px;
+  color: #999;
+  margin: 5px 0;
+}
+.MatchDetailGoldFilter ul {
+  text-align: justify;
+  height: 48px;
+}
+.MatchDetailGoldFilter ul li {
+  font-size: 0;
+  display: inline-block;
+}
+.MatchDetailGoldFilter ul li a {
+  display: block;
+}
+.MatchDetailGoldFilter ul li img {
+  width: 40px;
+  height: 40px;
+  border-bottom: 8px solid #999;
+}
+.MatchDetailGoldFilter ul li .On {
+  display: none;
+}
+.MatchDetailGoldFilter ul li .Off {
+  display: block;
+}
+.MatchDetailGoldFilter ul li.Active .On {
+  display: block;
+}
+.MatchDetailGoldFilter ul li.Active .Off {
+  display: none;
+}
+.MatchDetailGoldFilter ul li:first-child {
+  margin-left: 0;
+}
+.MatchDetailGoldFilter ul:after {
+  display: inline-block;
+  width: 100%;
+  visibility: hidden;
+  font-size: 0;
+  content: "";
+  height: 0;
+}
+#TeamAnalysisTimelineListButton {
+  border: 1px solid #cdd2d2;
+  background: none;
+  margin-top: 10px;
+  padding: 10px 0;
+  width: 100%;
+  color: #555;
+  font-size: 12px;
+}
+.GameItem {
+  position: relative;
+  font-size: 0;
+}
+.GameItem > .GameItemAlert {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+  background: url(../images/pattern/brightblue.9.png);
+  z-index: 10;
+  color: #f2f2f2;
+  border: 1px solid #1f8ecd;
+  border-left: 0;
+  border-right: 0;
+}
+.GameItem > .GameItemAlert > .AlertClose {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  background: #1f8ecd;
+  text-align: center;
+}
+.GameItem > .GameItemAlert > .AlertTitle {
+  display: block;
+  height: 24px;
+  text-align: left;
+  padding-left: 12px;
+  line-height: 24px;
+  border-bottom: 1px solid #1f8ecd;
+}
+.GameItem > .GameItemAlert > .Content {
+  text-align: center;
+  margin-top: 5px;
+}
+.GameItem > .GameItemAlert > .Content > .AlertMessage {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.GameItem > .GameItemAlert > .Content > .AlertMessageButton {
+  display: inline-block;
+  vertical-align: middle;
+}
+.GameItem > .Bar {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  bottom: 0;
+  width: 6px;
+  z-index: 0;
+  border-right: 1px solid transparent;
+  border-left: 1px solid transparent;
+}
+.GameItem > .Card {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin-left: 7px;
+  border-bottom: 1px solid #cdd2d2;
+}
+.GameItem > .Card > .Title {
+  position: relative;
+  height: 24px;
+  border-bottom: 1px solid #cdd2d2;
+  line-height: 24px;
+}
+.GameItem > .Card > .Title > .Text {
+  color: #555e5e;
+  font-size: 11px;
+  text-indent: 5px;
+}
+.GameItem > .Card > .Title > .Text > .TimeStamp,
+.GameItem > .Card > .Title > .Text > .GameMMR {
+  font-size: 11px;
+  font-weight: normal;
+}
+.GameItem > .Card > .Title > .Text b {
+  color: #000;
+}
+.GameItem > .Card > .Title > .Right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  vertical-align: middle;
+  text-align: right;
+}
+.GameItem > .Card > .Title > .Right > .GameLength {
+  margin-left: 6px;
+  color: #555e5e;
+  font-size: 11px;
+}
+.GameItem > .Card > .Title > .Right > .GameResult {
+  margin-left: 6px;
+  font-size: 11px;
+}
+.GameItem > .Card > .Title > .Right > .GameResult > .Wins {
+  color: #1e71bc;
+}
+.GameItem > .Card > .Title > .Right > .GameResult > .Losses {
+  color: #c71919;
+}
+.GameItem > .Card > .Title > .Right > .Actions {
+  display: inline-block;
+  margin-left: 6px;
+  vertical-align: top;
+}
+.GameItem > .Card > .Title > .Right > .Actions > .Action {
+  display: inline-block;
+  width: 30px;
+  border: 1px solid #cdd2d2;
+  border-right: none;
+  margin: -1px 0 -1px -1px;
+  color: #555e5e;
+  font-size: 11px;
+  text-align: center;
+  vertical-align: top;
+}
+.GameItem > .Card > .Title > .Right > .Actions > .Action.Replay {
+  width: auto;
+  border-color: #036a60 !important;
+  background-color: #03796e;
+  padding: 0 10px;
+  text-align: center;
+  text-decoration: none;
+}
+.GameItem > .Card > .Title > .Right > .Actions > .Action.Replay > .Text {
+  margin-left: 4px;
+  font-size: 11px;
+  vertical-align: middle;
+  color: #fff;
+}
+.GameItem > .Card > .Title > .Right > .Actions > .Action.Message {
+  width: inherit;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.GameItem > .Card > .Title > .Right > .Actions > .Action.Detail .On {
+  display: none;
+}
+.GameItem > .Card > .Title > .Right > .Actions > .Action.Detail .Off {
+  display: inline-block;
+}
+.GameItem > .Card > .GameStats {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.GameItem > .Card > .GameStats > .ChampionImageAndSpell {
+  display: table-cell;
+  width: 80px;
+  vertical-align: middle;
+  padding-left: 5px;
+}
+.GameItem > .Card > .GameStats > .ChampionImageAndSpell > .ChampionImage {
+  display: inline-block;
+  margin-right: 2px;
+  vertical-align: middle;
+}
+.GameItem
+  > .Card
+  > .GameStats
+  > .ChampionImageAndSpell
+  > .ChampionImage
+  > a
+  > .Image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.GameItem > .Card > .GameStats > .ChampionImageAndSpell > .Spells {
+  display: inline-block;
+  vertical-align: middle;
+}
+.GameItem > .Card > .GameStats > .ChampionImageAndSpell > .Spells > .Spell {
+  margin-top: 2px;
+}
+.GameItem
+  > .Card
+  > .GameStats
+  > .ChampionImageAndSpell
+  > .Spells
+  > .Spell:first-child {
+  margin-top: 0;
+}
+.GameItem
+  > .Card
+  > .GameStats
+  > .ChampionImageAndSpell
+  > .Spells
+  > .Spell
+  > .Image {
+  width: 18px;
+  height: 18px;
+  border-radius: 2px;
+}
+.GameItem > .Card > .GameStats > .ChampionImageAndSpell .Runes {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 1px;
+}
+.GameItem > .Card > .GameStats > .ChampionImageAndSpell .Runes > .Rune {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+}
+.GameItem
+  > .Card
+  > .GameStats
+  > .ChampionImageAndSpell
+  .Runes
+  > .Rune
+  > .Image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.GameItem
+  > .Card
+  > .GameStats
+  > .ChampionImageAndSpell
+  .Runes
+  > .Rune:first-child {
+  margin-top: 0;
+}
+.GameItem
+  > .Card
+  > .GameStats
+  > .ChampionImageAndSpell
+  .Runes
+  > .Rune:first-child
+  > .Image {
+  background: #000;
+}
+.GameItem > .Card > .GameStats > .ChampionImageAndSpell .KeystoneMastery {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+.GameItem
+  > .Card
+  > .GameStats
+  > .ChampionImageAndSpell
+  .KeystoneMastery
+  > .Mastery {
+  width: 18px;
+  height: 18px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.GameItem
+  > .Card
+  > .GameStats
+  > .ChampionImageAndSpell
+  .KeystoneMastery
+  > .Mastery
+  > .Image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.GameItem > .Card > .GameStats > .KDA {
+  display: table-cell;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.GameItem > .Card > .GameStats > .KDA > .KDA {
+  margin-bottom: 2px;
+  color: #879292;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.GameItem > .Card > .GameStats > .KDA > .KDA > .Kill {
+  color: #555e5e;
+  font-weight: bold;
+}
+.GameItem > .Card > .GameStats > .KDA > .KDA > .Death {
+  color: #c6443e;
+  font-weight: bold;
+}
+.GameItem > .Card > .GameStats > .KDA > .KDA > .Assist {
+  color: #555e5e;
+  font-weight: bold;
+}
+.GameItem > .Card > .GameStats > .KDA > .KDARatio {
+  color: #879292;
+  font-size: 11px;
+  font-weight: bold;
+}
+.GameItem > .Card > .GameStats > .KDA > .KDARatio .KDARatio {
+  color: #555e5e;
+}
+.GameItem > .Card > .GameStats > .KDA > .MultiKill {
+  display: inline-block;
+  margin: 4px;
+}
+.GameItem > .Card > .GameStats > .KDA > .MultiKill > .Kill {
+  display: inline-block;
+  background: #ee5a52;
+  border: 1px solid #c6443e;
+  border-radius: 15px;
+  padding: 2px 4px;
+  color: #fff;
+  font-size: 10px;
+}
+.GameItem > .Card > .GameStats > .KDA > .Badge {
+  display: inline-block;
+  color: #fff;
+  border-radius: 7px;
+  margin: 4px 4px 4px 0px;
+  width: 34px;
+  height: 16px;
+  line-height: 16px;
+  font-size: 11px;
+}
+@media only screen and (max-width: 374px) {
+  .GameItem > .Card > .GameStats > .KDA > .Badge {
+    display: none;
+  }
+}
+.GameItem > .Card > .GameStats > .KDA > .ACE {
+  border-radius: 9px;
+  background-color: #8c51c5;
+  border: solid 1px #7f3590;
+}
+.GameItem > .Card > .GameStats > .KDA > .MVP {
+  border-radius: 9px;
+  background-color: #e19205;
+  border: solid 1px #b88a2a;
+}
+.GameItem > .Card > .GameStats > .Stats {
+  display: table-cell;
+  padding: 0 8px 0 6px;
+  color: #555e5e;
+  font-size: 11px;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.GameItem > .Card > .GameStats > .Stats > .CS > .CS {
+  color: #1a78ae;
+}
+.GameItem > .Card > .GameStats > .Stats > .Ward {
+  color: #333;
+}
+.GameItem > .Card > .GameStats > .Stats > .Ward > .sight {
+  color: #1a78ae;
+}
+.GameItem > .Card > .GameStats > .Stats > .Ward > .vision {
+  color: #c6443e;
+}
+.GameItem > .Card > .GameStats > .Stats > .CKRate {
+  color: #c6443e;
+}
+.GameItem > .Card > .GameStats > .Items {
+  display: table-cell;
+  width: 75px;
+  padding: 3px 0 0 3px;
+  vertical-align: middle;
+}
+.GameItem > .Card > .GameStats > .Items > .Item {
+  display: inline-block;
+  margin: 0 3px 3px 0;
+  vertical-align: top;
+}
+.GameItem > .Card > .GameStats > .Items > .Item > .Image {
+  width: 22px;
+  height: 22px;
+  border-radius: 3px;
+}
+.GameItem > .Card > .GameStats > .Items > .Item > .NoItem {
+  background-image: url(../images/pattern/opacity.1.png);
+  background-size: 100%;
+}
+.GameItem > .Card > .GameStats > .TrinketWithItem {
+  display: table-cell;
+  width: 22px;
+  padding-right: 2px;
+  vertical-align: middle;
+}
+.GameItem > .Card > .GameStats > .TrinketWithItem > .Item {
+  display: inline-block;
+}
+.GameItem > .Card > .GameStats > .TrinketWithItem > .Item > .Image {
+  width: 22px;
+  height: 22px;
+  border-radius: 3px;
+}
+.GameItem > .Card > .GameStats > .TrinketWithItem > .Item > .NoItem {
+  background-image: url(../images/pattern/opacity.1.png);
+  background-size: 100%;
+}
+.GameItem > .Card > .GameStats > .TrinketWithItem > .Caption {
+  text-align: center;
+  color: #879292;
+  font-size: 10px;
+}
+.GameItem > .Card > .GameStats > .TrinketWithItem > .Button {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border-radius: 3px;
+  border: 1px solid #cdd2d2;
+}
+.GameItem > .Card > .GameStats > .Summoners {
+  display: none;
+}
+.GameItem > .Card > .GameDetail {
+  display: none;
+}
+.GameItem.Win {
+  border-bottom-color: #99b9cf;
+  border-top-color: #99b9cf;
+}
+.GameItem.Win > .Bar {
+  background: #3d95e5;
+  border-color: #3480c6;
+}
+.GameItem.Win > .Card {
+  background-color: #a3cfec;
+  border-color: #99b9cf;
+}
+.GameItem.Win > .Card > .Title {
+  border-bottom: 1px solid #99b9cf;
+}
+.GameItem.Win > .Card > .Title > .Right > .GameResult {
+  color: #1f8ecd;
+}
+.GameItem.Win > .Card > .Title > .Right > .Actions > .Action {
+  background-color: #64b1e4;
+  border-color: #4aa1d2;
+  color: #fff;
+}
+.GameItem.Win > .Card > .GameStats > .TrinketWithItem > .Button {
+  border-color: #99b9cf;
+  background: #9fc9e6;
+}
+.GameItem.Lose {
+  border-bottom-color: #cea7a7;
+  border-top-color: #cea7a7;
+}
+.GameItem.Lose > .Bar {
+  background: #ee5a52;
+  border-color: #c6443e;
+}
+.GameItem.Lose > .Card {
+  background-color: #e2b6b3;
+  border-color: #cea7a7;
+}
+.GameItem.Lose > .Card > .Title {
+  border-bottom: 1px solid #cea7a7;
+}
+.GameItem.Lose > .Card > .Title > .Right > .GameResult {
+  color: #c6443e;
+}
+.GameItem.Lose > .Card > .Title > .Right > .Actions > .Action {
+  background-color: #e89d99;
+  border-color: #d67b77;
+  color: #fff;
+}
+.GameItem.Lose > .Card > .GameStats > .TrinketWithItem > .Button {
+  border-color: #cea7a7;
+  background: #dcb1ae;
+}
+.GameItem.Leaver > .Card {
+  background-color: #eaeaea;
+  border-color: #d7dada;
+}
+.GameItem.Leaver > .Card > .Title {
+  border-bottom: 1px solid #d7dada;
+}
+.GameItem.Leaver > .Card > .Title > .Right > .GameResult {
+  color: #353a3a;
+}
+.GameItem.Leaver > .Card > .Title > .Right > .Actions > .Action {
+  background-color: #a7a7a7;
+  border-color: #999;
+  color: #fff;
+}
+.GameItem.Remake > .Bar {
+  background-color: #333;
+  border-color: #222;
+}
+.GameItem.Remake > .Card {
+  background-color: #b6b6b6;
+  border-color: #a7a7a7;
+}
+.GameItem.Remake > .Card > .Title {
+  border-bottom: 1px solid #a7a7a7;
+}
+.GameItem.Remake > .Card > .Title > .Right > .GameResult {
+  color: #000;
+}
+.GameItem.Remake > .Card > .Title > .Right > .Actions > .Action {
+  border-color: #a7a7a7;
+}
+.GameItem.extended {
+  border-bottom: none;
+}
+.GameItem.extended > .Card > .Title > .Right > .Actions > .Action.Detail .On {
+  display: inline-block;
+}
+.GameItem.extended > .Card > .Title > .Right > .Actions > .Action.Detail .Off {
+  display: none;
+}
+.GameItem.extended > .Card > .GameStats {
+  display: none;
+}
+.GameItem.extended > .Card > .GameDetail {
+  display: block;
+  font-size: 12px;
+}
+.GameItem.extended.Win .MatchDetailHeader ul {
+  background: #64b1e4;
+}
+.GameItem.extended.Lose .MatchDetailHeader ul {
+  background: #e89d99;
+}
+.perk-popup {
+  background: #fff;
+  overflow: hidden;
+}
+.perk-popup-header {
+  position: relative;
+}
+.perk-popup-header__text {
+  text-align: left;
+  padding: 10px;
+}
+.perk-popup-header__text img {
+  width: 26px;
+  height: 26px;
+  vertical-align: middle;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+.perk-popup-header__text span {
+  line-height: 14px;
+  font-size: 12px;
+  color: #222;
+}
+.perk-popup-header__button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  width: 40px;
+  height: 46px;
+}
+.perk-popup-content {
+  margin: 0 4px 4px;
+  border-radius: 2px;
+  background: #eaeaea;
+}
+.stats-filter {
+  background-color: #f7f7f7;
+  border-bottom: solid 1px #cdd2d2;
+  padding: 4px 10px;
+  text-align: center;
+  font-size: 0;
+  white-space: nowrap;
+  overflow-y: auto;
+}
+.stats-filter .tabHeader {
+  display: inline-block;
+  margin-left: -1px;
+  background-color: #fafafa;
+  border: solid 1px #cdd2d2;
+}
+.stats-filter .tabHeader:first-child {
+  margin-left: 0;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.stats-filter .tabHeader:last-child {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.stats-filter .tabHeader.active {
+  background-color: #1f8ecd;
+  border: solid 1px #1a78ae;
+}
+.stats-filter .tabHeader.active a {
+  color: #fff;
+}
+.stats-filter a {
+  display: block;
+  text-decoration: none;
+  line-height: 15px;
+  font-size: 12px;
+  color: #555;
+  padding: 9px 16px 8px;
+}
+.plus-back-btn {
+  vertical-align: middle;
+  display: inline-block;
+  width: 14px;
+  height: 13px;
+  border: 0 none;
+  margin-right: 4px;
+  font-size: 0;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-image: url("../images/plus/mobile/icon-return@2x.png");
+  background-size: 14px 13px;
+}
+.plus-refresh-btn {
+  position: absolute;
+  right: 10px;
+  top: 6px;
+  width: 37px;
+  height: 32px;
+  font-size: 0;
+  border: 0 none;
+  border-radius: 2px;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-image: url("../images/plus/mobile/icon-refresh@2x.png");
+  background-size: 23px 18px;
+  background-position: center center;
+}
+.plus-record {
+  padding: 5px 10px;
+  text-align: right;
+}
+.plus-record .Button.SemiRound {
+  padding: 4px 7px;
+}
+.plus-record .NowRecording {
+  font-weight: bold;
+  color: #c6443e;
+}
+.plus-lane-custom-btn {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  height: 26px;
+  padding: 0 10px;
+  border: solid 1px #091c28;
+  border-radius: 2px;
+  background-color: #15212c;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 26px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+}
+.plus-lane-custom-btn .icon {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 16px;
+  height: 16px;
+  margin-right: 2px;
+  background-repeat: no-repeat;
+  background-image: url("../images/plus/mobile/icon-change@2x.png");
+  background-size: 16px 16px;
+}
+@keyframes "drop" {
+  50% {
+    background: #d8e9e3;
+  }
+}
+@-webkit-keyframes "drop" {
+  50% {
+    background: #d8e9e3;
+  }
+}
+.plus-lane-custom {
+  background: #fff;
+  text-align: center;
+  color: #222;
+  font-size: 12px;
+}
+.plus-lane-custom .label .positions li {
+  border-top-color: #f1f1f1;
+  border-bottom-color: #f1f1f1;
+}
+.plus-lane-custom .items {
+  background: #eaeaea;
+}
+.plus-lane-custom .positions-label {
+  margin-top: 30px;
+  text-align: center;
+  color: #999;
+}
+.plus-lane-custom .positions-label li {
+  margin-top: -1px;
+  height: 68px;
+  line-height: 68px;
+}
+.plus-lane-custom .positions li {
+  position: relative;
+  box-sizing: border-box;
+  border: 1px dashed #cdd2d2;
+  margin-top: -1px;
+  height: 68px;
+  line-height: 68px;
+}
+.plus-lane-custom .positions li:first-child {
+  border-top-style: solid;
+}
+.plus-lane-custom .positions .moving {
+  z-index: 2;
+  border: 1px solid #2daf7f !important;
+  background: #d8e9e3;
+}
+.plus-lane-custom .positions .moving .drag-area {
+  background-image: url("../images/plus/icon-change-p.png");
+}
+.plus-lane-custom .positions .over {
+  z-index: 1;
+  border-color: #2daf7f !important;
+  background: #d8e9e3;
+}
+.plus-lane-custom .positions .drag-area {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  cursor: move;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url("../images/plus/icon-change-n.png");
+}
+.plus-lane-custom .positions .drag-area:hover {
+  background-image: url("../images/plus/icon-change-p.png");
+}
+.plus-lane-custom .positions .drop {
+  animation: drop 2s ease;
+}
+.plus-lane-custom__header {
+  position: relative;
+  background: #15212c;
+  font-size: 18px;
+  color: #fff;
+}
+.plus-lane-custom__header table {
+  width: 100%;
+}
+.plus-lane-custom__header td {
+  padding: 0 10px;
+  height: 44px;
+  line-height: 44px;
+}
+.plus-lane-custom__header .main {
+  text-align: left;
+}
+.plus-lane-custom__header .side {
+  text-align: right;
+}
+.plus-lane-custom__title {
+  font-weight: normal;
+}
+.plus-lane-custom__submit {
+  padding: 7px 25px;
+  border-radius: 2px;
+  border: 0 none;
+  background-color: #36a4a4;
+  color: #ffffff;
+  font-size: 14px;
+  text-align: center;
+}
+.plus-lane-custom__desc {
+  padding: 15px 0;
+}
+.plus-lane-custom__desc strong {
+  color: #0d9f78;
+}
+.plus-lane-custom__positions {
+  display: inline-block;
+}
+.plus-lane-custom__positions:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
+.plus-lane-custom__positions__col {
+  float: left;
+  width: 124px;
+}
+.plus-lane-custom__positions__col.label {
+  width: 43px;
+}
+.plus-lane-custom__positions__col__header {
+  text-align: center;
+  background: #fafafa;
+  border: 1px solid #cdd2d2;
+  height: 28px;
+  line-height: 28px;
+}
+.label .plus-lane-custom__positions__col__header {
+  background: #fff;
+  border-color: #fff;
+}
+.plus-image-champion {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+}
+.plus-lane-custom .plus-image-champion {
+  width: 56px;
+  height: 56px;
+}
+.plus-lane .plus-image-champion {
+  width: 24px;
+  height: 24px;
+}
+.plus-section__header .plus-image-champion {
+  width: 28px;
+  height: 28px;
+}
+.plus-map .plus-image-champion {
+  width: 43px;
+  height: 43px;
+}
+.plus-image-summoner {
+  display: block;
+  width: 38px;
+  height: 38px;
+}
+.plus-avg {
+  color: #666666;
+}
+.plus-content {
+  font-size: 12px;
+  line-height: 1.4;
+  color: #666666;
+  overflow: hidden;
+}
+.plus-content.fixed {
+  display: none;
+}
+.plus-content__header {
+  padding: 9px 15px;
+  background: #36a4a4;
+  color: #fff;
+}
+.plus-content__title {
+  font-weight: normal;
+  font-size: 18px;
+}
+.plus-content__title .icon {
+  font-weight: bold;
+  font-size: 1.2em;
+  top: -0.2em;
+}
+.plus-section.user {
+  border-bottom: 1px solid #ddd;
+}
+.plus-section__header {
+  padding: 8px 15px;
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: #ddd;
+  background: #f7f7f7;
+  font-weight: bold;
+  font-size: 14px;
+  color: #454c4c;
+}
+.plus-type .plus-section__header {
+  padding: 4px 15px;
+}
+.plus-type__queue {
+  display: inline-block;
+  font-size: 11px;
+}
+.plus-type__map {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: normal;
+}
+.plus-type__time {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: normal;
+}
+.plus-type__divide {
+  display: inline-block;
+  font-size: 11px;
+  color: #cdd2d2;
+  margin: 0 2px;
+  font-weight: normal;
+}
+.plus-invasion__content .items {
+  margin: 12px 15px;
+  font-size: 12px;
+  line-height: 16px;
+}
+.plus-invasion__content li {
+  margin-top: 2px;
+}
+.plus-invasion__content li:first-child {
+  margin-top: 0;
+}
+.plus-invasion__content i {
+  font-style: normal;
+  color: #c6443e;
+}
+.plus-invasion__content strong {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  background: #fff5ab;
+  font-weight: normal;
+}
+.plus-lane {
+  position: relative;
+}
+.plus-lane__content table {
+  width: 100%;
+}
+.plus-lane__table {
+  width: 100%;
+  font-size: 11px;
+}
+.plus-lane__table:nth-last-child(1) {
+  margin-bottom: 15px;
+}
+.plus-lane__table > thead > tr > th {
+  height: 28px;
+  padding: 0;
+  border-bottom: 1px solid #ddd;
+  background: #ffffff;
+  font-weight: normal;
+  text-align: left;
+}
+.plus-lane__table > thead > tr > th[scope="row"] {
+  text-indent: 15px;
+}
+.plus-lane__table > thead > tr > th[scope="row"][scope="row"] {
+  color: #222222;
+}
+.our .red .plus-lane__table .team {
+  color: #c6443e;
+}
+.our .blue .plus-lane__table .team {
+  color: #1a78ae;
+}
+.plus-lane-data .negative {
+  color: #c6443e;
+  background: #f3d7d4;
+}
+.plus-lane-data .positive {
+  color: #1f8ecd;
+  background: #d5edff;
+}
+.plus-lane-data > tr:nth-child(1) > td {
+  padding-top: 8px;
+}
+.plus-lane-data > tr:nth-last-child(1) > td {
+  padding-bottom: 8px;
+  border-bottom: 1px solid #ddd;
+}
+.plus-lane-data > tr > td {
+  background-color: #f7f7f7;
+  padding: 2px 0;
+}
+.plus-lane-data .image {
+  display: inline-block;
+  padding: 0 0 0 8px;
+}
+.plus-lane-data .spell {
+  display: inline-block;
+  vertical-align: middle;
+}
+.plus-lane-data .spell img {
+  display: block;
+  margin-top: 1px;
+  width: 12px;
+  height: 12px;
+}
+.plus-lane-data .spell img:first-child {
+  margin-top: 0;
+}
+.plus-lane-data .mastery {
+  display: inline-block;
+  vertical-align: middle;
+}
+.plus-lane-data .mastery img {
+  width: 14px;
+  border-radius: 2px;
+  vertical-align: middle;
+}
+.plus-lane-data .streak {
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.plus-lane-data .streak span {
+  padding: 2px;
+  border-radius: 2px;
+}
+.plus-lane-data .rate {
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.plus-lane-data .rate .percent {
+  padding: 0 3px;
+  width: 32px;
+}
+.plus-lane-data .rune {
+  box-sizing: border-box;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+  width: 48px;
+  padding: 0 5px;
+  margin-left: 4px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 2px;
+  background: #fff;
+  border: 1px solid #cdd2d2;
+  cursor: pointer;
+  color: #999;
+}
+.plus-lane-data .rune:hover {
+  color: #666;
+  background-color: #fff;
+  border-color: #879292;
+}
+.plus-lane-data .rune:active {
+  color: #222;
+  background-color: #cdd2d2;
+  border-color: #879292;
+}
+.plus-lane-data .tier {
+  display: inline-block;
+  vertical-align: middle;
+  width: 14px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 2px;
+  color: #222;
+  font-size: 9px;
+  text-align: center;
+}
+.plus-lane-data .tier.bronze {
+  background: #a1895d;
+}
+.plus-lane-data .tier.silver {
+  background: #c5c9d5;
+}
+.plus-lane-data .tier.gold {
+  background: #ffc659;
+}
+.plus-lane-data .tier.platinum {
+  background: #00cfbc;
+}
+.plus-lane-data .tier.diamond {
+  background: #00a0d2;
+}
+.plus-lane-data .tier.master {
+  background: #fa576f;
+}
+.plus-lane-data .tier.challenger {
+  background: #fa576f;
+}
+.plus-lane-data .nostreak {
+  color: #afafaf;
+}
+.plus-lane-data .percent {
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: right;
+  padding-right: 5px;
+}
+.plus-lane-data .percent.hot {
+  color: #c6443e;
+}
+.plus-analysis-position {
+  overflow: hidden;
+  width: 100%;
+  background: #eaeaea;
+  font-size: 14px;
+  text-align: center;
+  display: none;
+}
+.plus-analysis-position.active {
+  display: block;
+}
+.plus-analysis-position.my {
+  background: #15212c;
+  border-color: #091c28;
+}
+.plus-analysis-position .our,
+.plus-analysis-position .enemy {
+  position: absolute;
+  width: 50%;
+  top: 0;
+  bottom: 0;
+}
+.plus-analysis-position .our {
+  right: 50%;
+  text-align: right;
+  margin-right: 66px;
+  padding-right: 15px;
+}
+.plus-analysis-position .enemy {
+  left: 50%;
+  text-align: left;
+  margin-left: 66px;
+  padding-left: 15px;
+}
+.plus-analysis-position__header {
+  position: relative;
+  font-weight: bold;
+  color: #222;
+  height: 60px;
+  line-height: 60px;
+}
+.my .plus-analysis-position__header {
+  color: #fff;
+}
+.user .plus-analysis-position__header .our {
+  padding-right: 0;
+}
+.user .plus-analysis-position__header .enemy {
+  padding-left: 0;
+}
+.plus-analysis-position-tab {
+  padding-bottom: 1px;
+  background: #ddd;
+}
+.plus-analysis-position-tab:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
+.plus-analysis-position-tab__item {
+  float: left;
+  box-sizing: border-box;
+  border-left: 1px solid #ddd;
+  width: 20%;
+  padding: 11px 0;
+  text-align: center;
+  font-size: 12px;
+  background: #fff;
+}
+.plus-analysis-position-tab__item:first-child {
+  border-left: 0 none;
+}
+.plus-analysis-position-tab__item.active {
+  position: relative;
+  font-weight: bold;
+  background: #eaeaea;
+}
+.plus-analysis-position-tab__item.active:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  padding: 0 1px;
+  width: 100%;
+  height: 2px;
+  background: #222;
+}
+.plus-analysis-position-tab__item.active:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  height: 1px;
+  background: #eaeaea;
+}
+.plus-analysis-position-tab__item.active.my {
+  color: #fff;
+  background: #15212c;
+}
+.plus-analysis-position-tab__item.active.my:before {
+  display: none;
+}
+.plus-analysis-position-tab__item.active.my:after {
+  background: #15212c;
+}
+.plus-analysis-position-tab__item.my {
+  color: #08764d;
+}
+.plus-analysis-trait {
+  position: relative;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  text-align: center;
+}
+.plus-analysis-trait .point {
+  position: relative;
+  top: 2px;
+  vertical-align: text-bottom;
+  color: #666666;
+}
+.plus-analysis-trait .number {
+  font-weight: bold;
+  font-size: 14px;
+  color: #666666;
+}
+.plus-analysis-trait .number.winner {
+  color: #0d9f78;
+}
+.my .plus-analysis-trait .number.winner {
+  color: #0bdca5;
+}
+.my .plus-analysis-trait .number {
+  color: #afafaf;
+}
+.plus-analysis-trait .nodata {
+  position: relative;
+  width: 6px;
+  height: 1px;
+  top: -2px;
+  display: inline-block;
+  vertical-align: middle;
+  background: #666666;
+}
+.my .plus-analysis-trait .nodata {
+  background: #afafaf;
+}
+.plus-analysis-trait__data {
+  background: #ffffff;
+  border-style: solid;
+  border-color: #ddd;
+}
+.my .plus-analysis-trait__data {
+  background: #1b313f;
+  border-color: #091c28;
+}
+.plus-analysis-trait__data.our {
+  border-width: 1px 1px 0 0;
+}
+.plus-analysis-trait__data.enemy {
+  border-width: 1px 0 0 1px;
+}
+.plus-analysis-trait__label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  text-align: center;
+  box-sizing: border-box;
+  line-height: 40px;
+  color: #666666;
+}
+.my .plus-analysis-trait__label {
+  color: #cdd2d2;
+}
+.plus-analysis-trait__label table {
+  width: 100%;
+}
+.plus-analysis-trait__label td {
+  height: 40px;
+  line-height: 1.2;
+  vertical-align: middle;
+}
+.plus-analysis-trait__label .icon {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-image: url("../images/plus/mobile/icon-plusinfo@2x.png");
+  background-size: 13px 13px;
+}
+.my .plus-analysis-trait__label .icon {
+  background-image: url("../images/plus/mobile/icon-plusinfo-black@2x.png");
+}
+.plus-analysis-participant {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+}
+.plus-analysis-participant.winner {
+  border: 4px solid #2daf7f;
+  border-radius: 50%;
+}
+.our .plus-analysis-participant.winner {
+  margin-right: -4px;
+}
+.enemy .plus-analysis-participant.winner {
+  margin-left: -4px;
+}
+.plus-analysis-lane-icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  margin-left: 2px;
+  background-size: 18px 18px;
+}
+.plus-analysis-lane-icon:first-child {
+  margin-left: 0;
+}
+.plus-analysis-lane-icon.TOP {
+  background-image: url("../images/plus/mobile/icon-gankposition-TOP@2x.png");
+}
+.my .plus-analysis-lane-icon.TOP {
+  background-image: url("../images/plus/mobile/icon-gankposition-TOP-wh@2x.png");
+}
+.plus-analysis-lane-icon.MIDDLE {
+  background-image: url("../images/plus/mobile/icon-gankposition-MIDDLE@2x.png");
+}
+.my .plus-analysis-lane-icon.MIDDLE {
+  background-image: url("../images/plus/mobile/icon-gankposition-MIDDLE-wh@2x.png");
+}
+.plus-analysis-lane-icon.BOTTOM {
+  background-image: url("../images/plus/mobile/icon-gankposition-BOTTOM@2x.png");
+}
+.my .plus-analysis-lane-icon.BOTTOM {
+  background-image: url("../images/plus/mobile/icon-gankposition-BOTTOM-wh@2x.png");
+}
+.plus-analysis-user-tier {
+  position: relative;
+  padding: 2px;
+  font-weight: bold;
+  font-size: 11px;
+  text-align: center;
+  color: #222222;
+}
+.plus-analysis-user-tier.unranked {
+  padding: 2px !important;
+  color: #879292;
+}
+.plus-analysis-user-tier.unranked img {
+  border: 2px solid #879292;
+}
+.our .plus-analysis-user-tier.unranked .text {
+  margin-left: 4px;
+}
+.enemy .plus-analysis-user-tier.unranked .text {
+  margin-right: 4px;
+}
+.plus-analysis-user-tier.bronze {
+  background: #a1895d;
+}
+.plus-analysis-user-tier.silver {
+  background: #c5c9d5;
+}
+.plus-analysis-user-tier.gold {
+  background: #ffc659;
+}
+.plus-analysis-user-tier.platinum {
+  background: #00cfbc;
+}
+.plus-analysis-user-tier.diamond {
+  background: #00a0d2;
+}
+.plus-analysis-user-tier.master {
+  background: #fa576f;
+}
+.plus-analysis-user-tier.challenger {
+  background: #fa576f;
+}
+.plus-analysis-user-tier .text {
+  position: absolute;
+  bottom: 2px;
+}
+.our .plus-analysis-user-tier {
+  padding-right: 20px;
+}
+.our .plus-analysis-user-tier.unranked {
+  margin-right: 18px;
+}
+.our .plus-analysis-user-tier .text {
+  left: 44px;
+}
+.enemy .plus-analysis-user-tier {
+  padding-left: 20px;
+}
+.enemy .plus-analysis-user-tier.unranked {
+  margin-left: 18px;
+}
+.enemy .plus-analysis-user-tier .text {
+  right: 44px;
+}
+.plus-analysis-graph-wrap {
+  position: absolute;
+  width: 100%;
+  height: 35px;
+  top: 10px;
+}
+.our .plus-analysis-graph-wrap {
+  right: 0;
+}
+.enemy .plus-analysis-graph-wrap {
+  left: 0;
+}
+.plus-analysis-graph-wrap .nodata {
+  position: absolute;
+  top: 10px;
+}
+.our .plus-analysis-graph-wrap .nodata {
+  right: 14px;
+}
+.enemy .plus-analysis-graph-wrap .nodata {
+  left: 14px;
+}
+.plus-analysis-graph {
+  margin-top: 2px;
+}
+.plus-analysis-graph:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
+.plus-analysis-graph:first-child {
+  margin-top: 0;
+}
+.plus-analysis-graph__block {
+  box-sizing: border-box;
+  width: 15px;
+  height: 20px;
+  border: 1px solid #afafaf;
+  background: #cdd2d2;
+}
+.our .plus-analysis-graph__block {
+  float: right;
+  margin-right: -1px;
+}
+.our .plus-analysis-graph__block:first-child {
+  margin-right: 0;
+}
+.enemy .plus-analysis-graph__block {
+  float: left;
+  margin-left: -1px;
+}
+.enemy .plus-analysis-graph__block:first-child {
+  margin-left: 0;
+}
+.my .plus-analysis-graph__block {
+  border-color: #091c28 !important;
+  background: #476377;
+}
+.winner .plus-analysis-graph__block {
+  border-color: #08764d;
+  background: #2daf7f;
+}
+.multi .plus-analysis-graph__block {
+  height: 10px;
+}
+.plus-trait-tooltip {
+  box-sizing: border-box;
+  width: 220px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #fff;
+}
+.plus-trait-tooltip__title {
+  display: block;
+  color: #febb48;
+}
+.plus-trait-tooltip__description b {
+  font-weight: normal;
+  color: #1dd979;
+}
+.plus-trait-tooltip__item {
+  height: 28px;
+  position: relative;
+  text-align: center;
+  margin-top: 10px;
+}
+.plus-trait-tooltip__item:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
+.plus-trait-tooltip__item .our,
+.plus-trait-tooltip__item .enemy {
+  position: absolute;
+  top: 0;
+  height: 28px;
+  line-height: 28px;
+  width: 100px;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+}
+.plus-trait-tooltip__item .our {
+  left: -10px;
+}
+.plus-trait-tooltip__item .enemy {
+  right: -10px;
+}
+.plus-trait-tooltip__item .winner {
+  color: #1dd979;
+}
+.plus-trait-tooltip__item .avg {
+  color: #999;
+}
+.plus-trait-tooltip__item .avg .point {
+  display: block;
+}
+.plus-mastery {
+  background: #222;
+  margin: 4px;
+  border-radius: 2px;
+  padding: 11px 0 !important;
+}
+.plus-mastery__type__body {
+  position: relative;
+  float: left;
+  padding: 0 28px;
+  border-left: 1px solid #333;
+}
+.plus-mastery__type:first-child .plus-mastery__type__body {
+  border-left: 0 none;
+}
+.plus-mastery-item {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+}
+.plus-mastery-item--0 {
+  left: 0px;
+  top: 0px;
+}
+.plus-mastery-item--1 {
+  left: 38px;
+  top: 0px;
+}
+.plus-mastery-item--2 {
+  left: 76px;
+  top: 0px;
+}
+.plus-mastery-item--3 {
+  left: 0px;
+  top: 38px;
+}
+.plus-mastery-item--4 {
+  left: 38px;
+  top: 38px;
+}
+.plus-mastery-item--5 {
+  left: 76px;
+  top: 38px;
+}
+.plus-mastery-item--6 {
+  left: 0px;
+  top: 76px;
+}
+.plus-mastery-item--7 {
+  left: 38px;
+  top: 76px;
+}
+.plus-mastery-item--8 {
+  left: 76px;
+  top: 76px;
+}
+.plus-mastery-item--9 {
+  left: 0px;
+  top: 114px;
+}
+.plus-mastery-item--10 {
+  left: 38px;
+  top: 114px;
+}
+.plus-mastery-item--11 {
+  left: 76px;
+  top: 114px;
+}
+.plus-mastery-item--12 {
+  left: 0px;
+  top: 152px;
+}
+.plus-mastery-item--13 {
+  left: 38px;
+  top: 152px;
+}
+.plus-mastery-item--14 {
+  left: 76px;
+  top: 152px;
+}
+.plus-mastery-item--15 {
+  left: 0px;
+  top: 190px;
+}
+.plus-mastery-item--16 {
+  left: 38px;
+  top: 190px;
+}
+.plus-mastery-item--17 {
+  left: 76px;
+  top: 190px;
+}
+.plus-mastery-item-container {
+  position: relative;
+  width: 104px;
+  height: 218px;
+  margin: 0 auto;
+}
+.plus-mastery {
+  padding-bottom: 4px;
+  width: 414px;
+  zoom: 0.7;
+}
+.plus-mastery:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
+.plus-mastery-type {
+  float: left;
+  width: 138px;
+}
+.plus-mastery-type__header {
+  color: #fff;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.plus-mastery-type__header strong {
+  font-size: 12px;
+}
+.plus-mastery-type__content {
+  border-left: 1px solid #333;
+}
+.plus-mastery-type:first-child .plus-mastery-type__content {
+  border-left: 0 none;
+}
+.plus-mastery-item--arrow img {
+  margin-top: 9px;
+  margin-left: -5px;
+}
+.plus-lane__mastery {
+  background-color: #fff;
+}
+.plus-lane__mastery .Title {
+  height: 45px;
+  line-height: 45px;
+  border-bottom: none;
+  padding: 0 50px 0 15px !important;
+  font-size: 12px !important;
+  color: #222;
+}
+.plus-lane__mastery .ChampionImage {
+  border-radius: 12px;
+  vertical-align: middle;
+}
+.plus-lane__rune {
+  margin: 4px;
+  background-color: #eaeaea;
+  border-radius: 2px;
+  text-align: left;
+  padding: 12px 15px;
+}
+.plus-lane__rune__title {
+  font-size: 12px;
+  color: #222222;
+}
+.plus-lane__rune__item-table {
+  margin-top: 5px;
+}
+.plus-lane__rune__item-table:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
+.plus-lane__rune__item-table .item {
+  height: 32px;
+  line-height: 32px;
+}
+.plus-lane__rune__item-table .item .image {
+  display: inline-block;
+  vertical-align: middle;
+}
+.plus-lane__rune__item-table .item .image .tip {
+  height: 30px;
+  width: 30px;
+}
+.plus-lane__rune__item-table .item .name {
+  display: inline-block;
+  vertical-align: middle;
+  color: #666666;
+  font-size: 11px;
+  width: 117px;
+  margin-left: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.plus-lane__rune__item-table .item .count {
+  display: inline-block;
+  vertical-align: middle;
+  color: #222222;
+  font-size: 11px;
+}
+.plus-map {
+  padding: 40px 10px 15px;
+  background-color: #1b313f;
+}
+.plus-map__wrapper {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background: url("../images/plus/map/img-mapbackground.png") no-repeat center
+    center;
+  background-size: 100%;
+  padding-top: 100%;
+}
+.plus-map__team {
+  position: absolute;
+  font-weight: bold;
+  font-size: 14px;
+  color: #5e7892;
+  display: none;
+}
+.red .plus-map__team {
+  right: 20px;
+  top: 30px;
+}
+.blue .plus-map__team {
+  left: 20px;
+  bottom: 30px;
+}
+.plus-map__lane {
+  position: absolute;
+}
+.plus-map__lane .you {
+  position: absolute;
+  top: -34px;
+  left: 50%;
+  width: 43px;
+  height: 29px;
+  margin-left: -22px;
+}
+.plus-map__lane .you .text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 3px;
+  font-weight: bold;
+  font-size: 12px;
+  color: #000;
+  text-align: center;
+}
+.red .plus-map__lane.TOP {
+  left: 18%;
+  top: -2%;
+}
+.red .plus-map__lane.JUNGLE {
+  left: 53%;
+  top: 1%;
+}
+.red .plus-map__lane.MID {
+  left: 51%;
+  top: 36%;
+}
+.red .plus-map__lane.ADC {
+  left: 88%;
+  top: 68%;
+}
+.red .plus-map__lane.SUPPORT {
+  left: 76%;
+  top: 49%;
+}
+.blue .plus-map__lane.TOP {
+  left: 1%;
+  top: 12%;
+}
+.blue .plus-map__lane.JUNGLE {
+  left: 4%;
+  top: 49%;
+}
+.blue .plus-map__lane.MID {
+  left: 35%;
+  top: 52%;
+}
+.blue .plus-map__lane.ADC {
+  left: 70%;
+  top: 88%;
+}
+.blue .plus-map__lane.SUPPORT {
+  left: 57%;
+  top: 71%;
+}
+.plus-map__gank-lane {
+  position: absolute;
+}
+.plus-map__gank-lane .percent {
+  position: absolute;
+  display: block;
+  width: 3em;
+  text-align: right;
+  font-size: 14px;
+  color: #fff;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", "Verdana", "sans-serif",
+    Dotum;
+}
+.plus-map__gank-lane .percent .num {
+  font-weight: bold;
+}
+.plus-map__gank-lane .image {
+  display: block;
+}
+.red .plus-map__gank-lane.TOP {
+  left: -76px;
+  top: -24px;
+}
+.red .plus-map__gank-lane.TOP .image {
+  width: 85px;
+  height: 39px;
+}
+.red .plus-map__gank-lane.TOP .percent {
+  left: 12px;
+  top: 8px;
+  font-size: 11px;
+}
+.red .plus-map__gank-lane.MIDDLE {
+  left: 21px;
+  top: 29px;
+}
+.red .plus-map__gank-lane.MIDDLE .image {
+  width: 41px;
+  height: 90px;
+}
+.red .plus-map__gank-lane.MIDDLE .percent {
+  font-size: 11px;
+  left: 4px;
+  top: 55px;
+}
+.red .plus-map__gank-lane.BOTTOM {
+  left: 45px;
+  top: 16px;
+}
+.red .plus-map__gank-lane.BOTTOM .image {
+  width: 102px;
+  height: 156px;
+}
+.red .plus-map__gank-lane.BOTTOM .percent {
+  left: 66px;
+  top: 122px;
+  font-size: 11px;
+}
+.blue .plus-map__gank-lane.TOP {
+  left: -11px;
+  top: -76px;
+}
+.blue .plus-map__gank-lane.TOP .image {
+  width: 41px;
+  height: 69px;
+}
+.blue .plus-map__gank-lane.TOP .percent {
+  left: -7px;
+  top: 19px;
+  font-size: 11px;
+}
+.blue .plus-map__gank-lane.MIDDLE {
+  left: 50px;
+  top: 34px;
+}
+.blue .plus-map__gank-lane.MIDDLE .image {
+  width: 64px;
+  height: 42px;
+}
+.blue .plus-map__gank-lane.MIDDLE .percent {
+  left: 13px;
+  top: 17px;
+  font-size: 11px;
+}
+.blue .plus-map__gank-lane.BOTTOM {
+  left: 16px;
+  top: 41px;
+}
+.blue .plus-map__gank-lane.BOTTOM .image {
+  width: 163px;
+  height: 106px;
+}
+.blue .plus-map__gank-lane.BOTTOM .percent {
+  left: 112px;
+  top: 83px;
+  font-size: 11px;
+}
+.plus-map__participant .image {
+  position: relative;
+  z-index: 1;
+  display: block;
+  border-radius: 100%;
+  border: 1px solid #000;
+}
+.plus-map__participant .tier {
+  position: absolute;
+  z-index: 2;
+  top: -6px;
+  left: -2px;
+  width: 49px;
+  height: 50px;
+  text-align: center;
+}
+.plus-map__participant .tier .frame {
+  width: 49px;
+  height: 52px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.plus-map__participant .tier .text {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  color: #000;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 1;
+}
+.plus-map__participant .tier .text.unranked {
+  left: -2px;
+}
+.plus-map__participant .warning-fire {
+  position: absolute;
+  left: -31px;
+  top: -36px;
+  width: 108px;
+  height: 108px;
+}
+.plus-map__participant .warning-red {
+  position: absolute;
+  left: -5px;
+  top: -6px;
+  width: 55px;
+  height: 55px;
+  background: #ef1d15;
+  border-radius: 100%;
+}
+.plus-map__participant .icons {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 33px;
+  width: 80px;
+  margin-left: -40px;
+  text-align: center;
+}
+.plus-map__participant .icons.icons--3 .icon:nth-child(2) {
+  position: relative;
+  top: 13px;
+  margin-right: -8px;
+  margin-left: -6px;
+}
+.plus-map__participant .icon {
+  display: inline-block;
+  margin: 0 -2px;
+  width: 25px;
+  height: 20px;
+}
+.plus-map__tooltip {
+  width: 260px;
+  color: #fff;
+}
+.plus-map__tooltip__header:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
+.plus-map__tooltip__header .name {
+  width: 74px;
+  margin-bottom: 6px;
+}
+.plus-map__tooltip__header .blue {
+  float: left;
+  text-align: right;
+}
+.plus-map__tooltip__header .red {
+  float: right;
+  text-align: left;
+}
+.plus-map__tooltip__section {
+  border-top: 1px solid #2b3b4b;
+}
+.plus-map__tooltip__section .title {
+  text-align: center;
+  margin-top: 7px;
+}
+.plus-map__tooltip__trait {
+  position: relative;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+  vertical-align: middle;
+}
+.plus-map__tooltip__trait:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
+.plus-map__tooltip__trait .point {
+  position: relative;
+  top: 2px;
+  vertical-align: text-bottom;
+  color: #c5c9d5;
+}
+.plus-map__tooltip__trait .number {
+  font-weight: bold;
+  color: #c5c9d5;
+}
+.plus-map__tooltip__trait .number.winner {
+  color: #0bdda5;
+}
+.plus-map__tooltip__trait .nodata {
+  position: relative;
+  width: 6px;
+  height: 1px;
+  top: 2px;
+  display: inline-block;
+  vertical-align: middle;
+  background: #c5c9d5;
+}
+.plus-map__tooltip__trait__label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  text-align: center;
+  box-sizing: border-box;
+  line-height: 26px;
+  color: #9daabe;
+}
+.plus-map__tooltip__trait__label table {
+  width: 100%;
+}
+.plus-map__tooltip__trait__label td {
+  height: 26px;
+  line-height: 1.2;
+  vertical-align: middle;
+}
+.plus-map__tooltip__trait__data {
+  position: relative;
+  z-index: 1;
+  width: 74px;
+  height: 26px;
+}
+.plus-map__tooltip__trait__data.blue {
+  float: left;
+  text-align: right;
+}
+.plus-map__tooltip__trait__data.red {
+  float: right;
+  text-align: left;
+}
+.plus-map__tooltip__graph-wrap {
+  position: absolute;
+  width: 100%;
+  height: 26px;
+  top: 6px;
+}
+.blue .plus-map__tooltip__graph-wrap {
+  right: 0;
+}
+.red .plus-map__tooltip__graph-wrap {
+  left: 0;
+}
+.plus-map__tooltip__graph-wrap .nodata {
+  position: absolute;
+  top: 10px;
+}
+.blue .plus-map__tooltip__graph-wrap .nodata {
+  right: 14px;
+}
+.red .plus-map__tooltip__graph-wrap .nodata {
+  left: 14px;
+}
+.plus-map__tooltip__graph {
+  margin-top: 2px;
+}
+.plus-map__tooltip__graph:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
+.plus-map__tooltip__graph:first-child {
+  margin-top: 0;
+}
+.plus-map__tooltip__graph__block {
+  box-sizing: border-box;
+  width: 14px;
+  height: 14px;
+}
+.plus-map__tooltip__graph--1 .plus-map__tooltip__graph__block {
+  background: #003d2d;
+}
+.reverse .plus-map__tooltip__graph--1 .plus-map__tooltip__graph__block {
+  background: #550e0e;
+}
+.plus-map__tooltip__graph--2 .plus-map__tooltip__graph__block {
+  background: #006046;
+}
+.reverse .plus-map__tooltip__graph--2 .plus-map__tooltip__graph__block {
+  background: #641414;
+}
+.plus-map__tooltip__graph--3 .plus-map__tooltip__graph__block {
+  background: #007f5d;
+}
+.reverse .plus-map__tooltip__graph--3 .plus-map__tooltip__graph__block {
+  background: #841f1f;
+}
+.plus-map__tooltip__graph--4 .plus-map__tooltip__graph__block {
+  background: #0c9f78;
+}
+.reverse .plus-map__tooltip__graph--4 .plus-map__tooltip__graph__block {
+  background: #bc2828;
+}
+.plus-map__tooltip__graph--5 .plus-map__tooltip__graph__block {
+  background: #0bdda5;
+}
+.reverse .plus-map__tooltip__graph--5 .plus-map__tooltip__graph__block {
+  background: #ff3333;
+}
+.blue .plus-map__tooltip__graph__block {
+  float: right;
+  margin-right: 1px;
+}
+.blue .plus-map__tooltip__graph__block:first-child {
+  margin-right: 0;
+}
+.red .plus-map__tooltip__graph__block {
+  float: left;
+  margin-left: 1px;
+}
+.red .plus-map__tooltip__graph__block:first-child {
+  margin-left: 0;
+}
+.multi .plus-map__tooltip__graph__block {
+  height: 8px;
+}
+.plus-map-icon-explain {
+  padding: 7px 11px;
+  background-color: #03212d;
+}
+.plus-map-icon-explain__wrapper {
+  position: relative;
+}
+.plus-map-icon-explain__wrapper:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
+.plus-map-icon-explain__item {
+  float: left;
+  padding: 1px 0;
+  width: 33.3%;
+}
+.plus-map-icon-explain__item .icon {
+  display: inline-block;
+  vertical-align: middle;
+  height: 24px;
+}
+.plus-map-icon-explain__item .text {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 11px;
+  color: #ffffff;
+}
+.plus-guide {
+  background-color: #03212d;
+}
+.plus-guide__section .header {
+  height: 35px;
+  line-height: 35px;
+  background-color: #1b313f;
+  color: #fff;
+  padding-left: 10px;
+}
+.plus-guide__section .header .title {
+  font-weight: normal;
+}
+.plus-guide__section .header .alert {
+  height: 19px;
+  line-height: 19px;
+  color: #fff;
+  padding: 0 6px;
+  background-color: #ea3721;
+}
+.plus-guide__section .body {
+  padding: 10px 15px;
+  background: #03212d;
+}
+.plus-guide__section .champion-image {
+  position: absolute;
+  left: 0;
+  top: -5px;
+}
+.plus-guide__section .champion-image a {
+  display: block;
+}
+.plus-guide__section .champion-image img {
+  border-radius: 100%;
+  border: 1px solid #fafafa;
+}
+.plus-guide__section.invade .items {
+  margin-top: 0;
+  padding-left: 0;
+  padding: 10px;
+}
+.plus-guide__section .items {
+  position: relative;
+  margin-top: 10px;
+  padding-left: 40px;
+  font-size: 12px;
+}
+.plus-guide__section .items li {
+  color: #aaa18d;
+}
+.plus-guide__section .items li strong,
+.plus-guide__section .items li b {
+  font-weight: normal;
+  color: #ffc600;
+}
+.plus-guide__section .items .item {
+  line-height: 1.5;
+  color: #aaa18d;
+  margin-bottom: 5px;
+}
+.plus-guide__section .items .item:last-child {
+  margin-bottom: 0;
+}
+.plus-guide__section .items .item strong,
+.plus-guide__section .items .item b {
+  color: #ffc600;
+}
+.plus-guide__section .spell {
+  position: relative;
+  display: inline-block;
+  border: 1px solid #aaa18d;
+  margin-right: 2px;
+  vertical-align: middle;
+}
+.plus-guide__section .spell:first-child {
+  margin-right: 4px;
+}
+.plus-guide__section .spell img {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+.plus-guide__section .spell .key {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  font-family: Helvetica, serif;
+  text-align: center;
+  font-size: 11px;
+  line-height: 12px;
+  color: #ffffff;
+  background: #000;
+}
+.plus-guide__section .my {
+  color: #97f81c;
+}
+.plus-guide__section .my img {
+  border-color: #97f81c;
+}
+.to-top {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #36a4a4;
+  color: #fff;
+  cursor: pointer;
+}
+.to-top .icon {
+  width: 12px;
+  height: 12px;
+  vertical-align: middle;
+}
+.to-top span {
+  font-size: 14px;
+  vertical-align: middle;
+  margin: 0 15px;
+}
+.recomm-build {
+  margin-top: 15px;
+}
+.SpectateSummoner .recomm-build {
+  margin-bottom: 8px;
+  font-size: 12px;
+  text-align: left;
+}
+.recomm-build__item-list {
+  padding: 1px;
+}
+.recomm-build__item-list:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
+.recomm-build__item-list li {
+  float: left;
+  padding: 2px;
+  position: relative;
+}
+.recomm-build__item-list .empty,
+.recomm-build__item-list img {
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-radius: 2px;
+  background: #83a7c1;
+}
+.recomm-build__final-item-build .recomm-build__item-list .empty,
+.recomm-build__final-item-build .recomm-build__item-list img {
+  width: 32px;
+  height: 32px;
+}
+.recomm-build__item-list .sold img {
+  opacity: 0.6;
+}
+.recomm-build__item-list .quantity {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 12px;
+  height: 15px;
+  border-radius: 0 0 2px 0;
+  text-align: center;
+  line-height: 16px;
+  font-size: 11px;
+  background: #000;
+  color: #fff;
+  opacity: 0.8;
+  right: 2px;
+  bottom: 2px;
+}
+.recomm-build__item-list .sold-icon {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  width: 12px;
+  height: 10px;
+  background-repeat: no-repeat;
+  background-image: url("../images/recommBuild/mobile/icon-sell@2x.png");
+  background-size: 12px 10px;
+  font-size: 0;
+}
+.recomm-build-overview .recomm-build__item-list {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: -4px;
+  margin-top: -4px;
+  margin-bottom: -4px;
+}
+.recomm-build__champion-image {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+}
+.recomm-build__item__info .recomm-build__champion-image {
+  margin: 10px 0;
+}
+.recomm-build__header {
+  padding: 8px 15px;
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: #ddd;
+  background: #f7f7f7;
+  font-weight: bold;
+  font-size: 14px;
+  color: #454c4c;
+}
+.recomm-build__header .Button {
+  position: relative;
+  padding: 5px 14px;
+  font-size: 12px;
+  line-height: 14px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+.recomm-build__header i {
+  margin-right: 6px;
+}
+.recomm-build__title {
+  font-weight: bold;
+  font-size: 14px;
+  vertical-align: middle;
+}
+.recomm-build__item {
+  margin-top: -1px;
+  background: #a3cfec;
+}
+.recomm-build__item .spell {
+  padding-left: 5px;
+  padding-right: 2px;
+}
+.recomm-build__item .spell img {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+}
+.recomm-build__item .spell img:first-child {
+  margin-bottom: 2px;
+}
+.recomm-build__item .rune img {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+.recomm-build__item .rune img:first-child {
+  margin-bottom: 2px;
+  background: #000;
+}
+.recomm-build__item__header {
+  padding: 4px 15px 4px 10px;
+  border-width: 1px 0 1px 5px;
+  border-style: solid;
+  border-color: #1f8ecd;
+}
+.recomm-build__item__header:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
+.recomm-build__item__game-type {
+  float: left;
+  font-weight: bold;
+  color: #4b4b4b;
+}
+.recomm-build__item__time {
+  float: right;
+}
+.recomm-build__item__info {
+  border-bottom: 1px solid #1f8ecd;
+}
+.recomm-build__item__info .name {
+  font-weight: bold;
+  font-size: 14px;
+  color: #222222;
+}
+.recomm-build__item__info td {
+  width: 1%;
+  white-space: nowrap;
+  font-size: 12px;
+}
+.recomm-build__item__info td.champion {
+  padding-left: 15px;
+}
+.recomm-build__item__info td.meta {
+  width: auto;
+  padding-left: 8px;
+}
+.recomm-build__item__info td.enemy {
+  padding-right: 15px;
+}
+.recomm-build__item__info td.versus {
+  padding: 0 10px;
+  font-size: 14px;
+  color: #666666;
+}
+.recomm-build__item__info td.battle {
+  text-align: right;
+  color: #666666;
+}
+.recomm-build__item__info td.more {
+  position: relative;
+  width: 26px;
+}
+.recomm-build__item__info__more-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  border-width: 0 1px;
+  border-style: solid;
+  border-color: #1f8ecd;
+  background: #64b1e4;
+}
+.recomm-build__item__info__more-btn .icon {
+  position: absolute;
+  right: 7px;
+  bottom: 10px;
+  display: block;
+  width: 12px;
+  height: 8px;
+  background-repeat: no-repeat;
+  background-image: url("../images/plus/mobile/icon-viewdetail-blue-down@2x.png");
+  background-size: 12px 8px;
+}
+.active .recomm-build__item__info__more-btn .icon {
+  background-image: url("../images/plus/mobile/icon-viewdetail-blue-up@2x.png");
+}
+.recomm-build__item__content {
+  display: none;
+  background: #fff;
+}
+.active .recomm-build__item__content {
+  display: block;
+}
+.recomm-build__content {
+  position: relative;
+  z-index: 1;
+}
+.recomm-build__final-item-build {
+  padding: 10px 15px;
+  color: #222222;
+}
+.recomm-build__final-item-build__title {
+  display: block;
+}
+.recomm-build__final-item-build__version {
+  display: block;
+  margin-top: -16px;
+  color: #999;
+  text-align: right;
+}
+.recomm-build-item {
+  padding: 2px 15px 5px;
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: #cdd2d2;
+  background: #f1f1f1;
+  font-size: 0;
+  line-height: 0;
+}
+.recomm-build-item__chunk {
+  display: inline-block;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.recomm-build-item__chunk__arrow {
+  display: inline-block;
+  background: #d7d7d7;
+  width: 12px;
+  height: 12px;
+  line-height: 12px;
+  text-align: center;
+}
+.recomm-build-item__chunk__arrow:after {
+  display: inline-block;
+  content: "";
+  width: 3px;
+  height: 6px;
+  background-repeat: no-repeat;
+  background-image: url("../images/recommBuild/mobile/icon-item-arrow@2x.png");
+  background-size: 3px 6px;
+  vertical-align: middle;
+}
+.recomm-build-item__chunk__box {
+  position: relative;
+  display: inline-block;
+  padding-top: 6px;
+  padding-bottom: 16px;
+  vertical-align: middle;
+  font-size: 10px;
+  line-height: 1.4;
+}
+.recomm-build-item__itemList {
+  background: #d7d7d7;
+  border-radius: 2px;
+}
+.recomm-build-item__kda {
+  position: absolute;
+  left: 50%;
+  width: 100px;
+  margin-left: -50px;
+  text-align: center;
+  top: 0;
+}
+.recomm-build-item__time {
+  position: absolute;
+  left: 50%;
+  width: 100px;
+  margin-left: -50px;
+  text-align: center;
+  bottom: -4px;
+}
+.recomm-build-item__time .imgs {
+  position: relative;
+  top: -1px;
+  margin-right: 4px;
+}
+.recomm-build-item__time .img {
+  margin-left: 2px;
+}
+.recomm-build-item__time .img:first-child {
+  margin-left: 0;
+}
+.recomm-build-item__time .img,
+.recomm-build-item__time .text {
+  vertical-align: middle;
+}
+.recomm-build-skill {
+  position: relative;
+  padding: 15px 15px 5px 15px;
+}
+.recomm-build-skill:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
+.recomm-build-skill__main__build {
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+.recomm-build-skill__main__build .arrow {
+  display: inline-block;
+  width: 8px;
+  height: 12px;
+  margin: 0 8px;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-image: url("../images/recommBuild/mobile/icon-skillarrow@2x.png");
+  background-size: 8px 12px;
+}
+.recomm-build-skill__tree {
+  float: left;
+}
+.recomm-build-skill__tree__skills {
+  float: left;
+  width: 14px;
+}
+.recomm-build-skill__tree__skill {
+  margin-top: 1px;
+  height: 22px;
+  line-height: 22px;
+  font-size: 10px;
+  text-align: center;
+}
+.recomm-build-skill-table td {
+  padding: 0;
+  border: 1px solid #cecece;
+  width: 17px;
+  height: 22px;
+  line-height: 22px;
+  font-size: 10px;
+  text-align: center;
+  background: #f7f7f7;
+  color: #374151;
+}
+.recomm-build-skill-table td.on {
+  background: #e3e3e3;
+}
+.recomm-build-skill-table td.end {
+  position: relative;
+  border-color: #1e2632;
+  background: #1e2632;
+  color: #fff;
+}
+.recomm-build-rune {
+  background: #ededed;
+}
+.recomm-build-rune__item {
+  display: table;
+  width: 100%;
+}
+.recomm-build-rune__image {
+  display: table-cell;
+  width: 62px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  vertical-align: middle;
+}
+.recomm-build-rune__image img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+.recomm-build-rune__item:first-child .recomm-build-rune__image img {
+  width: 40px;
+  height: 40px;
+}
+.recomm-build-rune__name {
+  display: table-cell;
+  line-height: 15px;
+  font-size: 12px;
+  color: #333;
+  vertical-align: middle;
+}
+.recomm-build-rune__value {
+  display: table-cell;
+  line-height: 14px;
+  font-size: 12px;
+  color: #666;
+  width: 142px;
+  padding-left: 14px;
+  padding-right: 12px;
+  vertical-align: middle;
+}
+.recomm-build-error {
+  text-align: center;
+  font-size: 14px;
+  background-color: #e5e9e9;
+}
+.recomm-build-error__top-border {
+  height: 2px;
+  background-color: #a3cfec;
+  border: solid 1px #99b9cf;
+}
+.recomm-build-error__body {
+  padding: 20px;
+}
+.recomm-build__icon-alert {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  margin-right: 3px;
+  background: url("../images/recommBuild/icon-apierror.png") no-repeat;
+  vertical-align: middle;
+}
+.recomm-build__skill {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+.recomm-build__skill img {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 2px;
+}
+.recomm-build-skill__main__build .recomm-build__skill img {
+  width: 32px;
+  height: 32px;
+}
+.recomm-build__skill .key {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 12px;
+  height: 15px;
+  border-radius: 0 0 2px 0;
+  text-align: center;
+  line-height: 16px;
+  font-size: 11px;
+  background: #000;
+  color: #fff;
+  opacity: 0.8;
+  font-weight: bold;
+}
+.recomm-build-skill__build:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
+.recomm-build-skill__build .item {
+  float: left;
+  border: 1px solid #cdd2d2;
+  margin-bottom: 10px;
+  margin-left: -1px;
+  text-align: center;
+}
+.recomm-build-skill__build .item .count {
+  background-color: #f2f2f2;
+  color: #9b9b9b;
+  width: 23px;
+  height: 23px;
+  line-height: 23px;
+}
+.recomm-build-skill__build .item .skill {
+  border-top: 1px solid #cdd2d2;
+  color: #fafafa;
+  background-color: #fafafa;
+  width: 23px;
+  height: 23px;
+  line-height: 23px;
+}
+.recomm-build-skill__build .item .skill .key {
+  color: #4a4a4a;
+}
+.recomm-build-skill__build .item .skill .tip .key {
+  color: #fafafa;
+}
+.recomm-build-skill__build .item .skill img {
+  width: 100%;
+  height: 100%;
+}
+.recomm-build__tab .recomm-build__kda .point {
+  color: #222222;
+}
+.recomm-build__kda .death {
+  color: #b72f30 !important;
+}
+.recomm-build__kda .separator {
+  display: inline-block;
+  padding: 0 2px;
+}
+.recomm-content {
+  font-size: 12px;
+  line-height: 1.4;
+  color: #666666;
+}
+.recomm-content.fixed {
+  display: none;
+}
+.recomm-content .SpectateTeamTable {
+  width: 100%;
+}
+.recomm-content__header {
+  padding: 9px 15px;
+  background: #36a4a4;
+  color: #fff;
+}
+.recomm-content__title {
+  font-weight: normal;
+  font-size: 18px;
+}
+.recomm-content__title .icon {
+  font-weight: bold;
+  font-size: 1.2em;
+  top: -0.2em;
+}
+.recomm-back-btn {
+  margin-top: -3px;
+  vertical-align: middle;
+  display: inline-block;
+  width: 14px;
+  height: 13px;
+  border: 0 none;
+  margin-right: 4px;
+  font-size: 0;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-image: url("../images/plus/mobile/icon-return@2x.png");
+  background-size: 14px 13px;
+}
+.recomm-refresh-btn {
+  position: absolute;
+  right: 10px;
+  top: 6px;
+  width: 37px;
+  height: 32px;
+  font-size: 0;
+  border: 0 none;
+  border-radius: 2px;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-image: url("../images/plus/mobile/icon-refresh@2x.png");
+  background-size: 23px 18px;
+  background-position: center center;
+}
+.recomm-record {
+  padding: 5px 10px;
+  text-align: right;
+}
+.recomm-record .Button.SemiRound {
+  padding: 4px 7px;
+}
+.recomm-record .NowRecording {
+  font-weight: bold;
+  color: #c6443e;
+}
+.recomm-ingame-table {
+  width: 100%;
+  table-layout: fixed;
+  border-bottom: 1px solid #ddd;
+  border-left: 7px solid #ddd;
+}
+.recomm-ingame-table + .recomm-ingame-table {
+  margin-top: -1px;
+}
+.recomm-ingame-table--blue {
+  border-left-color: #1f8ecd;
+}
+.recomm-ingame-table--red {
+  border-left-color: #ee5a52;
+}
+.recomm-ingame-table-cell {
+  padding: 5px 0;
+  border-top: 1px solid #ddd;
+  vertical-align: middle;
+  background: #fff;
+}
+.recomm-ingame-table-cell img {
+  width: 100%;
+}
+.recomm-ingame-table-cell--footer {
+  background: #f7f7f7;
+  line-height: 30px;
+  padding: 0;
+}
+.recomm-ingame-table-cell--footer:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
+.recomm-ingame-table-cell--footer .recomm-ingame--ban {
+  float: left;
+  padding-left: 7px;
+}
+.recomm-ingame-table-cell--footer .recomm-ingame--mmr {
+  float: right;
+  padding-right: 10px;
+}
+.recomm-ingame-table-cell--champion {
+  width: 24px;
+  padding-left: 6px;
+}
+.recomm-ingame-table-cell--champion img {
+  display: block;
+  border-radius: 50%;
+}
+.recomm-ingame-table-cell--spell {
+  width: 12px;
+  padding-right: 2px;
+  padding-left: 3px;
+}
+.recomm-ingame-table-cell--spell img {
+  border-radius: 2px;
+  display: block;
+}
+.recomm-ingame-table-cell--spell img:first-child {
+  margin-bottom: 2px;
+}
+.recomm-ingame-table-cell--rune {
+  width: 12px;
+}
+.recomm-ingame-table-cell--rune img {
+  border-radius: 50%;
+  display: block;
+}
+.recomm-ingame-table-cell--rune img:first-child {
+  margin-bottom: 2px;
+  background: #000;
+}
+.recomm-ingame-table-cell--stats {
+  padding-left: 7px;
+}
+.recomm-ingame-table-cell--runemastery {
+  width: 60px;
+  text-align: right;
+  padding-right: 4px;
+}
+.recomm-ingame-table-cell--runemastery button {
+  width: 46px;
+  height: 28px;
+  padding: 3px 1px;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #666;
+  line-height: 11px;
+  font-size: 9px;
+}
+.recomm-ingame-tier {
+  display: inline-block;
+  padding: 2px 3px 1px 3px;
+  color: #222;
+  font-size: 9px;
+  line-height: 11px;
+  font-weight: bold;
+  margin-right: 5px;
+}
+.recomm-ingame-tier--CHALLENGER,
+.recomm-ingame-tier--MASTER {
+  background-color: #ff6c81;
+  color: #222;
+}
+.recomm-ingame-tier--DIAMOND {
+  background-color: #00a0d2;
+  color: #222;
+}
+.recomm-ingame-tier--PLATINUM {
+  background-color: #00cfbc;
+  color: #222;
+}
+.recomm-ingame-tier--GOLD {
+  background-color: #ffc659;
+  color: #222;
+}
+.recomm-ingame-tier--SILVER {
+  background-color: #a8aebf;
+  color: #222;
+}
+.recomm-ingame-tier--BRONZE {
+  background-color: #7f6a43;
+  color: #222;
+}
+.recomm-ingame-summoner {
+  display: inline-block;
+}
+.recomm-ingame-summoner a {
+  text-decoration: none;
+  line-height: 12px;
+  font-size: 11px;
+  color: #222;
+}
+.recomm-ingame--ban {
+  font-size: 11px;
+  color: #666;
+}
+.recomm-ingame--ban img {
+  margin-left: 5px;
+  vertical-align: middle;
+  width: 20px;
+}
+.recomm-ingame--mmr {
+  font-size: 11px;
+  color: #666;
+}
+.recomm-ingame-title {
+  padding: 8px 15px;
+  line-height: 13px;
+  font-size: 11px;
+  color: #222;
+  background-color: #f7f7f7;
+  border-top: solid 1px #ddd;
+}
+.recomm-ingame-title span {
+  display: inline-block;
+  vertical-align: middle;
+}
+.recomm-ingame-title span:before {
+  display: inline-block;
+  margin-left: 3px;
+  margin-right: 3px;
+  content: "";
+  border-left: 1px solid #cdd2d2;
+  height: 8px;
+  vertical-align: middle;
+}
+.recomm-ingame-title span:first-child:before {
+  display: none;
+}
+.recomm-champion-custom__header {
+  background: #15212c;
+  border-bottom: 1px solid #091c28;
+  color: #fff;
+}
+.recomm-champion-custom__header .recomm-champion-custom__button {
+  text-align: right;
+  margin-top: -35px;
+  margin-right: 10px;
+  margin-bottom: 6px;
+}
+.recomm-champion-custom__header .recomm-champion-custom__button .Button {
+  padding: 6px 0;
+  width: 100px;
+  font-size: 14px;
+  line-height: 16px;
+}
+.recomm-champion-custom__title {
+  padding: 13px 11px 11px 16px;
+}
+.recomm-champion-custom__title .recomm-back-btn {
+  margin-right: 10px;
+}
+.recomm-champion-custom__desc {
+  padding: 15px 0;
+  line-height: 14px;
+  font-size: 12px;
+}
+.recomm-champion-custom__desc strong {
+  color: #0d9f78;
+}
+.recomm-champion-custom__body {
+  text-align: center;
+}
+.recomm-champion-custom__body label {
+  position: relative;
+  display: inline-block;
+}
+.recomm-champion-custom__body span {
+  cursor: pointer;
+  display: block;
+  padding: 9px 3px;
+  border: 1px solid #cdd2d2;
+  background: #f2f2f2;
+  white-space: nowrap;
+}
+.recomm-champion-custom__body span:hover {
+  background: #d8e9e3;
+}
+.recomm-champion-custom__body input {
+  position: absolute;
+  opacity: 0;
+  left: 0;
+  top: 0;
+}
+.recomm-champion-custom__body input:checked + span {
+  position: relative;
+  z-index: 2;
+  background: #d8e9e3;
+  border-color: #2daf7f;
+}
+.recomm-champion-custom__body label:first-child span {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.recomm-champion-custom__body label:last-child span {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.recomm-champion-custom__positions {
+  text-align: center;
+  line-height: 16px;
+  font-size: 14px;
+  color: #222;
+  display: inline-block;
+}
+.recomm-champion-custom__positions label {
+  float: left;
+  margin-left: -1px;
+}
+.recomm-champion-custom__positions label:first-child {
+  margin-left: 0;
+}
+.recomm-champion-custom__positions span {
+  width: 58px;
+}
+.recomm-champion-custom__positions:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
+.recomm-champion-custom__champions {
+  display: table;
+  text-align: center;
+  margin: 22px auto 0;
+}
+.recomm-champion-custom__champions label {
+  display: block;
+  margin-top: -1px;
+}
+.recomm-champion-custom__champions label:first-child {
+  margin-top: 0;
+}
+.recomm-champion-custom__champions span {
+  padding: 6px;
+}
+.recomm-champion-custom__champions img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+.recomm-champion-custom__champions__col {
+  display: table-cell;
+  vertical-align: middle;
+  width: 124px;
+}
+.recomm-champion-custom__champions__col--versus {
+  width: 43px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #999;
+}
+.recomm-champion-custom__champions__col__header {
+  line-height: 14px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.recomm-build__message {
+  position: relative;
+  padding: 5px 15px 5px 10px;
+  line-height: 14px;
+  font-size: 11px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+}
+.recomm-build__message--blue {
+  border: 1px solid #1a78ae;
+  background: url(../images/site/bg_notice_blue.png) repeat-x;
+}
+.recomm-build__message--red {
+  border: 1px solid #c6443e;
+  background: url(../images/site/bg_notice_red.png) repeat-x;
+}
+.recomm-build__message--green {
+  border: 1px solid #288b8b;
+  background: url(../images/site/bg_notice_green.png) repeat-x;
+}
+.recomm-build__message--orange {
+  border: 1px solid #d3962b;
+  background: url(../images/site/bg_notice_orange.png) repeat-x;
+}
+.recomm-build__header + .recomm-build__message {
+  margin-top: -1px;
+}
+.opscore-banner {
+  margin-top: 8px;
+  border: 1px solid #cdd2d2;
+}
+.opscore-banner__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #333;
+  padding: 8px 0px 8px 16px;
+  height: 14px;
+  color: #f2f2f2;
+}
+.opscore-banner__header--button {
+  width: 30px;
+  height: 30px;
+  background-color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.opscore-banner__header--button-icon {
+  width: 13px;
+  height: 10px;
+  transition: 0.5s;
+  transform: rotate(180deg);
+}
+.opscore-banner__header--button-icon-spin {
+  transition: 0.5s;
+  transform: rotate(360deg);
+}
+.opscore-banner__content {
+  padding: 16px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #353a3a;
+  background-color: #f2f2f2;
+  transform: scaleY(1);
+}
+.opscore-banner__content.hide {
+  max-height: 0px;
+  transform: scaleY(0);
+  padding: 0;
+}
+.opscore-banner__content-title {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+.opscore-banner__content-graph {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.opscore-banner__content-graph > .opscore-area__graph {
+  display: flex;
+  height: 8px;
+  background-image: linear-gradient(to right, #cdd2d2, #e19205);
+}
+.opscore-banner__content-graph > .opscore-area__graph-score {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+.opscore-banner__content-detail {
+  display: flex;
+  justify-content: space-between;
+}
+.opscore-banner__content-best-player {
+  flex: 1.6;
+}
+.opscore-banner__content-score-area {
+  flex: 1;
+}
+.opscore-banner__content-row {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+.opscore-banner__content-badge {
+  flex: 0 1 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 16px;
+  border-radius: 9px;
+  background-color: #f2f2f2;
+  font-size: 10px;
+  color: #fff;
+}
+.opscore-banner__content-badge.MVP {
+  background-color: #e19205;
+  border: 1px solid #b88a2a;
+}
+.opscore-banner__content-badge.ACE {
+  background-color: #8c51c5;
+  border: 1px solid #7f3590;
+}
+.opscore-banner__content-badge-description {
+  flex: 1;
+  margin-left: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.opscore-banner__content-badge-description.MVP {
+  color: #b88a2a;
+}
+.opscore-banner__content-badge-description.ACE {
+  color: #7f3590;
+}
+.opscore-banner__footer {
+  padding: 8px 16px;
+  font-size: 11px;
+  line-height: 1.45;
+  color: #879292;
+  background-color: #e5e5e5;
+  transform: scaleY(1);
+}
+.opscore-banner__footer.hide {
+  max-height: 0px;
+  transform: scaleY(0);
+  padding: 0;
+}
+.opscore-banner__guide-icon {
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+}
+.opscore-banner__wrapper {
+  display: flex;
+  align-items: center;
+}
+@media screen and (max-width: 600px) {
+  .opscore-banner__wrapper {
+    font-size: 12px;
+  }
+}
+.opscore-banner__wrapper--badge {
+  margin-left: 8px;
+  border-radius: 2px;
+  background-color: #ffa302;
+  padding: 4px 4px 2px;
+  font-size: 11px;
+  color: #fff;
+}
+.batched {
+  width: 100%;
+  border-radius: 2px;
+  border: solid 1px #cdd2d2;
+  box-sizing: border-box;
+  background-color: #ebeef1;
+}
+.batched > .batched__content {
+  padding: 16px;
+  display: flex;
+  flex-flow: column wrap;
+}
+.batched-rank {
+  flex: 1;
+}
+.batched-rank__tier__title {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #1a78ae;
+  margin-top: 4px;
+}
+.batched-rank__tier__title img {
+  width: 24px;
+  height: 24px;
+}
+.batched-rank__tier__title span {
+  margin-left: 4px;
+}
+.batched-rank__tier__graph {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background-color: #cdd2d2;
+  margin-top: 19px;
+  display: flex;
+}
+.batched-rank__tier__graph-fill {
+  flex: 1;
+  background-color: #1f8ecd;
+}
+.batched-rank__tier__graph-empty {
+  flex: 2;
+  background-color: #cdd2d2;
+}
+.batched-rank__tier__graph-half {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 24px;
+  top: -16px;
+  left: 50%;
+  margin-left: -12px;
+  font-size: 11px;
+  color: #555e5e;
+}
+.batched-rank__tier__graph-dot-border {
+  width: 1px;
+  height: 13px;
+  border-left: 1px dotted #555e5e;
+}
+.batched-rank__tier__graph-message {
+  margin-top: 7px;
+  font-size: 12px;
+  color: #353a3a;
+  text-align: right;
+}
+.batched__potential {
+  flex: 1;
+}
+.batched__potential__wrapper {
+  display: flex;
+  align-items: center;
+}
+.batched__potential__text-area {
+  margin-left: 8px;
+}
+.batched__potential img {
+  min-width: 60px;
+  height: 60px;
+}
+.batched__potential__message {
+  font-size: 12px;
+  color: #288b8b;
+}
+.batched__notification {
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #555e5e;
+  border-top: 1px solid #cdd2d2;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+}
+.batched__divider {
+  flex: 0 1 1px;
+  height: inherit;
+  margin: 16px 0;
+  background-color: #cdd2d2;
+}
+.batched__title {
+  font-size: 12px;
+  color: #555e5e;
+}
+.mmr-alert {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 8px 8px;
+  color: #ffffff;
+  background-color: #1f8ecd;
+}
+.mmr-alert span {
+  font-size: 12px;
+  line-height: 1.5;
+  margin-left: 8px;
+}
+.mmr-alert .close-button {
+  margin-left: 16px;
+  cursor: pointer;
+}
+.position-tier-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 0 22px 0;
+}
+.position-tier-box img {
+  width: 94px;
+  height: 94px;
+}
+.position-tier-box__text-area {
+  margin-left: 16px;
+  text-align: left;
+}
+.position-tier-box__position {
+  font-size: 14px;
+  color: #353a3a;
+}
+.position-tier-box__tier {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #1f8ecd;
+}
+.position-tier-box__tier-box__lp-winlose {
+  display: flex;
+}
+.position-tier-box__lp {
+  font-size: 12px;
+  color: #555e5e;
+}
+.position-tier-box__winlose {
+  font-size: 12px;
+  color: #879292;
+}
+.position-tier-box__win-ratio {
+  font-size: 12px;
+  color: #879292;
+}
+.position-tier-box__tier-unranked {
+  color: #879292;
+  font-weight: bold;
+  font-size: 14px;
+}
