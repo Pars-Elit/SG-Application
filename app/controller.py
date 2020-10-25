@@ -2,7 +2,7 @@ from models.perfil import Perfil
 from models.partida import Partida
 from models.player_champion_history import PlayerChampionHistory
 from pymongo import MongoClient
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 import re, os
 
 
@@ -187,8 +187,7 @@ def expandirDadosPartida(gameId):
     return perfil.ultimasPartidas[gameId]
 
 @app.route('/tip/')
-def getMLTip()
-{
+def getMLTip():
     listaDicas = [ 
         'Dano causado a torres tem uma alta influência na sua taxa de vitórias.',
         'Dano causado a objetivos tem uma alta influência na sua taxa de vitórias.',
@@ -201,8 +200,8 @@ def getMLTip()
         'A fim de conseguir mais ouro nas partidas certifique-se de manter um bom farm',
         '15 de farm equivale em ouro a mais ou menos uma kill, portanto foque mais em farmar do que tentar pegar kills'
     ]
-    return listaDicas
-}
+    return jsonify(listaDicas)
+
 
 @app.route("/<path:path>")
 def getResources(path):
