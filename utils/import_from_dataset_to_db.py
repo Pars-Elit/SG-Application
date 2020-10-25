@@ -40,7 +40,7 @@ def lerPartidasIndividuais():
 
             #Criação de todas as variaveis
             gameCreation = informacoesGerais[0]
-            gameDuration = informacoesGerais[1]
+            gameDuration = float(informacoesGerais[1])
             gameId = informacoesGerais[2]
             gameMode = informacoesGerais[3]
             gameType = informacoesGerais[4]
@@ -57,8 +57,42 @@ def lerPartidasIndividuais():
             participantIdentities = ast.literal_eval(participantIdentities) #Transforma string em uma lista
             
             #participants
+            pararlinha= False
             participants = dadosPartida[3]
             participants = ast.literal_eval(participants) #Transforma string em uma lista
+            if (len(participants)) != 10:
+                continue
+            for i in range(len(participants)):
+                if 'stats' not in participants[i]:
+                    pararlinha=True
+                    break 
+                if 'wardsPlaced' not in participants[i]['stats']:
+                    participants[i]['stats']['wardsPlaced'] = 0
+                if 'wardsKilled' not in participants[i]['stats']:
+                    participants[i]['stats']['wardsKilled'] = 0
+                if 'neutralMinionsKilled' not in participants[i]['stats']:
+                    participants[i]['stats']['neutralMinionsKilled']=0
+                if 'neutralMinionsKilledTeamJungle' not in participants[i]['stats']:
+                    participants[i]['stats']['neutralMinionsKilledTeamJungle']=0
+                if 'neutralMinionsKilledEnemyJungle' not in participants[i]['stats']:
+                    participants[i]['stats']['neutralMinionsKilledEnemyJungle']=0
+                if 'firstBloodKill' not in participants[i]['stats']:
+                    participants[i]['stats']['firstBloodKill']= False
+                if 'firstBloodAssist' not in participants[i]['stats']:
+                    participants[i]['stats']['firstBloodAssist']= False
+                if 'firstTowerKill' not in participants[i]['stats']:
+                    participants[i]['stats']['firstTowerKill']=False
+                if 'firstTowerAssist' not in participants[i]['stats']:
+                    participants[i]['stats']['firstTowerAssist']=False
+                if 'firstInhibitorKill' not in participants[i]['stats']:
+                    participants[i]['stats']['firstInhibitorKill']=False
+                if 'firstInhibitorAssist' not in participants[i]['stats']:
+                    participants[i]['stats']['firstInhibitorAssist']=False
+                if 'highestAchievedSeasonTier' not in participants[i]:
+                    participants[i]['highestAchievedSeasonTier'] = 'UNRANKED'
+                
+            if pararlinha == True:
+                continue
 
             partida = {
                         'gameCreation': gameCreation,
@@ -77,11 +111,12 @@ def lerPartidasIndividuais():
                         'statusStatusCode': statusStatusCode
             }
             partidas.insert_one(partida)
-
+            # break
     #Finalizar Arquivos
     listaPartidas.close()
 
     return 
 
 lerPartidasIndividuais()
+
 print('done')

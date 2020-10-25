@@ -1,4 +1,4 @@
-,Champion,Win,Kills,Deaths,Assists,Creep Score,totalDamageDealtToChampions,wardsBoughtInGame,wardsPlaced,wardsKilled
+,Champion,Win,Kills,Deaths,Assists,CreepScore,DamageToChampions,WardsBought,WardsPlaced,WardsKilled
 0,LeBlanc,False,3,6,3,133,10844,3,6,1
 1,Yuumi,False,0,6,10,2,7095,4,17,1
 2,Aatrox,False,4,5,2,169,13458,2,5,1
