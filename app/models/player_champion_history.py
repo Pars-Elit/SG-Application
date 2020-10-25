@@ -20,6 +20,7 @@ class PlayerChampionHistory():
         self.item4 = None;
         self.item5 = None;
         self.wardItem = None; #item 6
+        self.creepScore = None
         self.wardsPlaced = None;
         self.wardsKilled = None;
         self.controlBoughtWards = None
@@ -29,9 +30,3 @@ class PlayerChampionHistory():
 
         self.perkPrimaryStyle= None
         self.perkSubStyle= None
-
-    def imprimir(self):
-        return {'summonerName' : self.summonerName, 'win': self.win, 'championIcon': self.championIcon, 'championName': self.championName, 'spell1Id': self.spell1Id, 'spell2Id': self.spell2Id, 'kills': self.kills, 'deaths': self.deaths, 'assists': self.assists, 'item0': self.item0, 'item1': self.item1, 'item2': self.item2, 'item3': self.item3, 'item4': self.item4, 'item5': self.item5, 'wardItem':self.wardItem, 'perkPrimaryStyle':self.perkPrimaryStyle, 'perkSubStyle':self.perkSubStyle, 'wardsPlaced':self.wardsPlaced, 'wardsKilled': self.wardsKilled, 'controlBoughtWards': self.controlBoughtWards, 'totalDamageDealtToChampions': self.totalDamageDealtToChampions}
-
-    def __str__(self):
-        return str(self.imprimir())

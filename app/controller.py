@@ -20,7 +20,7 @@ perksStyleFile= db.perkStyles
 perksFile = db.perks
 summonerSpells= db.summoner_spells
 
-perfil = Perfil()
+perfil = ''
 
 def convertRuneIconLink(iconPath):
     return 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default' + iconPath[iconPath.find('/v1'):].lower()
@@ -34,8 +34,10 @@ def getProfileIconLink(iconPath):
 def getChampionIconLink(iconPath):
     return 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/' + str(iconPath)+'.png'    
 
-# def getItemIconLink(iconPath):
-    # return 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/data/items/icons2d/' + str(iconPath)+'.png'    
+def getItemIconLink(iconId):
+    if iconId == 0:
+        return 'https://opgg-static.akamaized.net/images/pattern/opacity.1.png'
+    return 'https://ddragon.leagueoflegends.com/cdn/10.10.1/img/item/' + str(iconId)+ '.png'    
 
 
 @app.route("/")
@@ -45,20 +47,21 @@ def home():
 
 @app.route('/user/<name>', methods=['GET'])
 def buscaPerfil(name):
+    perfil = Perfil()
     name = re.compile(name, re.IGNORECASE)
 
     page = 1
     limit = 10
     listaPartidas=partidas.find({'participantIdentities.player.summonerName': name}).sort([('gameId', -1)]).skip(limit*(page-1)).limit(limit)
     if listaPartidas.count() == 0:
-        return 'Nenhuma partida'
+        return {}
     
     for partida in listaPartidas:
         partidaObj = Partida()       
         for i in partida['participantIdentities']:
             if re.search(name.pattern.lower(), i['player']['summonerName'].lower()): #  Perfil do player
                 nameParticipantId = i['participantId']
-                perfil.profileicon= getProfileIconLink(i['player']['profileIcon'])
+                perfil.profileIcon= getProfileIconLink(i['player']['profileIcon'])
                 perfil.platformId= (i['player']['platformId'])
                 perfil.summonerName= (i['player']['summonerName'])
                 break
@@ -82,15 +85,16 @@ def buscaPerfil(name):
                 partidaObj.deaths = i["stats"]["deaths"]
                 partidaObj.assists = i["stats"]["assists"]
                 
-                partidaObj.item0 = i["stats"]["item0"]
-                partidaObj.item1 = i["stats"]["item1"]
-                partidaObj.item2 = i["stats"]["item2"]
-                partidaObj.item3 = i["stats"]["item3"]
-                partidaObj.item4 = i["stats"]["item4"]
-                partidaObj.item5 = i["stats"]["item5"]
-                partidaObj.wardItem = i["stats"]["item6"]
-                
-                
+                partidaObj.item0 = getItemIconLink(i["stats"]["item0"])
+                partidaObj.item1 = getItemIconLink(i["stats"]["item1"])
+                partidaObj.item2 = getItemIconLink(i["stats"]["item2"])
+                partidaObj.item3 = getItemIconLink(i["stats"]["item3"])
+                partidaObj.item4 = getItemIconLink(i["stats"]["item4"])
+                partidaObj.item5 = getItemIconLink(i["stats"]["item5"])
+                partidaObj.wardItem = getItemIconLink(i["stats"]["item6"])
+        
+                partidaObj.creepScore = i['stats']['totalMinionsKilled'] + i['stats']['neutralMinionsKilled'] + i['stats']['neutralMinionsKilledTeamJungle'] + i['stats']['neutralMinionsKilledEnemyJungle']
+
                 perkPrimaryStyle = i['stats']['perk0']
                 perkSubStyle= i['stats']['perkSubStyle']
                 
@@ -143,12 +147,16 @@ def expandirDadosPartida(gameId):
         champion.deaths = stats["deaths"]
         champion.assists = stats["assists"]
 
-        champion.item0 = stats["item0"]
-        champion.item1 = stats["item1"]
-        champion.item2 = stats["item2"]
-        champion.item3 = stats["item3"]
-        champion.item4 = stats["item4"]
-        champion.item5 = stats["item5"]
+ 
+        champion.item0 = getItemIconLink(i["stats"]["item0"])
+        champion.item1 = getItemIconLink(i["stats"]["item1"])
+        champion.item2 = getItemIconLink(i["stats"]["item2"])
+        champion.item3 = getItemIconLink(i["stats"]["item3"])
+        champion.item4 = getItemIconLink(i["stats"]["item4"])
+        champion.item5 = getItemIconLink(i["stats"]["item5"])
+        champion.wardItem = getItemIconLink(i["stats"]["item6"])
+
+        champion.creepScore = i['stats']['totalMinionsKilled'] + i['stats']['neutralMinionsKilled'] + i['stats']['neutralMinionsKilledTeamJungle'] + i['stats']['neutralMinionsKilledEnemyJungle']
 
         perkPrimaryStyle = stats['perk0']
         perkSubStyle= stats['perkSubStyle']

@@ -1,25 +1,75 @@
 <head>
-    <link href="static/style.css" rel="stylesheet" type="text/css">
-    <link href="static/summoner.css" rel="stylesheet" type="text/css">
-    <link rel="icon" href="static/favicon.ico">
+    <link href="static/css/style.css" rel="stylesheet" type="text/css">
+    <link href="static/css/summoner.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="static/img/favicon.ico">
+    <title>Summoners Graphs</title>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script>
 
         $(document).ready(function () {
             $('#summoner_form').on('submit', async (e) => {
                 e.preventDefault();
-
+                showLoading(true)
                 let username = document.getElementById("user_input").value
                 //?loading?
                 let user = await getUser(username)
                 showMatches(user)
+                showPlayer(user)
                 // document.getElementById("user_input").value = ''
-
+                showLoading(false)
             })
+            document.getElementById('player_div').style.display = 'none'
+            showLoading(false)
         })
+
+        const showLoading = (status) => {
+            let loading = document.getElementById('loading')
+            loading.style.display = 'none'
+            if (status) {
+                loading.style.display = ''
+            }
+        }
+
+        const getUser = async (username) => {
+            response = (await fetch('/user/' + username)).json()
+            return response
+        }
+
+        const showPlayer = (user) => {
+            let div = document.getElementById('player_div')
+            let username = 'Não encontrado!'
+            let icon = 'static/img/favicon.ico'
+            if (user.summonerName) {
+                username = user.summonerName
+                icon = user.profileIcon
+            }
+            div.style.display = ''
+            div.innerHTML = createPlayer(username, icon)
+        }
+
+
+        const createPlayer = (playerName, playerIcon) => {
+            return '<div class="Profile">\
+                        <div class="Face">\
+                            <div class="ProfileIcon">\
+                                <div class="BorderImage"\
+                                    style=""></div>\
+                                <img src="' + playerIcon + '"\
+                                    class="ProfileImage">\
+                                <span class="Level tip" title="Nível"></span>\
+                            </div>\
+                        </div>\
+                        <div class="Information">\
+                            <div class="SummonerName" style="padding-top: 10px;">' + playerName + '</div>\
+                        </div>\
+                    </div>'
+        }
+
 
         const showMatches = (user) => {
             let div = document.getElementById("results_div")
+            div.innerHTML = ''
+            console.log(div.innerHTML)
             for (const key in user.ultimasPartidas) {
                 let match = user.ultimasPartidas[key]
                 let duration = Math.floor(match.gameDuration / 60) + 'm ' + match.gameDuration % 60 + 's'
@@ -30,17 +80,28 @@
                 let assists = match.assists
                 let spell1Icon = match.spell1Id
                 let spell2Icon = match.spell2Id
-                let kda = ((kills+assists)/deaths).toFixed(2) + ':1'
-                div.innerHTML += createMatch(match.championName, duration, win, championIcon, kills, deaths, assists, kda, spell1Icon, spell2Icon)
+                let items = [
+                    match.item0,
+                    match.item1,
+                    match.item2,
+                    match.item3,
+                    match.item4,
+                    match.item5,
+                    match.wardItem
+                ]
+                let runes = [
+                    match.perkPrimaryStyle,
+                    match.perkSubStyle
+                ]
+                
+                let creepScore = match.creepScore
+                let kda = ((kills + assists) / deaths).toFixed(2) + ':1'
+                div.innerHTML += createMatch(match.championName, duration, win, championIcon, kills, deaths, assists, kda, spell1Icon, spell2Icon, items, creepScore, runes)
             }
         }
 
-        const getUser = async (username) => {
-            response = (await fetch('/user/' + username)).json()
-            return response            
-        }
 
-        const createMatch = (description, duration, win, championIcon, kills, deaths, assists, kda, spell1Icon, spell2Icon) => {
+        const createMatch = (description, duration, win, championIcon, kills, deaths, assists, kda, spell1Icon, spell2Icon, items, creepScore, runes) => {
             return '<div class="Box GameItem ' + (win ? 'Win' : 'Lose') + ' ">\
                         <div class="Bar"></div>\
                         <div class="Card">\
@@ -55,14 +116,14 @@
                                 <div class="Right">\
                                     <span id="match_time" class="GameLength">' + duration + '</span>\
                                     <span class="GameResult">\
-                                        <span id="match_win" class="' + (win ? 'Wins' : 'Losses')+ '">' + (win ? 'Vitória' : 'Derrota') + '</span>\
+                                        <span id="match_win" class="' + (win ? 'Wins' : 'Losses') + '">' + (win ? 'Vitória' : 'Derrota') + '</span>\
                                     </span>\
                     \
                                     <div class="Actions">\
                                         <a href="#" class="Action Detail"\
-                                            onclick="$.OP.GG.matches.openDetail(2092338768, 22944471, $(this).closest(".GameItem")); return false;">\
-                                            <span class="__spSite __spSite-198 Off"></span>\
-                                            <span class="__spSite __spSite-197 On"></span>\
+                                            onclick="$openDetail(2092338768, 22944471, $(this).closest(".GameItem")); return false;">\
+                                            <img src="static/img/arrow.png" class="arrowDown"></img>\
+                                            <span src="static/img/arrow.png" class="arrowUp"></img>\
                                         </a>\
                                     </div>\
                                 </div>\
@@ -88,13 +149,13 @@
                                     </div>\
                                     <div class="Runes">\
                                         <div class="Rune">\
-                                            <img src="//opgg-static.akamaized.net/images/lol/perk/8021.png?image=q_auto,w_18&amp;v=1601445791"\
+                                            <img src="' + runes[0] + '"\
                                                 class="Image tip"\
                                                 title="<b style="color: #ffc659">Agilidade nos Pés</b><br><span>Ao atacar ou se mover, você ganha acúmulos de Energia. Após 100 acúmulos, seu próximo ataque fica Energizado.<br><br>Ataques energizados curam de 3 a 60 (+0.3 de DdA adicional, +0.3 de PdH) e concedem +20% de Velocidade de Movimento por 1s.<br><br>A cura recebida das tropas é 20% eficaz para Campeões de ataque à distância.</span>"\
                                                 alt="Agilidade nos Pés">\
                                         </div>\
                                         <div class="Rune">\
-                                            <img src="//opgg-static.akamaized.net/images/lol/perkStyle/8100.png?image=q_auto,w_18&amp;v=1601445791"\
+                                            <img src="' + runes[1] + '"\
                                                 class="Image tip"\
                                                 title="<b style="color: #ffc659">Dominação</b><br><span>Dano explosivo e acesso ao alvo</span>"\
                                                 alt="Dominação">\
@@ -103,7 +164,7 @@
                                 </div>\
                                 <div class="KDA">\
                                     <div class="KDA">\
-                                        <span class="Kill">' + kills +'</span> /\
+                                        <span class="Kill">' + kills + '</span> /\
                                         <span class="Death">' + deaths + '</span> /\
                                         <span class="Assist">' + assists + '</span>\
                                     </div>\
@@ -112,54 +173,54 @@
                                     </div>\
                                 </div>\
                                 <div class="Stats">\
-                                    <div class="Level">\
-                                        Nível12\
-                                    </div>\
                                     <div class="CS">\
-                                        <span class="CS tip" title="Tropa 113  + Tropas 4<br>Tropas abatidas por minuto: 5.8">117\
-                                            (5.8)</span> CS\
-                                    </div>\
-                                    <div class="CKRate tip" title="Contribuição em Abates">\
-                                        P/Kill 31%\
+                                        <span class="CS tip" title="">' + creepScore + '\
+                                            </span> CS\
                                     </div>\
                                 </div>\
                                 <div class="Items">\
                                     <div class="Item">\
-                                        <img src="//opgg-static.akamaized.net/images/lol/item/3146.png?image=q_auto,w_22&amp;v=1601445791"\
+                                        <img src="' + items[0] + '"\
                                             class="Image tip"\
-                                            title="<b style="color: #00cfbc">Pistola Laminar Hextec</b><br><span>Aumenta o Dano de Ataque e o Poder de Habilidade; ative para reduzir a velocidade de um alvo</span><br><span><stats>+40 de Dano de Ataque<br>+80 de Poder de Habilidade</stats><br><br><unique>Passivo ÚNICO:</unique> Cura em 15% do dano causado. Esse efeito tem 33% de eficácia para dano em área.<br><active>Ativo ÚNICO - Disparo Elétrico:</active> Causa de <scaleLevel>175 a 253</scaleLevel> (+30% do Poder de Habilidade) de Dano Mágico e reduz a Velocidade de Movimento do Campeão alvo em 40% por 2s (40s de Tempo de Recarga, compartilhado com outros itens <font color="#9999FF"><a href=&quot;#&quot;>Hextec</a></font>).</span><br><span>Custo:</span> <span style="color: #ffc659">3400 (750)</span>"\
+                                            title=""\
                                             alt="Pistola Laminar Hextec">\
                                     </div>\
                                     <div class="Item">\
-                                        <img src="//opgg-static.akamaized.net/images/lol/item/1052.png?image=q_auto,w_22&amp;v=1601445791"\
+                                        <img src="' + items[1] + '"\
                                             class="Image tip"\
-                                            title="<b style="color: #00cfbc">Tomo Amplificador</b><br><span>Aumenta levemente o Poder de Habilidade</span><br><span><stats>+20 de Poder de Habilidade</stats></span><br><span>Custo:</span> <span style="color: #ffc659">435 (435)</span>"\
+                                            title=""\
                                             alt="Tomo Amplificador">\
                                     </div>\
                                     <div class="Item">\
-                                        <img src="//opgg-static.akamaized.net/images/lol/item/1001.png?image=q_auto,w_22&amp;v=1601445791"\
+                                        <img src="' + items[2] + '"\
                                             class="Image tip"\
-                                            title="<b style="color: #00cfbc">Botas da Velocidade</b><br><span>Aumenta levemente a Velocidade de Movimento</span><br><span><groupLimit>Limite de 1 par de botas.</groupLimit><br><br><unique>Passivo ÚNICO - Movimento Aprimorado:</unique> +25 de Velocidade de Movimento</span><br><span>Custo:</span> <span style="color: #ffc659">300 (300)</span>"\
+                                            title=""\
                                             alt="Botas da Velocidade">\
                                     </div>\
                                     <div class="Item">\
-                                        <img src="//opgg-static.akamaized.net/images/lol/item/1026.png?image=q_auto,w_22&amp;v=1601445791"\
+                                        <img src="' + items[3] + '"\
                                             class="Image tip"\
-                                            title="<b style="color: #00cfbc">Varinha Explosiva</b><br><span>Aumenta moderadamente o Poder de Habilidade</span><br><span><stats>+40 de Poder de Habilidade</stats></span><br><span>Custo:</span> <span style="color: #ffc659">850 (850)</span>"\
+                                            title=""\
                                             alt="Varinha Explosiva">\
                                     </div>\
                                     <div class="Item">\
-                                        <div class="Image NoItem"></div>\
+                                        <img src="' + items[4] + '"\
+                                            class="Image tip"\
+                                            title=""\
+                                            alt="Varinha Explosiva">\
                                     </div>\
                                     <div class="Item">\
-                                        <div class="Image NoItem"></div>\
+                                        <img src="' + items[5] + '"\
+                                            class="Image tip"\
+                                            title=""\
+                                            alt="Varinha Explosiva">\
                                     </div>\
                                 </div>\
                                 <div class="TrinketWithItem">\
                                     <div class="Item">\
-                                        <img src="//opgg-static.akamaized.net/images/lol/item/3340.png?image=q_auto,w_22&amp;v=1601445791"\
+                                        <img src="' + items[6] + '"\
                                             class="Image tip"\
-                                            title="<b style="color: #00cfbc">Totem de Vigilância (Amuleto)</b><br><span>Periodicamente posiciona uma Sentinela Invisível</span><br><span><groupLimit>Limitado a 1 amuleto.</groupLimit><br><br><active>Ativo:</active> Consome uma carga para posicionar uma <font color="#BBFFFF">Sentinela Invisível</font> que revela a área ao seu redor por <scaleLevel>90s - 120s</scaleLevel>. <br><br>Armazena uma carga a cada <scaleLevel>240s - 120s</scaleLevel>, até 2 cargas no máximo.<br><br>A duração das sentinelas e o tempo de recarregamento melhoram gradualmente com o nível.<br><br><rules>(Limite de 3 <font color="#BBFFFF">Sentinelas Invisíveis</font> no mapa para cada jogador.)</rules></span>"\
+                                            title=""\
                                             alt="Totem de Vigilância (Amuleto)">\
                                     </div>\
                                 </div>\
@@ -180,28 +241,27 @@
                     <h1 class="sg-header__logo">
                         <a class="sg-header__logo-anchor" href="/">
                             <img alt="OP.GG" height="16"
-                                src="//opgg-static.akamaized.net/images/gnb/svg/00-opgglogo.svg" width="65">
+                                src="static/img/logo.svg" width="65">
                         </a>
                     </h1>
                     <button class="sg-header__navi-open" type="button">
                         <span class="sg-header__navi-thumb">
                             <img alt="League of Legends"
-                                src="//opgg-static.akamaized.net/images/gnb/img/icon-navi-lol.png">
+                                src="static/img/lol.png">
                         </span>
                     </button>
 
                     <div class="sg-header__util">
                         <button class="sg-header__util-open" type="button"><img alt="" height="24"
                                 onclick="$.OP.GG.sidebar.toggle(); return false;"
-                                src="//opgg-static.akamaized.net/images/gnb/svg/icon-login.svg" width="24"></button>
+                                src="static/img/login.svg" width="24"></button>
                     </div>
                 </div>
             </div>
         </header>
         <!-- logo animais -->
         <h1 class="header__art">
-            <img src="https://attach.s.op.gg/logo/20201021171233.4c60bcd1abc9d2a7f2b98029a19158bd.png"
-                title="Rengar vs Kha'Zix">
+            <img src="static/img/art.png" title="">
         </h1>
         <!-- search -->
         <div class="header__search-summoner">
@@ -209,152 +269,28 @@
                 <form id="summoner_form" autocomplete="on">
                     <input id="user_input" autocomplete="on" class="search-summoner__input-txt">
                     <button class="search-summoner__btn search-summoner__btn--submit Submit">
-                        <img src="//opgg-static.akamaized.net/images/gnb/svg/00-icon-gg.svg" height="16">
+                        <img src="static/img/button.svg" height="16">
                     </button>
                 </form>
             </div>
         </div>
     </div>
 
+    
+    <!-- profile -->
+    <div id="player_div" class="SummonerHeader">
+        <!-- player -->
+    </div>
+
     <!-- results -->
     <div id="results_div" class="GameItemList">
-        
+
         <!-- two -->
 
-        <div class="Box GameItem Win  ">
-            <div class="Bar"></div>
-            <div class="Card">
-                <div class="Title">
-                    <h2 class="Text">
-                        Partida normal
-                        · <span class="TimeStamp"><span class="_timeago _timeCountAssigned tip"
-                                data-datetime="1603203564" data-type="" data-interval="60"
-                                title="20 de Out de 2020 11:19">5 dias atrás</span></span>
-                    </h2>
-
-                    <div class="Right">
-                        <span class="GameLength">26m 27s</span>
-                        <span class="GameResult">
-                            <span class="Wins">Vitória</span>
-                        </span>
-
-                        <div class="Actions">
-                            <a href="#" class="Action Detail"
-                                onclick="$.OP.GG.matches.openDetail(2092068138, 22944471, $(this).closest('.GameItem')); return false;">
-                                <span class="__spSite __spSite-194 Off"></span>
-                                <span class="__spSite __spSite-193 On"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="GameStats">
-                    <div class="ChampionImageAndSpell">
-                        <div class="ChampionImage">
-                            <a href="/champion/aurelionsol/statistics"><img
-                                    src="//opgg-static.akamaized.net/images/lol/champion/AurelionSol.png?image=q_auto,w_40&amp;v=1601445791"
-                                    class="Image"></a>
-                        </div>
-                        <div class="Spells">
-                            <div class="Spell">
-                                <img src="//opgg-static.akamaized.net/images/lol/spell/SummonerFlash.png?image=q_auto,w_18&amp;v=1601445791"
-                                    class="Image tip"
-                                    title="<b style='color: #ffc659'>Flash</b><br><span>Teleporta seu Campeão por uma curta distância em direção ao seu cursor.</span>">
-                            </div>
-                            <div class="Spell">
-                                <img src="//opgg-static.akamaized.net/images/lol/spell/SummonerDot.png?image=q_auto,w_18&amp;v=1601445791"
-                                    class="Image tip"
-                                    title="<b style='color: #ffc659'>Incendiar</b><br><span>Incendeia o Campeão-alvo inimigo, causando 70 - 410 de Dano Verdadeiro (dependendo do nível do Campeão) ao longo de 5s, concedendo visão do alvo e reduzindo os efeitos de cura dele enquanto durar o efeito.</span>">
-                            </div>
-                        </div>
-                        <div class="Runes">
-                            <div class="Rune">
-                                <img src="//opgg-static.akamaized.net/images/lol/perk/8230.png?image=q_auto,w_18&amp;v=1601445791"
-                                    class="Image tip"
-                                    title="<b style='color: #ffc659'>Ímpeto Gradual</b><br><span>Acertar um Campeão inimigo com 3 ataques ou habilidades <b>diferentes</b> em até 4s concede 25% - 40% de Velocidade de Movimento com base no nível e 75% de resistência à redução de velocidade. <br><br>Velocidade de Movimento aumentada em 40% - 60% para Campeões corpo a corpo.<br><br>Duração: 3s<br>Tempo de Recarga: 15s</span>"
-                                    alt="Ímpeto Gradual">
-                            </div>
-                            <div class="Rune">
-                                <img src="//opgg-static.akamaized.net/images/lol/perkStyle/8000.png?image=q_auto,w_18&amp;v=1601445791"
-                                    class="Image tip"
-                                    title="<b style='color: #ffc659'>Precisão</b><br><span>Ataques aprimorados e sustentação de dano</span>"
-                                    alt="Precisão">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="KDA">
-                        <div class="KDA">
-                            <span class="Kill">4</span> /
-                            <span class="Death">5</span> /
-                            <span class="Assist">5</span>
-                        </div>
-                        <div class="KDARatio">
-                            <span class="KDARatio ">1.80:1</span>
-                        </div>
-                    </div>
-                    <div class="Stats">
-                        <div class="Level">
-                            Nível14
-                        </div>
-                        <div class="CS">
-                            <span class="CS tip" title="Tropa 144  + Tropas 0<br>Tropas abatidas por minuto: 5.4">144
-                                (5.4)</span> CS
-                        </div>
-                        <div class="CKRate tip" title="Contribuição em Abates">
-                            P/Kill 31%
-                        </div>
-                    </div>
-                    <div class="Items">
-                        <div class="Item">
-                            <img src="//opgg-static.akamaized.net/images/lol/item/3030.png?image=q_auto,w_22&amp;v=1601445791"
-                                class="Image tip"
-                                title="<b style='color: #00cfbc'>Hextec GLP-800</b><br><span>Ative para disparar projéteis gélidos e reduzir a velocidade de inimigos</span><br><span><stats>+80 de Poder de Habilidade<br><mana>+600 de Mana</mana><br>+10% de Redução do Tempo de Recarga</stats><br><br><unique>Passivo ÚNICO - Aceleração:</unique> Este item recebe 10% de redução de Tempo de Recarga adicional.<br><unique>Ativo ÚNICO - Disparo Gélido:</unique> Dispara uma difusão de projéteis gélidos que explodem na primeira unidade atingida, causando <scaleLevel>100 - 200</scaleLevel> (+20% de seu Poder de Habilidade) de Dano Mágico a todos os inimigos atingidos. (40s de Tempo de Recarga, compartilhado com outros itens <font color='#9999FF'><a href=&quot;#&quot;>Hextec</a></font>.)<br><br> Os inimigos atingidos sofrem redução de velocidade em 65%, que decai ao longo de 2s.</span><br><span>Custo:</span> <span style='color: #ffc659'>2800 (450)</span>"
-                                alt="Hextec GLP-800">
-                        </div>
-                        <div class="Item">
-                            <img src="//opgg-static.akamaized.net/images/lol/item/1026.png?image=q_auto,w_22&amp;v=1601445791"
-                                class="Image tip"
-                                title="<b style='color: #00cfbc'>Varinha Explosiva</b><br><span>Aumenta moderadamente o Poder de Habilidade</span><br><span><stats>+40 de Poder de Habilidade</stats></span><br><span>Custo:</span> <span style='color: #ffc659'>850 (850)</span>"
-                                alt="Varinha Explosiva">
-                        </div>
-                        <div class="Item">
-                            <img src="//opgg-static.akamaized.net/images/lol/item/3020.png?image=q_auto,w_22&amp;v=1601445791"
-                                class="Image tip"
-                                title="<b style='color: #00cfbc'>Sapatos do Feiticeiro</b><br><span>Aprimora a Velocidade de Movimento e o Dano Mágico</span><br><span><groupLimit>Limite de 1 par de botas.</groupLimit><br><br><stats>+18 de <a href=&quot;#&quot;>Penetração Mágica</a></stats><br><br><unique>Passivo ÚNICO - Movimento Aprimorado:</unique> +45 de Velocidade de Movimento</span><br><span>Custo:</span> <span style='color: #ffc659'>1100 (800)</span>"
-                                alt="Sapatos do Feiticeiro">
-                        </div>
-                        <div class="Item">
-                            <img src="//opgg-static.akamaized.net/images/lol/item/1082.png?image=q_auto,w_22&amp;v=1601445791"
-                                class="Image tip"
-                                title="<b style='color: #00cfbc'>Lacre Sombrio</b><br><span>Proporciona Poder de Habilidade e Mana. Seu poder aumenta conforme abate inimigos.</span><br><span><stats>+10 de Poder de Habilidade<br>+25% de aumento em cura proveniente de poções<br><mana>+100 de Mana</mana></stats><br><br><unique>Passivo ÚNICO - Pavor:</unique> Concede +3 de Poder de Habilidade por Glória. <br><unique>Passivo ÚNICO - Faça ou Morra:</unique> Concede 2 de Glória por abate de Campeão ou 1 de Glória por assistência, até um máximo de 10 de Glória total. Perde-se 4 de Glória ao morrer.</span><br><span>Custo:</span> <span style='color: #ffc659'>350 (350)</span>"
-                                alt="Lacre Sombrio">
-                        </div>
-                        <div class="Item">
-                            <img src="//opgg-static.akamaized.net/images/lol/item/3165.png?image=q_auto,w_22&amp;v=1601445791"
-                                class="Image tip"
-                                title="<b style='color: #00cfbc'>Morellonomicon</b><br><span>Aumenta o Dano Mágico</span><br><span><stats>+70 de Poder de Habilidade<br>+300 de Vida</stats><br><br><unique>Passivo ÚNICO - Toque da Morte:</unique> +15 de <a href=&quot;#&quot;>Penetração Mágica</a><br><unique>Passivo ÚNICO - Ataque Amaldiçoado:</unique> Causar Dano Mágico a Campeões inflige <a href=&quot;#&quot;>Feridas Dolorosas</a> por 3s.</span><br><span>Custo:</span> <span style='color: #ffc659'>3000 (550)</span>"
-                                alt="Morellonomicon">
-                        </div>
-                        <div class="Item">
-                            <img src="//opgg-static.akamaized.net/images/lol/item/1052.png?image=q_auto,w_22&amp;v=1601445791"
-                                class="Image tip"
-                                title="<b style='color: #00cfbc'>Tomo Amplificador</b><br><span>Aumenta levemente o Poder de Habilidade</span><br><span><stats>+20 de Poder de Habilidade</stats></span><br><span>Custo:</span> <span style='color: #ffc659'>435 (435)</span>"
-                                alt="Tomo Amplificador">
-                        </div>
-                    </div>
-                    <div class="TrinketWithItem">
-                        <div class="Item">
-                            <img src="//opgg-static.akamaized.net/images/lol/item/3363.png?image=q_auto,w_22&amp;v=1601445791"
-                                class="Image tip"
-                                title="<b style='color: #00cfbc'>Alteração Vidente</b><br><span>Concede alcance aumentado e revela a área-alvo</span><br><span><levelLimit>Requer nível 9+ para aprimorar.</levelLimit><br><groupLimit>Limitado a 1 amuleto.</groupLimit><br><br>Altera o amuleto <font color='#FFFFFF'>Totem de Vigilância</font>:<br><br><stats><font color='#00FF00'>+</font> Aumenta drasticamente o alcance de conjuração (+650%)<br><font color='#00FF00'>+</font> Duração infinita e não conta no limite total de sentinelas<br><font color='#FF0000'>-</font> <font color='#FF6600'>10% de aumento do Tempo de Recarga</font><br><font color='#FF0000'>-</font> <font color='#FF6600'>A sentinela é visível, frágil e não pode ser selecionada por aliados</font><br><font color='#FF0000'>-</font> <font color='#FF6600'>45% de redução do raio de visão da sentinela</font><br><font color='#FF0000'>-</font> <font color='#FF6600'>Não pode armazenar cargas</font></stats></span>"
-                                alt="Alteração Vidente">
-                        </div>
-                    </div>
-                </div>
-                <div class="GameDetail"></div>
-            </div>
-        </div>
-
-
     </div>
+
+    <!-- loading -->
+    <img id="loading" src="static/img/loading.gif">
+
 
 </body>
