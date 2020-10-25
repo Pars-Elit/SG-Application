@@ -1,21 +1,27 @@
 <head>
     <link href="static/css/style.css" rel="stylesheet" type="text/css">
     <link href="static/css/summoner.css" rel="stylesheet" type="text/css">
+    <link href="static/css/bootstrap-iso.css" rel="stylesheet" type="text/css">
     <link rel="icon" href="static/img/favicon.ico">
+    
     <title>Summoners Graphs</title>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script>
+    <script src="static/js/bootstrap.min.js"></script>
 
+    <script>
+        let tips = []
         $(document).ready(function () {
+            (async () => {
+                tips = await getTips()
+            })()
             $('#summoner_form').on('submit', async (e) => {
                 e.preventDefault();
                 showLoading(true)
                 let username = document.getElementById("user_input").value
-                //?loading?
+                document.getElementById("user_input").value = ''
                 let user = await getUser(username)
                 showMatches(user)
                 showPlayer(user)
-                // document.getElementById("user_input").value = ''
                 showLoading(false)
             })
             document.getElementById('player_div').style.display = 'none'
@@ -65,6 +71,31 @@
                     </div>'
         }
 
+        const getGameDetails = async (gameId) => {
+            return (await fetch('/match/' + gameId)).json()
+        }
+
+        const showGameDetails = async (gameId) => {
+            let div = document.getElementById(gameId)
+            document.getElementById('title_modal').innerText = 'Detalhes da partida'
+            document.getElementById('content_modal').innerText = 'Carregando...'
+            showLoading(true)
+            let match = await getGameDetails(gameId)
+            // console.log(match)
+            showLoading(false)
+            document.getElementById('content_modal').innerText = JSON.stringify(match, null, 4)
+        }
+
+        const getTips = async () => {
+            return (await fetch('/tip')).json()
+        }
+
+        const showTips = () => {
+            let i = Math.floor((Math.random() * tips.length))
+            document.getElementById('title_modal').innerText = 'Dica'
+            document.getElementById('content_modal').innerText = tips[i]
+        }
+
 
         const showMatches = (user) => {
             let div = document.getElementById("results_div")
@@ -93,20 +124,20 @@
                     match.perkPrimaryStyle,
                     match.perkSubStyle
                 ]
-                
+
                 let creepScore = match.creepScore
                 let kda = ((kills + assists) / deaths).toFixed(2) + ':1'
-                div.innerHTML += createMatch(match.championName, duration, win, championIcon, kills, deaths, assists, kda, spell1Icon, spell2Icon, items, creepScore, runes)
+                div.innerHTML += createMatch(match.gameId, match.championName, duration, win, championIcon, kills, deaths, assists, kda, spell1Icon, spell2Icon, items, creepScore, runes)
             }
         }
 
 
-        const createMatch = (description, duration, win, championIcon, kills, deaths, assists, kda, spell1Icon, spell2Icon, items, creepScore, runes) => {
-            return '<div class="Box GameItem ' + (win ? 'Win' : 'Lose') + ' ">\
-                        <div class="Bar"></div>\
-                        <div class="Card">\
-                            <div class="Title">\
-                                <h2 id="match_description" class="Text">\
+        const createMatch = (gameId, description, duration, win, championIcon, kills, deaths, assists, kda, spell1Icon, spell2Icon, items, creepScore, runes) => {
+            return '<div id="' + gameId + '" class="BoxSummon GameItem ' + (win ? 'Win' : 'Lose') + ' ">\
+                        <div class="BarSummon"></div>\
+                        <div class="CardSummon">\
+                            <div class="TitleSummon">\
+                                <h2 id="match_description" class="TextSummon">\
                                     ' + description + '\
                                     · <span id="match_date" class="TimeStamp"><span class="_timeago _timeCountAssigned tip"\
                                             data-datetime="1603226097" data-type="" data-interval="60"\
@@ -120,8 +151,8 @@
                                     </span>\
                     \
                                     <div class="Actions">\
-                                        <a href="#" class="Action Detail"\
-                                            onclick="$openDetail(2092338768, 22944471, $(this).closest(".GameItem")); return false;">\
+                                        <a href="#" data-toggle="modal" data-target="#myModal"  class="ActionSummon DetailSummon "\
+                                            onclick=showGameDetails("'+ gameId + '")>\
                                             <img src="static/img/arrow.png" class="arrowDown"></img>\
                                             <span src="static/img/arrow.png" class="arrowUp"></img>\
                                         </a>\
@@ -139,26 +170,24 @@
                                         <div class="Spell">\
                                             <img src="' + spell1Icon + '"\
                                                 class="Image tip"\
-                                                title="<b style="color: #ffc659">Flash</b><br><span>Teleporta seu Campeão por uma curta distância em direção ao seu cursor.</span>">\
+                                            >\
                                         </div>\
                                         <div class="Spell">\
                                             <img src="' + spell2Icon + '"\
                                                 class="Image tip"\
-                                                title="<b style="color: #ffc659">Teleporte</b><br><span>Depois de canalizar por 4s, teleporta seu Campeão para a estrutura, tropa ou sentinela-alvo aliada e concede um surto de Velocidade de Movimento. O Tempo de Recarga de Teleporte escala 420s - 240s dependendo do nível do Campeão.</span>">\
+                                            >\
                                         </div>\
                                     </div>\
                                     <div class="Runes">\
                                         <div class="Rune">\
                                             <img src="' + runes[0] + '"\
                                                 class="Image tip"\
-                                                title="<b style="color: #ffc659">Agilidade nos Pés</b><br><span>Ao atacar ou se mover, você ganha acúmulos de Energia. Após 100 acúmulos, seu próximo ataque fica Energizado.<br><br>Ataques energizados curam de 3 a 60 (+0.3 de DdA adicional, +0.3 de PdH) e concedem +20% de Velocidade de Movimento por 1s.<br><br>A cura recebida das tropas é 20% eficaz para Campeões de ataque à distância.</span>"\
-                                                alt="Agilidade nos Pés">\
+                                            >\
                                         </div>\
                                         <div class="Rune">\
                                             <img src="' + runes[1] + '"\
                                                 class="Image tip"\
-                                                title="<b style="color: #ffc659">Dominação</b><br><span>Dano explosivo e acesso ao alvo</span>"\
-                                                alt="Dominação">\
+                                            >\
                                         </div>\
                                     </div>\
                                 </div>\
@@ -178,50 +207,43 @@
                                             </span> CS\
                                     </div>\
                                 </div>\
-                                <div class="Items">\
-                                    <div class="Item">\
+                                <div class="ItemsSummon">\
+                                    <div class="ItemSummon">\
                                         <img src="' + items[0] + '"\
                                             class="Image tip"\
-                                            title=""\
-                                            alt="Pistola Laminar Hextec">\
+                                            title="">\
                                     </div>\
-                                    <div class="Item">\
+                                    <div class="ItemSummon">\
                                         <img src="' + items[1] + '"\
                                             class="Image tip"\
-                                            title=""\
-                                            alt="Tomo Amplificador">\
+                                            title="">\
                                     </div>\
-                                    <div class="Item">\
+                                    <div class="ItemSummon">\
                                         <img src="' + items[2] + '"\
                                             class="Image tip"\
-                                            title=""\
-                                            alt="Botas da Velocidade">\
+                                            title="">\
                                     </div>\
-                                    <div class="Item">\
+                                    <div class="ItemSummon">\
                                         <img src="' + items[3] + '"\
                                             class="Image tip"\
-                                            title=""\
-                                            alt="Varinha Explosiva">\
+                                            title="">\
                                     </div>\
-                                    <div class="Item">\
+                                    <div class="ItemSummon">\
                                         <img src="' + items[4] + '"\
                                             class="Image tip"\
-                                            title=""\
-                                            alt="Varinha Explosiva">\
+                                            title="">\
                                     </div>\
-                                    <div class="Item">\
+                                    <div class="ItemSummon">\
                                         <img src="' + items[5] + '"\
                                             class="Image tip"\
-                                            title=""\
-                                            alt="Varinha Explosiva">\
+                                            title="">\
                                     </div>\
                                 </div>\
                                 <div class="TrinketWithItem">\
-                                    <div class="Item">\
+                                    <div class="ItemSummon">\
                                         <img src="' + items[6] + '"\
                                             class="Image tip"\
-                                            title=""\
-                                            alt="Totem de Vigilância (Amuleto)">\
+                                            >\
                                     </div>\
                                 </div>\
                             </div>\
@@ -240,21 +262,22 @@
                 <div class="sg-header__gnb">
                     <h1 class="sg-header__logo">
                         <a class="sg-header__logo-anchor" href="/">
-                            <img alt="OP.GG" height="16"
-                                src="static/img/logo.svg" width="65">
+                            <img height="16" src="static/img/logo.svg" width="65">
                         </a>
                     </h1>
-                    <button class="sg-header__navi-open" type="button">
+                    
+                    <button onclick="showTips()" data-toggle="modal" data-target="#myModal" class="sg-header__navi-open" type="button">
                         <span class="sg-header__navi-thumb">
-                            <img alt="League of Legends"
-                                src="static/img/lol.png">
+                            <img alt="League of Legends" src="static/img/lol.png">
                         </span>
                     </button>
+                    
+
 
                     <div class="sg-header__util">
                         <button class="sg-header__util-open" type="button"><img alt="" height="24"
-                                onclick="$.OP.GG.sidebar.toggle(); return false;"
-                                src="static/img/login.svg" width="24"></button>
+                                onclick="" src="static/img/login.svg"
+                                width="24"></button>
                     </div>
                 </div>
             </div>
@@ -276,7 +299,7 @@
         </div>
     </div>
 
-    
+
     <!-- profile -->
     <div id="player_div" class="SummonerHeader">
         <!-- player -->
@@ -292,5 +315,28 @@
     <!-- loading -->
     <img id="loading" src="static/img/loading.gif">
 
+
+    <!-- Modal -->
+    <div class="bootstrap-iso">
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 id="title_modal" class="modal-title">grutatus</h4>
+                    </div>
+                    <div id="content_modal" class="modal-body">
+                        <p>tapapé</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 </body>
