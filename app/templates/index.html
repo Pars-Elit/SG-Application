@@ -11,11 +11,11 @@
                 e.preventDefault();
                 showLoading(true)
                 let username = document.getElementById("user_input").value
+                // document.getElementById("user_input").value = ''
                 //?loading?
                 let user = await getUser(username)
                 showMatches(user)
                 showPlayer(user)
-                // document.getElementById("user_input").value = ''
                 showLoading(false)
             })
             document.getElementById('player_div').style.display = 'none'
@@ -65,6 +65,11 @@
                     </div>'
         }
 
+        const showDetails = (gameId) => {
+            let div = document.getElementById(gameId)
+            div.innerText += '<a>a</a>'
+        }
+
 
         const showMatches = (user) => {
             let div = document.getElementById("results_div")
@@ -96,13 +101,13 @@
                 
                 let creepScore = match.creepScore
                 let kda = ((kills + assists) / deaths).toFixed(2) + ':1'
-                div.innerHTML += createMatch(match.championName, duration, win, championIcon, kills, deaths, assists, kda, spell1Icon, spell2Icon, items, creepScore, runes)
+                div.innerHTML += createMatch(match.gameId, match.championName, duration, win, championIcon, kills, deaths, assists, kda, spell1Icon, spell2Icon, items, creepScore, runes)
             }
         }
 
 
-        const createMatch = (description, duration, win, championIcon, kills, deaths, assists, kda, spell1Icon, spell2Icon, items, creepScore, runes) => {
-            return '<div class="Box GameItem ' + (win ? 'Win' : 'Lose') + ' ">\
+        const createMatch = (gameId, description, duration, win, championIcon, kills, deaths, assists, kda, spell1Icon, spell2Icon, items, creepScore, runes) => {
+            return '<div id="' + gameId + '" class="Box GameItem ' + (win ? 'Win' : 'Lose') + ' ">\
                         <div class="Bar"></div>\
                         <div class="Card">\
                             <div class="Title">\
@@ -121,7 +126,7 @@
                     \
                                     <div class="Actions">\
                                         <a href="#" class="Action Detail"\
-                                            onclick="$openDetail(2092338768, 22944471, $(this).closest(".GameItem")); return false;">\
+                                            onclick=showDetails("'+gameId+'")>\
                                             <img src="static/img/arrow.png" class="arrowDown"></img>\
                                             <span src="static/img/arrow.png" class="arrowUp"></img>\
                                         </a>\
@@ -139,26 +144,24 @@
                                         <div class="Spell">\
                                             <img src="' + spell1Icon + '"\
                                                 class="Image tip"\
-                                                title="<b style="color: #ffc659">Flash</b><br><span>Teleporta seu Campeão por uma curta distância em direção ao seu cursor.</span>">\
+                                            >\
                                         </div>\
                                         <div class="Spell">\
                                             <img src="' + spell2Icon + '"\
                                                 class="Image tip"\
-                                                title="<b style="color: #ffc659">Teleporte</b><br><span>Depois de canalizar por 4s, teleporta seu Campeão para a estrutura, tropa ou sentinela-alvo aliada e concede um surto de Velocidade de Movimento. O Tempo de Recarga de Teleporte escala 420s - 240s dependendo do nível do Campeão.</span>">\
+                                            >\
                                         </div>\
                                     </div>\
                                     <div class="Runes">\
                                         <div class="Rune">\
                                             <img src="' + runes[0] + '"\
                                                 class="Image tip"\
-                                                title="<b style="color: #ffc659">Agilidade nos Pés</b><br><span>Ao atacar ou se mover, você ganha acúmulos de Energia. Após 100 acúmulos, seu próximo ataque fica Energizado.<br><br>Ataques energizados curam de 3 a 60 (+0.3 de DdA adicional, +0.3 de PdH) e concedem +20% de Velocidade de Movimento por 1s.<br><br>A cura recebida das tropas é 20% eficaz para Campeões de ataque à distância.</span>"\
-                                                alt="Agilidade nos Pés">\
+                                            >\
                                         </div>\
                                         <div class="Rune">\
                                             <img src="' + runes[1] + '"\
                                                 class="Image tip"\
-                                                title="<b style="color: #ffc659">Dominação</b><br><span>Dano explosivo e acesso ao alvo</span>"\
-                                                alt="Dominação">\
+                                            >\
                                         </div>\
                                     </div>\
                                 </div>\
@@ -182,46 +185,39 @@
                                     <div class="Item">\
                                         <img src="' + items[0] + '"\
                                             class="Image tip"\
-                                            title=""\
-                                            alt="Pistola Laminar Hextec">\
+                                            title="">\
                                     </div>\
                                     <div class="Item">\
                                         <img src="' + items[1] + '"\
                                             class="Image tip"\
-                                            title=""\
-                                            alt="Tomo Amplificador">\
+                                            title="">\
                                     </div>\
                                     <div class="Item">\
                                         <img src="' + items[2] + '"\
                                             class="Image tip"\
-                                            title=""\
-                                            alt="Botas da Velocidade">\
+                                            title="">\
                                     </div>\
                                     <div class="Item">\
                                         <img src="' + items[3] + '"\
                                             class="Image tip"\
-                                            title=""\
-                                            alt="Varinha Explosiva">\
+                                            title="">\
                                     </div>\
                                     <div class="Item">\
                                         <img src="' + items[4] + '"\
                                             class="Image tip"\
-                                            title=""\
-                                            alt="Varinha Explosiva">\
+                                            title="">\
                                     </div>\
                                     <div class="Item">\
                                         <img src="' + items[5] + '"\
                                             class="Image tip"\
-                                            title=""\
-                                            alt="Varinha Explosiva">\
+                                            title="">\
                                     </div>\
                                 </div>\
                                 <div class="TrinketWithItem">\
                                     <div class="Item">\
                                         <img src="' + items[6] + '"\
                                             class="Image tip"\
-                                            title=""\
-                                            alt="Totem de Vigilância (Amuleto)">\
+                                            >\
                                     </div>\
                                 </div>\
                             </div>\

@@ -47,6 +47,7 @@ def home():
 
 @app.route('/user/<name>', methods=['GET'])
 def buscaPerfil(name):
+    global perfil
     perfil = Perfil()
     name = re.compile(name, re.IGNORECASE)
 
@@ -117,7 +118,6 @@ def buscaPerfil(name):
                 # **Buscar da API as runas depois**
         perfil.ultimasPartidas[partidaObj.gameId] = partidaObj.__dict__
     return perfil.__dict__
-    # return jsonify(json.loads(str(perfil)))
 
 @app.route('/match/<gameId>')
 def expandirDadosPartida(gameId):
@@ -148,15 +148,15 @@ def expandirDadosPartida(gameId):
         champion.assists = stats["assists"]
 
  
-        champion.item0 = getItemIconLink(i["stats"]["item0"])
-        champion.item1 = getItemIconLink(i["stats"]["item1"])
-        champion.item2 = getItemIconLink(i["stats"]["item2"])
-        champion.item3 = getItemIconLink(i["stats"]["item3"])
-        champion.item4 = getItemIconLink(i["stats"]["item4"])
-        champion.item5 = getItemIconLink(i["stats"]["item5"])
-        champion.wardItem = getItemIconLink(i["stats"]["item6"])
+        champion.item0 = getItemIconLink(stats["item0"])
+        champion.item1 = getItemIconLink(stats["item1"])
+        champion.item2 = getItemIconLink(stats["item2"])
+        champion.item3 = getItemIconLink(stats["item3"])
+        champion.item4 = getItemIconLink(stats["item4"])
+        champion.item5 = getItemIconLink(stats["item5"])
+        champion.wardItem = getItemIconLink(stats["item6"])
 
-        champion.creepScore = i['stats']['totalMinionsKilled'] + i['stats']['neutralMinionsKilled'] + i['stats']['neutralMinionsKilledTeamJungle'] + i['stats']['neutralMinionsKilledEnemyJungle']
+        champion.creepScore = stats['totalMinionsKilled'] + stats['neutralMinionsKilled'] + stats['neutralMinionsKilledTeamJungle'] + stats['neutralMinionsKilledEnemyJungle']
 
         perkPrimaryStyle = stats['perk0']
         perkSubStyle= stats['perkSubStyle']
